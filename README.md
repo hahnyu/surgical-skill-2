@@ -1,7 +1,7 @@
 # Surgical skill identity-suppression study
 
 This repository implements the prospective protocol in
-[`SECOND_PAPER_CODEX_MASTER_PLAN.md`](../SECOND_PAPER_CODEX_MASTER_PLAN.md).
+[`SECOND_PAPER_CODEX_MASTER_PLAN.md`](SECOND_PAPER_CODEX_MASTER_PLAN.md).
 The scientific question is whether suppressing operator-identifying information
 changes same-operator performance and generalization to an unseen operator.
 
@@ -26,4 +26,3 @@ authorized local JIGSAWS copy. Never commit the linked files. See
 Review [`reports/feasibility_report.md`](reports/feasibility_report.md) before
 authorizing Phase 2. The protocol is frozen at the annotated Git tag
 `protocol-v1`.
-

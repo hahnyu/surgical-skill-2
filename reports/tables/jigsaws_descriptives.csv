@@ -1,0 +1,5 @@
+task,trials,participants,grs_min,grs_max,grs_mean,duration_min_s,duration_max_s
+Knot Tying,36,8,6,22,14.4166666667,30.6666666667,128.4333333333
+Needle Passing,28,7,7,24,14.2857142857,59.5666666667,158.7000000000
+Suturing,39,8,8,30,19.1282051282,59.3000000000,300.4000000000
+

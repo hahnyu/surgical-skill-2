@@ -1,0 +1,13 @@
+dataset,task_or_stratum,participants,planned_trials,available_input_trials,target_rows,eligible_matched_trials,count_basis
+JIGSAWS,Suturing,8,40,40,39,39,local files plus validated paper1 metadata
+JIGSAWS,Knot Tying,8,40,40,36,36,local files plus validated paper1 metadata
+JIGSAWS,Needle Passing,7,40,40,28,28,local files plus validated paper1 metadata
+ROSMA,Post and Sleeve,12,not specified,65,65,65,Zenodo manifest plus scores.csv
+ROSMA,Pea on a Peg,12,not specified,71,71,71,Zenodo manifest plus scores.csv
+ROSMA,Wire Chaser I,12,not specified,70,71,70,Zenodo manifest plus scores.csv; one orphan target row
+BGU-SKILLS,Knot Tying,18,324,324,none independent,311 identity-analysis trials used in source paper,annotations enumerate 324; source notes/paper exclude 13
+BGU-SKILLS,Ring Tower Transfer,18,324,324,none independent,312 identity-analysis trials used in source paper,annotations enumerate 324; source notes/paper exclude 12
+BGU-SKILLS,Suturing,18,324,324,none independent,315 identity-analysis trials used in source paper,annotations enumerate 324; source notes/paper exclude 9
+BGU-PatCut,force perturbations,30,720,700,700,700,dataset manual missing-trial table
+BGU-PatCut,motion perturbations,24,576,554,554,554,dataset manual missing-trial table
+

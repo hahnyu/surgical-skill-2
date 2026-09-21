@@ -1,6 +1,7 @@
 # Raw and restricted data
 data/raw/**
 !data/raw/.gitkeep
+data/manifests/private/
 
 # Generated artifacts
 results/models/**

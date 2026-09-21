@@ -1,0 +1,14 @@
+dataset,task_or_stratum,issue,count,denominator,phase2_action
+JIGSAWS,Suturing,kinematic files without usable metadata/transcription,1,40,exclude using source-validated usable trial list
+JIGSAWS,Knot Tying,kinematic files without usable metadata/transcription,4,40,exclude using source-validated usable trial list
+JIGSAWS,Needle Passing,kinematic files without usable metadata/transcription,12,40,exclude using source-validated usable trial list
+ROSMA,Wire Chaser I,target row without kinematic file,1,71,exclude orphan target X03_Wire_Chaser_I_06
+ROSMA,Wire Chaser I,kinematic trials without video,2,70,retain for kinematics-only analysis; exclude from video sensitivity
+ROSMA,Pea on a Peg,apparent 1000x time/score scale anomaly,1,71,retain Errors; exclude Time/Score unless corrected with documented source confirmation
+ROSMA,Pea on a Peg,Score inconsistent with recorded error count,1,71,retain Errors; exclude composite Score
+BGU-SKILLS,Knot Tying,source-paper analysis exclusions,13,324,reproduce source flags; report 324- and 311-trial identity sensitivities
+BGU-SKILLS,Ring Tower Transfer,source-paper analysis exclusions,12,324,reproduce source flags; report 324- and 312-trial identity sensitivities
+BGU-SKILLS,Suturing,source-paper analysis exclusions,9,324,reproduce source flags; report 324- and 315-trial identity sensitivities
+BGU-PatCut,force perturbations,documented missing trials,20,720,exclude only listed absent trials
+BGU-PatCut,motion perturbations,documented missing trials,22,576,exclude only listed absent trials
+

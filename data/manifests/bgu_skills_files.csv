@@ -1,0 +1,23 @@
+dataset,version,path,file_id,size_bytes,restricted,provided_checksum_type,provided_checksum,sha256,download_url
+BGU-SKILLS,1.0,ActivityAndSleep_QuestionnaireAndMIBandData.xlsx,327458,88788,False,MD5,534fc3c2b2310a09ce46f27575fde74e,not_computed_remote_file,https://edmond.mpg.de/api/access/datafile/327458
+BGU-SKILLS,1.0,BGU_SKILLS_Dataset_Description.pdf,327457,188123,False,MD5,1e85719a1a914068e9538584ce6ebe3c,not_computed_remote_file,https://edmond.mpg.de/api/access/datafile/327457
+BGU-SKILLS,1.0,Knot Tying/3DPrintFiles.zip,327397,602181,False,MD5,2e00628a42073518e454f2d25e6e5aab,not_computed_remote_file,https://edmond.mpg.de/api/access/datafile/327397
+BGU-SKILLS,1.0,Knot Tying/Kinematics.zip,327394,1628849508,False,MD5,a63168a9aa6e8ad9e19640779029ea0b,not_computed_remote_file,https://edmond.mpg.de/api/access/datafile/327394
+BGU-SKILLS,1.0,Knot Tying/Knottying_Annotations_StartFinish_Events.csv,327398,42833,False,MD5,4ac2a2b128ce68dc577dcdd9c8e89a2c,not_computed_remote_file,https://edmond.mpg.de/api/access/datafile/327398
+BGU-SKILLS,1.0,Knot Tying/NotesKnotTying.xlsx,327428,18320,False,MD5,f4f215f809a0b737841a7dbfbf53619d,not_computed_remote_file,https://edmond.mpg.de/api/access/datafile/327428
+BGU-SKILLS,1.0,Knot Tying/Video.zip,327395,68809901556,False,MD5,dc48e711e6d5b5c72e4ed4e59f2a6aeb,not_computed_remote_file,https://edmond.mpg.de/api/access/datafile/327395
+BGU-SKILLS,1.0,Knot Tying/Videotimestamps.zip,327396,6170240,False,MD5,8be60c93cf0d5095e729658ca4eb0137,not_computed_remote_file,https://edmond.mpg.de/api/access/datafile/327396
+BGU-SKILLS,1.0,Ring Tower Transfer/3DPrintFiles.zip,327403,1109399,False,MD5,f899faf8b24d485554f169707a043aef,not_computed_remote_file,https://edmond.mpg.de/api/access/datafile/327403
+BGU-SKILLS,1.0,Ring Tower Transfer/Kinematics.zip,327401,1154012988,False,MD5,db2f8e6f0455b1ff747a4a11e91c9165,not_computed_remote_file,https://edmond.mpg.de/api/access/datafile/327401
+BGU-SKILLS,1.0,Ring Tower Transfer/NotesRingTowerTransfer.xlsx,327426,16105,False,MD5,215790344d9a584a21319cc39d095d4f,not_computed_remote_file,https://edmond.mpg.de/api/access/datafile/327426
+BGU-SKILLS,1.0,Ring Tower Transfer/Ringtowertransfer_Annotations_StartFinish_Events.csv,327400,43431,False,MD5,6ed46deecfa71a33ad52cd89191a8e73,not_computed_remote_file,https://edmond.mpg.de/api/access/datafile/327400
+BGU-SKILLS,1.0,Ring Tower Transfer/Video.zip,327402,44491815057,False,MD5,1e7d7d3efb602507125b885be4262e5e,not_computed_remote_file,https://edmond.mpg.de/api/access/datafile/327402
+BGU-SKILLS,1.0,Ring Tower Transfer/Videotimestamps.zip,327399,4152478,False,MD5,be05fcbd617cafe4d5457d38a414ad6c,not_computed_remote_file,https://edmond.mpg.de/api/access/datafile/327399
+BGU-SKILLS,1.0,Suturing/3DPrintFiles.zip,327411,946924,False,MD5,b791eab4906b1c20354ffc2b3f3121d6,not_computed_remote_file,https://edmond.mpg.de/api/access/datafile/327411
+BGU-SKILLS,1.0,Suturing/Kinematics.zip,327412,3452351420,False,MD5,10203cad49301931ed2f0f19c5d3716d,not_computed_remote_file,https://edmond.mpg.de/api/access/datafile/327412
+BGU-SKILLS,1.0,Suturing/NotesSuturing.xlsx,327427,17650,False,MD5,fb96640930206f31f8c59b78004b1344,not_computed_remote_file,https://edmond.mpg.de/api/access/datafile/327427
+BGU-SKILLS,1.0,Suturing/Suturing_Annotations_StartFinish_Events.csv,327409,44807,False,MD5,6005b8d70b284dfde697ca88d3d5f5dc,not_computed_remote_file,https://edmond.mpg.de/api/access/datafile/327409
+BGU-SKILLS,1.0,Suturing/TissueScans.zip,327413,13644859180,False,MD5,e8bbe909ff80f637e6e989c00d780cd5,not_computed_remote_file,https://edmond.mpg.de/api/access/datafile/327413
+BGU-SKILLS,1.0,Suturing/VideoParticipants_A_to_J.zip,327424,68733724016,False,MD5,334dcb4dacea9c28c723730f05807395,not_computed_remote_file,https://edmond.mpg.de/api/access/datafile/327424
+BGU-SKILLS,1.0,Suturing/VideoParticipants_K_to_U.zip,327425,68231514591,False,MD5,90d5eaf4f07e23cd54c81835d08f9aa0,not_computed_remote_file,https://edmond.mpg.de/api/access/datafile/327425
+BGU-SKILLS,1.0,Suturing/Videotimestamps.zip,327410,12164259,False,MD5,4026939af624b747c990c6d341727480,not_computed_remote_file,https://edmond.mpg.de/api/access/datafile/327410

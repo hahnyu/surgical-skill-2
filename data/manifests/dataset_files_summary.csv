@@ -1,0 +1,5 @@
+dataset,version,file_count,size_bytes,integrity
+JIGSAWS,paper1-local-authorized-copy,16763,893368730,SHA-256 per file; private path manifest; public tree=790de867b458028fb395d6b6a79b914cc6790aa993a1f11cc95af4a366fa7d2f
+ROSMA,10.5281/zenodo.7100542,413,22207164939,repository MD5; SHA-256 deferred until selected files are acquired
+BGU-SKILLS,1.0,22,270172633854,repository MD5; SHA-256 deferred until selected files are acquired
+BGU-PatCut,2.1,55,408314079634,repository MD5; SHA-256 deferred until selected files are acquired

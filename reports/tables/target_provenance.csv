@@ -1,0 +1,15 @@
+dataset,target,source_type,varies_within_participant,direction,formula_or_derivation,planned_predictor_overlap,primary_eligibility,role_or_reason
+JIGSAWS,GRS,expert-rated trial score,yes,higher better,sum of six modified-OSATS elements,no direct algebraic overlap,eligible,primary skill outcome
+JIGSAWS,novice/intermediate/expert,self-declared participant label,no,not ordinal for primary inference,constant person label,identity lookup risk,secondary,mechanistic same-participant diagnostic only
+ROSMA,Errors,observed task-specific event count,yes,lower better,counted dropped/error events,no algebraic overlap with kinematic channels,eligible,primary objective performance outcome
+ROSMA,Time,kinematics-derived duration,yes,lower better,completion time,direct duration overlap,ineligible,circular with duration and sequence length
+ROSMA,Score,composite objective score,yes,lower better,Time plus 15x Errors or 10x Errors,contains duration,ineligible,formula verified but circular; two anomalous rows
+BGU-SKILLS,completion time,kinematics-derived metric,yes,lower better,task boundary duration,direct duration overlap,ineligible,identity/longitudinal audit only
+BGU-SKILLS,path length,kinematics-derived metric,yes,lower better,integral of tool displacement,direct motion overlap,ineligible,identity/longitudinal audit only
+BGU-SKILLS,orientation-change rate,kinematics-derived metric,yes,context dependent,orientation changes per time,direct orientation/velocity overlap,ineligible,identity/longitudinal audit only
+BGU-PatCut,TE,independent image-derived accuracy,yes,lower better,Eoutside plus Einside,no direct kinematic overlap,eligible,primary objective performance outcome
+BGU-PatCut,Eoutside,independent image-derived accuracy,yes,lower better,cut area outside target,no direct kinematic overlap,secondary,component sensitivity outcome
+BGU-PatCut,Einside,independent image-derived accuracy,yes,lower better,uncut area inside target,no direct kinematic overlap,secondary,component sensitivity outcome
+BGU-PatCut,TT,kinematics-derived duration,yes,lower better,first tool closure to final cut,direct duration overlap,ineligible,duration sensitivity only
+BGU-PatCut,CET,composite source metric,yes,lower better,z(TT) plus z(TE),contains duration and source-global moments,ineligible,circular and fold-leaking if reused
+

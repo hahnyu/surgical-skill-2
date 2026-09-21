@@ -1,0 +1,5 @@
+task,trials,participants,error_sum,nonzero_error_trials,max_errors,error_mean
+Post and Sleeve,65,12,18,14,2,0.2769230769
+Pea on a Peg,71,12,50,30,7,0.7042253521
+Wire Chaser I,70,12,24,17,4,0.3428571429
+
