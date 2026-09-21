@@ -1,0 +1,4 @@
+# Copy to configs/local_paths.yaml and edit for another workstation.
+# local_paths.yaml is intentionally not required for the Phase 1 audit.
+jigsaws_root: /absolute/path/to/authorized/JIGSAWS/copy
+
