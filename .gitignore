@@ -2,6 +2,7 @@
 data/raw/**
 !data/raw/.gitkeep
 data/manifests/private/
+data/processed/private/
 
 # Generated artifacts
 results/models/**
@@ -14,4 +15,3 @@ __pycache__/
 .pytest_cache/
 .venv/
 .DS_Store
-

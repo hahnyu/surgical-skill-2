@@ -18,5 +18,14 @@ the existing paper-1 copy at `/Users/hahnyu/Documents/surgical-skill/data`.
 - BGU-PatCut: [DOI 10.17617/3.JK4ANF](https://doi.org/10.17617/3.JK4ANF), CC BY 4.0.
 
 Phase 1 inspected repository metadata and the smallest necessary documentation
-files. Large public archives were not copied into this repository.
+files. Phase 2 acquires only the files used by the harmonized analysis:
 
+```bash
+.venv/bin/python scripts/acquire_phase2_data.py --dataset all
+```
+
+For BGU-PatCut, acquisition reads ZIP members through HTTP byte ranges and
+extracts only trial kinematics, task segmentation, and accuracy files. The
+local acquisition manifest and all raw files are ignored by Git. Phase 2's
+private feature matrix is written under `data/processed/private/`; only opaque
+fold keys, artifact hashes, and aggregate descriptions are committed.
