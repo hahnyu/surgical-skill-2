@@ -5,9 +5,10 @@ This repository implements the prospective protocol in
 The scientific question is whether suppressing operator-identifying information
 changes same-operator performance and generalization to an unseen operator.
 
-Phases 0–3 are complete. The repository is stopped before Phase 4 identity
-interventions. Baseline and audit models have been trained; no suppression
-intervention has been fitted.
+Phases 0–4 are complete. The repository is stopped before Phase 5 manuscript
+synthesis and robustness work. Phase 4 fitted the prespecified identity
+interventions and designated I3 linear identity-subspace removal as the primary
+comparison after I4 failed nonlinear-probe verification.
 
 ## Local JIGSAWS connection
 
@@ -51,3 +52,12 @@ negative controls, and leakage canary are documented in
 [`reports/audit_report.md`](reports/audit_report.md). Aggregate metrics and
 private prediction hashes are committed; trial-level predictions remain local
 under `results/predictions/private/`.
+
+## Phase 4 interventions
+
+The identity-suppression results, primary-comparison decision, held-out-user
+effects, JIGSAWS skill endpoint, controls, and seed stability are documented in
+[`reports/intervention_report.md`](reports/intervention_report.md). Aggregate
+tables are under `results/metrics/`, and
+[`data/manifests/phase4_artifacts.csv`](data/manifests/phase4_artifacts.csv)
+records the hashes of all private out-of-fold artifacts.
