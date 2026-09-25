@@ -89,7 +89,7 @@ def forest_pipeline(min_samples_leaf: int, trees: int, seed: int) -> Pipeline:
         ("forest", RandomForestClassifier(
             n_estimators=int(trees), min_samples_leaf=int(min_samples_leaf),
             max_features="sqrt", class_weight="balanced_subsample",
-            random_state=int(seed), n_jobs=-1,
+            random_state=int(seed), n_jobs=1,
         )),
     ])
 
