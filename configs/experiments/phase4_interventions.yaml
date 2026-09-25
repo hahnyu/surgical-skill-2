@@ -1,0 +1,40 @@
+phase: 4
+name: identity_suppression_interventions
+base_seed: 20260921
+seeds: [20260921, 20260922, 20260923]
+protocols: [same_participant, held_out_participant]
+linear:
+  ridge_alpha: 10.0
+  identity_logistic_c: 1.0
+  remove_as_direct_duration: [duration_s, psm1_samples, psm2_samples]
+  identity_k_grid: [0, 1, 2, 4, 8, 16]
+  utility_margin_target_sd: 0.05
+  probe_c_grid: [0.1, 1.0, 10.0]
+  probe_forest_min_samples_leaf: [1, 2, 4]
+  probe_forest_trees: 100
+adversarial:
+  hidden_width: 32
+  latent_width: 8
+  lambda_grid: [0.0, 0.01, 0.1, 0.3, 1.0]
+  selection_inner_splits: 2
+  selection_epochs: 30
+  final_epochs: 80
+  learning_rate: 0.01
+  weight_decay: 0.0001
+  utility_margin_target_sd: 0.05
+  probe_c_grid: [0.1, 1.0, 10.0]
+  probe_forest_min_samples_leaf: [1, 2, 4]
+  probe_forest_trees: 100
+uncertainty:
+  participant_bootstrap_replicates: 2000
+selection_rule:
+  - Fit every transformation and encoder using outer-training rows only.
+  - I3 chooses the lowest fresh linear identity-probe balanced accuracy among k values whose inner task MAE is within 0.05 training-target SD of k=0; ties choose smaller k.
+  - Datasets without an eligible outcome choose I3 k solely by inner identity-probe balanced accuracy.
+  - I4 chooses the lowest identity-head training accuracy among lambdas whose participant-safe inner task MAE is within 0.05 training-target SD of lambda=0; ties choose smaller lambda.
+  - Fresh post-intervention probes never reuse the I3 identity classifier or I4 adversary.
+notes:
+  - I4 is a compact adversarial MLP over harmonized summary features because Phase 2 froze summary representations rather than resampled sequences.
+  - Gradient reversal multiplies the encoder's identity-loss gradient by negative lambda while the identity head minimizes ordinary cross-entropy.
+  - The lambda=0 network is the capacity-matched I4 control.
+  - A label-shuffled identity head is the negative control for I4 at the selected lambda.
