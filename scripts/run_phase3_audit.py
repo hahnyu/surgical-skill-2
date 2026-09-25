@@ -262,6 +262,11 @@ def write_parquet(name: str, records: list[dict]) -> Path:
     PRIVATE.mkdir(parents=True, exist_ok=True)
     path = PRIVATE / name
     frame = pd.DataFrame(records)
+    # A shared artifact contains numeric task outcomes and categorical skill
+    # labels. Persist both losslessly as strings; metric code selects by target
+    # and converts continuous outcomes explicitly.
+    frame["y_true"] = frame["y_true"].map(str)
+    frame["y_pred"] = frame["y_pred"].map(str)
     frame.to_parquet(path, index=False, compression="zstd")
     print(f"Wrote {path.relative_to(ROOT)}: {len(frame)} rows", flush=True)
     return path

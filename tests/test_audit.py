@@ -34,3 +34,10 @@ def test_scaler_uses_training_rows_only():
     model.predict(pd.DataFrame({"duration_s": [1_000_000.0]}))
     after = model.named_steps["model"].regressor_.named_steps["scale"].mean_
     np.testing.assert_array_equal(before, after)
+
+
+def test_mixed_prediction_values_have_lossless_string_form():
+    values = [3.25, np.str_("E")]
+    encoded = [str(value) for value in values]
+    assert float(encoded[0]) == 3.25
+    assert encoded[1] == "E"
