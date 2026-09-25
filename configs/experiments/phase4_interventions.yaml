@@ -11,7 +11,7 @@ linear:
   utility_margin_target_sd: 0.05
   probe_c_grid: [0.1, 1.0, 10.0]
   probe_forest_min_samples_leaf: [1, 2, 4]
-  probe_forest_trees: 100
+  probe_forest_trees: 30
 adversarial:
   hidden_width: 32
   latent_width: 8
@@ -24,7 +24,7 @@ adversarial:
   utility_margin_target_sd: 0.05
   probe_c_grid: [0.1, 1.0, 10.0]
   probe_forest_min_samples_leaf: [1, 2, 4]
-  probe_forest_trees: 100
+  probe_forest_trees: 30
 uncertainty:
   participant_bootstrap_replicates: 2000
 selection_rule:

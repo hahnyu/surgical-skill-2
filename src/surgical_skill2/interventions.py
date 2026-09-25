@@ -125,6 +125,31 @@ def _array_identity_score(
     return float(balanced_accuracy_score(validation_identity, model.predict(validation_values)))
 
 
+def _identity_basis_values(
+    fit: pd.DataFrame,
+    validation: pd.DataFrame,
+    fit_identity: np.ndarray,
+    columns: list[str],
+    c_value: float = 1.0,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Fit one fold's identity basis once, then reuse it across all k values."""
+    base = StandardizedFeatures(columns).fit(fit)
+    fit_values = base.transform(fit)
+    validation_values = base.transform(validation)
+    classifier = LogisticRegression(
+        C=c_value, solver="lbfgs", max_iter=5000
+    ).fit(fit_values, fit_identity)
+    _, _, right = np.linalg.svd(classifier.coef_, full_matrices=False)
+    return fit_values, validation_values, right
+
+
+def _remove_directions(values: np.ndarray, directions: np.ndarray, k: int) -> np.ndarray:
+    selected = directions[: min(k, len(directions))]
+    if not len(selected):
+        return values
+    return values - (values @ selected.T) @ selected
+
+
 def choose_identity_k(
     train: pd.DataFrame,
     task_target: np.ndarray | None,
@@ -141,34 +166,38 @@ def choose_identity_k(
     identity_frame["test_fold"] = identity_frame[identity_fold_column]
     identity_cv = inner_splits(identity_frame, "same_participant")
     task_cv = inner_splits(train, task_protocol) if task_target is not None else []
-    results: dict[int, dict[str, float]] = {}
-    for k in candidates:
-        identity_scores = []
-        for fit_index, validation_index in identity_cv:
-            transformer = IdentitySubspaceRemover(columns, k).fit(
-                train.iloc[fit_index], identity[fit_index]
-            )
-            identity_scores.append(_array_identity_score(
-                transformer.transform(train.iloc[fit_index]),
-                transformer.transform(train.iloc[validation_index]),
+    identity_scores: dict[int, list[float]] = {k: [] for k in candidates}
+    task_scores: dict[int, list[float]] = {k: [] for k in candidates}
+    for fit_index, validation_index in identity_cv:
+        fit_values, validation_values, directions = _identity_basis_values(
+            train.iloc[fit_index], train.iloc[validation_index], identity[fit_index], columns
+        )
+        for k in candidates:
+            identity_scores[k].append(_array_identity_score(
+                _remove_directions(fit_values, directions, k),
+                _remove_directions(validation_values, directions, k),
                 identity[fit_index], identity[validation_index],
             ))
-        task_scores = []
-        if task_target is not None:
-            for fit_index, validation_index in task_cv:
-                transformer = IdentitySubspaceRemover(columns, k).fit(
-                    train.iloc[fit_index], identity[fit_index]
-                )
+    if task_target is not None:
+        for fit_index, validation_index in task_cv:
+            fit_values, validation_values, directions = _identity_basis_values(
+                train.iloc[fit_index], train.iloc[validation_index], identity[fit_index], columns
+            )
+            for k in candidates:
                 model = Ridge(alpha=10.0).fit(
-                    transformer.transform(train.iloc[fit_index]), task_target[fit_index]
+                    _remove_directions(fit_values, directions, k), task_target[fit_index]
                 )
-                task_scores.append(mean_absolute_error(
-                    task_target[validation_index], model.predict(transformer.transform(train.iloc[validation_index]))
+                task_scores[k].append(mean_absolute_error(
+                    task_target[validation_index],
+                    model.predict(_remove_directions(validation_values, directions, k)),
                 ))
-        results[k] = {
-            "identity_balanced_accuracy": float(np.mean(identity_scores)),
-            "task_mae": float(np.mean(task_scores)) if task_scores else float("nan"),
+    results: dict[int, dict[str, float]] = {
+        k: {
+            "identity_balanced_accuracy": float(np.mean(identity_scores[k])),
+            "task_mae": float(np.mean(task_scores[k])) if task_scores[k] else float("nan"),
         }
+        for k in candidates
+    }
     if task_target is None:
         chosen = min(candidates, key=lambda k: (results[k]["identity_balanced_accuracy"], k))
     else:
