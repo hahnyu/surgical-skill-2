@@ -6,6 +6,7 @@ from __future__ import annotations
 import json
 import subprocess
 import sys
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import numpy as np
@@ -80,6 +81,15 @@ def choose_lambda(
     return float(selected), results
 
 
+def evaluate_probe(request: dict) -> tuple[dict, np.ndarray, np.ndarray, str]:
+    prediction, true_probability, selected = fresh_probe(
+        request["train_representation"], request["test_representation"],
+        request["train"], request["test"], request["probe_name"],
+        request["config"], request["probe_seed"],
+    )
+    return request, prediction, true_probability, selected
+
+
 def main() -> None:
     config = yaml.safe_load(CONFIG_PATH.read_text(encoding="utf-8"))
     config_hash = config_sha256(config)
@@ -115,6 +125,7 @@ def main() -> None:
                 train_values = transformer.transform(train)
                 test_values = transformer.transform(test)
                 train_identity = train["participant_key"].astype(str).to_numpy()
+                probe_requests: list[dict] = []
                 for seed in config["seeds"]:
                     # Reuse the exact initialization and minibatch order so the
                     # lambda-zero model is a strict capacity control for I4.
@@ -147,21 +158,33 @@ def main() -> None:
                         if protocol == "same_participant":
                             for probe_name in ("linear_probe", "nonlinear_probe"):
                                 probe_seed = stable_seed(seed, dataset, task, fold, intervention, probe_name)
-                                probe_prediction, true_probability, selected = fresh_probe(
-                                    train_representation, test_representation, train, test,
-                                    probe_name, config, probe_seed,
+                                probe_requests.append({
+                                    "train_representation": train_representation,
+                                    "test_representation": test_representation,
+                                    "train": train, "test": test,
+                                    "probe_name": probe_name, "config": config,
+                                    "probe_seed": probe_seed, "seed": int(seed),
+                                    "intervention": intervention, "strength": strength,
+                                })
+                if probe_requests:
+                    truth = test["participant_key"].astype(str).to_numpy()
+                    with ThreadPoolExecutor(max_workers=4) as executor:
+                        completed = executor.map(evaluate_probe, probe_requests)
+                        for request, probe_prediction, true_probability, selected in completed:
+                            for index, (_, row) in enumerate(test.iterrows()):
+                                record = base_record(
+                                    row, protocol, request["intervention"], request["probe_name"],
+                                    request["seed"], config_hash, commit,
                                 )
-                                truth = test["participant_key"].astype(str).to_numpy()
-                                for index, (_, row) in enumerate(test.iterrows()):
-                                    record = base_record(row, protocol, intervention, probe_name, int(seed), config_hash, commit)
-                                    record.update({
-                                        "target_name": "participant_identity", "y_true": truth[index],
-                                        "y_pred": probe_prediction[index],
-                                        "true_probability": float(true_probability[index]),
-                                        "selected_hyperparameter": selected,
-                                        "selected_lambda": selected_lambda, "identity_strength": strength,
-                                    })
-                                    probe_records.append(record)
+                                record.update({
+                                    "target_name": "participant_identity", "y_true": truth[index],
+                                    "y_pred": probe_prediction[index],
+                                    "true_probability": float(true_probability[index]),
+                                    "selected_hyperparameter": selected,
+                                    "selected_lambda": selected_lambda,
+                                    "identity_strength": request["strength"],
+                                })
+                                probe_records.append(record)
                 print(f"Adversarial {protocol} {dataset}/{task} {fold} lambda={selected_lambda:g}", flush=True)
 
     PRIVATE.mkdir(parents=True, exist_ok=True)
