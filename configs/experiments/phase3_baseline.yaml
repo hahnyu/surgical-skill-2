@@ -1,0 +1,41 @@
+phase: 3
+name: baseline_replication_and_identity_audit
+seed: 20260921
+feature_family: harmonized_summary
+protocols:
+  - same_participant
+  - held_out_participant
+models:
+  regression:
+    feature_free: [mean, median]
+    duration_only: ridge
+    unsuppressed: ridge
+    alpha_grid: [0.1, 1.0, 10.0, 100.0, 1000.0]
+  skill_classification:
+    feature_free: majority
+    duration_only: multinomial_logistic
+    unsuppressed: multinomial_logistic
+    c_grid: [0.01, 0.1, 1.0, 10.0]
+  identity_probe:
+    linear: multinomial_logistic
+    nonlinear: random_forest
+    c_grid: [0.01, 0.1, 1.0, 10.0]
+    forest_min_samples_leaf: [1, 2, 4]
+    forest_trees: 200
+permutations:
+  fixed_logistic_c: 1.0
+  fixed_ridge_alpha: 10.0
+  skill_participant_wise: 200
+  skill_record_wise: 200
+  identity_record_wise: 50
+  continuous_outcome_record_wise: 50
+uncertainty:
+  participant_bootstrap_replicates: 2000
+paper1_replication_tolerance:
+  skill_accuracy_absolute: 0.15
+  grs_mae_points: 1.0
+notes:
+  - Hyperparameters are selected inside every outer fold.
+  - Held-out-participant inner folds also hold out complete participants.
+  - Formal participant-wise outcome permutation is limited to JIGSAWS self-declared skill labels, which are constant within participant.
+  - Continuous-outcome permutations are record-wise negative controls only; no grouped exchangeability claim is made.

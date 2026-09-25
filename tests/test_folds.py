@@ -31,4 +31,4 @@ def test_same_participant_has_train_and_test_repetitions():
     for row in assignments:
         folds.setdefault(row["participant_key"], set()).add(row["test_fold"])
     assert all(len(value) == 4 for value in folds.values())
-
+    assert {row["test_fold"] for row in assignments if row["trial_key"].endswith("1")} == {"rep01"}

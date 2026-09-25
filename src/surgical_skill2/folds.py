@@ -17,17 +17,26 @@ def same_participant_assignments(rows: list[dict], n_splits: int = 5) -> list[di
     assignments = []
     for (dataset, task, participant), group in sorted(groups.items()):
         ordered = sorted(group, key=lambda row: (row.get("repetition") or -1, row["trial_key"]))
-        splits = min(n_splits, len(ordered))
-        if splits < 2:
+        repetitions = {row.get("repetition") for row in ordered}
+        if None not in repetitions and len(repetitions) >= 2:
+            # Preserve source-defined repetition/supertrial holdout across all
+            # participants instead of rotating repetition labels by person.
+            fold_for = lambda row: f"rep{int(row['repetition']):02d}"
+        else:
+            splits = min(n_splits, len(ordered))
+            if splits < 2:
+                raise ValueError(f"same-participant evaluation needs >=2 trials: {(dataset, task, participant)}")
+            fold_for = lambda row: f"sp{int(_stable(row['trial_key'])[:8], 16) % splits:02d}"
+        folds = {fold_for(row) for row in ordered}
+        if len(folds) < 2:
             raise ValueError(f"same-participant evaluation needs >=2 trials: {(dataset, task, participant)}")
-        offset = int(_stable(f"{dataset}\0{task}\0{participant}")[:8], 16) % splits
-        for index, row in enumerate(ordered):
+        for row in ordered:
             assignments.append(
                 {
                     "dataset": dataset,
                     "task": task,
                     "protocol": "same_participant",
-                    "test_fold": f"sp{(index + offset) % splits:02d}",
+                    "test_fold": fold_for(row),
                     "trial_key": row["trial_key"],
                     "participant_key": participant,
                 }
@@ -95,4 +104,3 @@ def validate_same_participant(assignments: list[dict[str, str]]) -> None:
     bad = {key: folds for key, folds in groups.items() if len(folds) < 2}
     if bad:
         raise ValueError(f"participants without both train and test trials: {bad}")
-

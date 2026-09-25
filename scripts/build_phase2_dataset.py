@@ -43,7 +43,7 @@ def write_folds(path: Path, rows: list[dict[str, str]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     fields = ["dataset", "task", "protocol", "test_fold", "trial_key", "participant_key"]
     with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
@@ -140,7 +140,7 @@ def main() -> None:
             },
         ]
         with (ROOT / "data" / "manifests" / "phase2_artifacts.csv").open("w", newline="", encoding="utf-8") as handle:
-            writer = csv.DictWriter(handle, fieldnames=list(artifact_rows[0]))
+            writer = csv.DictWriter(handle, fieldnames=list(artifact_rows[0]), lineterminator="\n")
             writer.writeheader()
             writer.writerows(artifact_rows)
 

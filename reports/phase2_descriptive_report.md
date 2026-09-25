@@ -87,9 +87,12 @@ source inspection and before modeling.
 
 ## Fold manifests
 
-[`same_participant.csv`](../data/folds/same_participant.csv) assigns trials
-within each dataset/task/participant to up to five stable folds. Every
-participant-task group occupies at least two folds.
+[`same_participant.csv`](../data/folds/same_participant.csv) assigns trials by
+their source-defined repetition/supertrial: 5 folds for JIGSAWS, 6 for ROSMA
+and BGU-SKILLS, and 24 for BGU-PatCut. Every participant-task group occupies at
+least two folds. This exact repetition mapping was corrected before the first
+Phase 3 model run; the earlier participant-rotated draft was never used for a
+prediction.
 
 [`held_out_participant.csv`](../data/folds/held_out_participant.csv) uses one
 fold per participant for JIGSAWS (8 folds), ROSMA (12), and BGU-SKILLS (18).
@@ -99,8 +102,8 @@ membership is indivisible across all tasks and trials.
 | Artifact | Rows | SHA-256 |
 |---|---:|---|
 | Private harmonized features | 2,501 | `0c351007805f52f41459f622faa3c979f0b410685006763fbfcba1fc431a1e50` |
-| Same-participant folds | 2,501 | `32a73db47446fbefbbc6cd2681c1e651b977492fb31da47b4649dea671ad4e49` |
-| Held-out-participant folds | 2,501 | `ea573a4697d625b42ba1cf710ed73ba9a7ede4fef6586206f742192ddde3ec41` |
+| Same-participant folds | 2,501 | `f3fb5ad3e7345f4be8f2e1dbbf9a182a7afe592e14ce7ccd73200bf0093a46f2` |
+| Held-out-participant folds | 2,501 | `38be25e0374f77d764e83c8c295e5d6f25611db8ab2e9e6077debea904e3a978` |
 
 The private matrix is intentionally ignored because redistribution terms differ
 by source. Its schema, extraction code, hash, aggregate table, and opaque fold
