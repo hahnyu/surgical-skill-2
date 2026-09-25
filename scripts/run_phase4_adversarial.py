@@ -14,6 +14,7 @@ import yaml
 from sklearn.metrics import mean_absolute_error
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "src"))
 
 from surgical_skill2.adversarial import train_adversarial
