@@ -98,9 +98,14 @@ def inner_splits(frame: pd.DataFrame, protocol: str) -> list[tuple[np.ndarray, n
     if protocol == "same_participant":
         result = []
         fold_values = frame["test_fold"].astype(str).to_numpy()
-        for fold in sorted(set(fold_values)):
-            validation = np.flatnonzero(fold_values == fold)
-            training = np.flatnonzero(fold_values != fold)
+        unique_folds = sorted(set(fold_values))
+        # Keep nested tuning modest when a dataset has many source repetitions
+        # (PatCut has 24) while preserving repetition groups as indivisible.
+        buckets = [unique_folds[index::5] for index in range(min(5, len(unique_folds)))]
+        for bucket in buckets:
+            validation_mask = np.isin(fold_values, bucket)
+            validation = np.flatnonzero(validation_mask)
+            training = np.flatnonzero(~validation_mask)
             if len(training) and len(validation):
                 result.append((training, validation))
         return result

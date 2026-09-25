@@ -26,6 +26,16 @@ def test_held_out_inner_splits_never_share_participants():
         assert set(frame.iloc[train].participant_key).isdisjoint(frame.iloc[validation].participant_key)
 
 
+def test_many_repetitions_are_grouped_into_five_inner_partitions():
+    frame = pd.DataFrame({
+        "test_fold": [f"rep{index:02d}" for index in range(1, 25)],
+        "participant_key": ["person"] * 24,
+    })
+    splits = inner_splits(frame, "same_participant")
+    assert len(splits) == 5
+    assert sorted(np.concatenate([validation for _, validation in splits]).tolist()) == list(range(24))
+
+
 def test_scaler_uses_training_rows_only():
     x_train = pd.DataFrame({"duration_s": [1.0, 2.0, 3.0]})
     y_train = np.array([1.0, 2.0, 3.0])
