@@ -6,6 +6,7 @@ from surgical_skill2.audit import (
     assert_no_leakage_columns,
     available_features,
     inner_splits,
+    forest_pipeline,
     regression_pipeline,
 )
 
@@ -51,3 +52,11 @@ def test_mixed_prediction_values_have_lossless_string_form():
     encoded = [str(value) for value in values]
     assert float(encoded[0]) == 3.25
     assert encoded[1] == "E"
+
+
+def test_fixed_seed_reproduces_nonlinear_probe_predictions():
+    x = pd.DataFrame({"duration_s": np.arange(20, dtype=float)})
+    y = np.array(["a", "b"] * 10)
+    first = forest_pipeline(1, 25, 17).fit(x, y).predict_proba(x)
+    second = forest_pipeline(1, 25, 17).fit(x, y).predict_proba(x)
+    np.testing.assert_array_equal(first, second)

@@ -5,8 +5,9 @@ This repository implements the prospective protocol in
 The scientific question is whether suppressing operator-identifying information
 changes same-operator performance and generalization to an unseen operator.
 
-Phases 0–2 are complete. The repository is stopped before Phase 3 model
-development. No predictive models have been trained here.
+Phases 0–3 are complete. The repository is stopped before Phase 4 identity
+interventions. Baseline and audit models have been trained; no suppression
+intervention has been fitted.
 
 ## Local JIGSAWS connection
 
@@ -42,3 +43,11 @@ uv sync --all-groups
 See [`reports/phase2_descriptive_report.md`](reports/phase2_descriptive_report.md)
 for the reconciled cohort and preprocessing decisions. The prospective
 protocol remains frozen at the annotated Git tag `protocol-v1`.
+
+## Phase 3 audit
+
+The baseline replication, identity probes, formal JIGSAWS permutations,
+negative controls, and leakage canary are documented in
+[`reports/audit_report.md`](reports/audit_report.md). Aggregate metrics and
+private prediction hashes are committed; trial-level predictions remain local
+under `results/predictions/private/`.

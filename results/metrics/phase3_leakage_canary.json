@@ -1,0 +1,58 @@
+{
+  "canary_present_in_final_predictors": false,
+  "config_sha256": "e9ea6569551979ce01740261f7955f09218e4749774710977b3bbaab1f84c63b",
+  "forbidden_column_detected": true,
+  "git_commit": "1008ee23cd0aad4d9b4e094799dcb93391044afc",
+  "positive_control": [
+    {
+      "dataset": "BGU-PatCut",
+      "one_hot_identity_accuracy": 1.0,
+      "task": "Pattern Cutting"
+    },
+    {
+      "dataset": "BGU-SKILLS",
+      "one_hot_identity_accuracy": 1.0,
+      "task": "Knot Tying"
+    },
+    {
+      "dataset": "BGU-SKILLS",
+      "one_hot_identity_accuracy": 1.0,
+      "task": "Ring Tower Transfer"
+    },
+    {
+      "dataset": "BGU-SKILLS",
+      "one_hot_identity_accuracy": 1.0,
+      "task": "Suturing"
+    },
+    {
+      "dataset": "JIGSAWS",
+      "one_hot_identity_accuracy": 1.0,
+      "task": "Knot Tying"
+    },
+    {
+      "dataset": "JIGSAWS",
+      "one_hot_identity_accuracy": 1.0,
+      "task": "Needle Passing"
+    },
+    {
+      "dataset": "JIGSAWS",
+      "one_hot_identity_accuracy": 1.0,
+      "task": "Suturing"
+    },
+    {
+      "dataset": "ROSMA",
+      "one_hot_identity_accuracy": 1.0,
+      "task": "Pea on a Peg"
+    },
+    {
+      "dataset": "ROSMA",
+      "one_hot_identity_accuracy": 1.0,
+      "task": "Post and Sleeve"
+    },
+    {
+      "dataset": "ROSMA",
+      "one_hot_identity_accuracy": 1.0,
+      "task": "Wire Chaser I"
+    }
+  ]
+}
