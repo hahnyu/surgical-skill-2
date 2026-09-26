@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import hashlib
+import os
 import subprocess
 import sys
 from pathlib import Path
@@ -13,7 +14,11 @@ PYTHON = Path(sys.executable)
 
 
 def run(*args: str) -> None:
-    subprocess.run([str(PYTHON), *args], cwd=ROOT, check=True)
+    env = os.environ.copy()
+    source_root = str(ROOT / "src")
+    current = env.get("PYTHONPATH")
+    env["PYTHONPATH"] = source_root if not current else f"{source_root}{os.pathsep}{current}"
+    subprocess.run([str(PYTHON), *args], cwd=ROOT, env=env, check=True)
 
 
 def digest(path: Path) -> str:

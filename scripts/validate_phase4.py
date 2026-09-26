@@ -6,6 +6,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -116,10 +117,8 @@ def main() -> None:
     assert "−0.184" in report
     assert "Phase 5" in report
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    assert (
-        "Phases 0–4 are complete" in readme
-        or "Phases 0–5 are complete" in readme
-    )
+    status = re.search(r"Phases 0–(\d+) are complete", readme)
+    assert status and int(status.group(1)) >= 4
     print("Phase 4 validation passed: interventions, controls, OOF rows, hashes, and primary decision checked")
 
 

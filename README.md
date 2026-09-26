@@ -5,11 +5,13 @@ This repository implements the prospective protocol in
 The scientific question is whether suppressing operator-identifying information
 changes same-operator performance and generalization to an unseen operator.
 
-Phases 0–5 are complete. Phase 4 fitted the prespecified identity interventions
+Phases 0–6 are complete. Phase 4 fitted the prespecified identity interventions
 and designated I3 linear identity-subspace removal as the primary comparison
 after I4 failed nonlinear-probe verification. Phase 5 locks the exact inputs,
 participant-level inference, robustness outputs, six figures, and five main
-tables. Manuscript work remains Phase 6.
+tables. Phase 6 converts the locked analysis into a manuscript, detailed
+supplement, data/code statement, adapted TRIPOD+AI checklist, claim-evidence
+matrix, and submission checklist under [`paper/`](paper/).
 
 ## Local JIGSAWS connection
 
@@ -76,3 +78,18 @@ including a byte-identical second build, with:
 Machine-readable participant estimates, bootstrap and permutation outputs,
 figure sources, tables, and the complete artifact manifest are under
 `results/` and `data/manifests/phase5_artifacts.csv`.
+
+## Phase 6 manuscript package
+
+The conservative manuscript is [`paper/manuscript.md`](paper/manuscript.md),
+with methods and robustness detail in [`paper/supplement.md`](paper/supplement.md).
+Validate manuscript structure, citations, locked numerical claims, construct
+language, and reporting matrices with:
+
+```bash
+.venv/bin/python scripts/validate_phase6.py
+```
+
+Author-supplied submission metadata still required by a journal is isolated in
+[`paper/submission_checklist.md`](paper/submission_checklist.md); it does not
+alter the locked scientific analysis.
