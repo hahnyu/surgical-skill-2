@@ -1,0 +1,46 @@
+phase: 5
+name: final_locked_analysis
+analysis_seed: 20260921
+participant_bootstrap_replicates: 2000
+confidence_level: 0.95
+primary_task_model: ridge
+primary_intervention: I3_identity_subspace
+primary_baseline: I0_unsuppressed
+primary_protocol: held_out_participant
+identity_probe_models: [linear_probe, nonlinear_probe]
+phase3_config: configs/experiments/phase3_baseline.yaml
+phase4_config: configs/experiments/phase4_interventions.yaml
+input_manifests:
+  - data/manifests/phase2_artifacts.csv
+  - data/manifests/phase3_artifacts.csv
+  - data/manifests/phase4_artifacts.csv
+private_prediction_policy:
+  location: results/predictions/private
+  redistribution: restricted_local_only
+  verification: exact_sha256_from_phase3_and_phase4_manifests
+standardization:
+  protocol_gap: held_error_over_held_training_sd_minus_same_error_over_same_training_sd
+  intervention_effect: paired_absolute_error_difference_over_outer_training_target_sd
+  training_sd_ddof: 1
+inference:
+  unit: participant
+  interval: paired_percentile_bootstrap
+  leave_one_participant_out: true
+  pool_across_heterogeneous_targets: false
+figures:
+  - phase5_figure1_study_schematic.svg
+  - phase5_figure2_protocol_gap.svg
+  - phase5_figure3_identity_permutation.svg
+  - phase5_figure4_utility_identity.svg
+  - phase5_figure5_intervention_forest.svg
+  - phase5_figure6_jigsaws_mechanism.svg
+tables:
+  - phase5_table1_datasets.csv
+  - phase5_table2_features.csv
+  - phase5_table3_baselines.csv
+  - phase5_table4_identity_permutations.csv
+  - phase5_table5_interventions.csv
+notes:
+  - Phase 5 regenerates locked inference, figures, and tables from the exact hashed out-of-fold prediction files produced in Phases 3 and 4.
+  - It does not refit models under a new Git commit because prediction rows record their generating commits and configuration hashes.
+  - The one-command runner verifies every private input hash before analysis and performs a second build to prove byte-identical output hashes.

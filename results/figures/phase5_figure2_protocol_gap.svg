@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="383" viewBox="0 0 1100 383">
+<rect width="100%" height="100%" fill="#fbfaf7"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#18212b}.title{font-size:25px;font-weight:700}.sub{font-size:13px;fill:#52606d}.label{font-size:13px}.small{font-size:11px;fill:#52606d}.axis{stroke:#8b98a5;stroke-width:1}.grid{stroke:#dfe4e8;stroke-width:1}.zero{stroke:#273746;stroke-width:1.5;stroke-dasharray:5 4}</style>
+<text x="36" y="38" class="title">Same-user versus held-out-user protocol gap</text>
+<text x="36" y="61" class="sub">Participant-bootstrap intervals; positive values mean held-out-user error is higher</text>
+<line x1="924.0792991928671" y1="81" x2="924.0792991928671" y2="331" class="zero"/>
+<line x1="360" y1="339" x2="1040" y2="339" class="axis"/>
+<text x="36" y="98" class="label">BGU-PatCut · Pattern Cutting</text>
+<line x1="928.01880800587" y1="93" x2="936.7067867833518" y2="93" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="932.1475340965961" cy="93" r="5" fill="#e76f51"/>
+<text x="1050" y="98" class="small">0.07 [0.04, 0.12]</text>
+<text x="36" y="132" class="label">JIGSAWS · Knot Tying</text>
+<line x1="921.4273806457032" y1="127" x2="961.768292630521" y2="127" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="940.94467296055" cy="127" r="5" fill="#e76f51"/>
+<text x="1050" y="132" class="small">0.16 [-0.02, 0.35]</text>
+<text x="36" y="166" class="label">JIGSAWS · Needle Passing</text>
+<line x1="912.3071739648722" y1="161" x2="945.1068468634062" y2="161" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="929.1194508337804" cy="161" r="5" fill="#e76f51"/>
+<text x="1050" y="166" class="small">0.05 [-0.11, 0.20]</text>
+<text x="36" y="200" class="label">JIGSAWS · Suturing</text>
+<line x1="929.0569573435685" y1="195" x2="993.1034482758621" y2="195" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="960.8988504032538" cy="195" r="5" fill="#e76f51"/>
+<text x="1050" y="200" class="small">0.35 [0.05, 0.68]</text>
+<text x="36" y="234" class="label">ROSMA · Pea on a Peg</text>
+<line x1="406.89655172413796" y1="229" x2="926.8191581526905" y2="229" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="526.0048331439484" cy="229" r="5" fill="#e76f51"/>
+<text x="1050" y="234" class="small">-19.61 [-58.84, 0.03]</text>
+<text x="36" y="268" class="label">ROSMA · Post and Sleeve</text>
+<line x1="913.8837786117833" y1="263" x2="938.6158128553466" y2="263" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="926.5522086027522" cy="263" r="5" fill="#e76f51"/>
+<text x="1050" y="268" class="small">0.02 [-0.09, 0.13]</text>
+<text x="36" y="302" class="label">ROSMA · Wire Chaser I</text>
+<line x1="919.6899497339391" y1="297" x2="965.5981504370625" y2="297" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="937.490961450535" cy="297" r="5" fill="#e76f51"/>
+<text x="1050" y="302" class="small">0.12 [-0.04, 0.39]</text>
+<line x1="360.0" y1="339" x2="360.0" y2="345" class="axis"/>
+<text x="360.0" y="362" class="small" text-anchor="middle">-90.7</text>
+<line x1="473.33333333333337" y1="339" x2="473.33333333333337" y2="345" class="axis"/>
+<text x="473.33333333333337" y="362" class="small" text-anchor="middle">-31.9</text>
+<line x1="586.6666666666667" y1="339" x2="586.6666666666667" y2="345" class="axis"/>
+<text x="586.6666666666667" y="362" class="small" text-anchor="middle">-11.2</text>
+<line x1="700.0" y1="339" x2="700.0" y2="345" class="axis"/>
+<text x="700.0" y="362" class="small" text-anchor="middle">-3.9</text>
+<line x1="813.3333333333334" y1="339" x2="813.3333333333334" y2="345" class="axis"/>
+<text x="813.3333333333334" y="362" class="small" text-anchor="middle">-1.2</text>
+<line x1="926.6666666666667" y1="339" x2="926.6666666666667" y2="345" class="axis"/>
+<text x="926.6666666666667" y="362" class="small" text-anchor="middle">0.02</text>
+<line x1="1040.0" y1="339" x2="1040.0" y2="345" class="axis"/>
+<text x="1040.0" y="362" class="small" text-anchor="middle">1.3</text>
+<text x="700.0" y="373" class="small" text-anchor="middle">Held minus same standardized MAE (asinh display scale)</text>
+</svg>

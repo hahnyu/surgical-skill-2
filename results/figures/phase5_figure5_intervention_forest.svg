@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1335" viewBox="0 0 1100 1335">
+<rect width="100%" height="100%" fill="#fbfaf7"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#18212b}.title{font-size:25px;font-weight:700}.sub{font-size:13px;fill:#52606d}.label{font-size:13px}.small{font-size:11px;fill:#52606d}.axis{stroke:#8b98a5;stroke-width:1}.grid{stroke:#dfe4e8;stroke-width:1}.zero{stroke:#273746;stroke-width:1.5;stroke-dasharray:5 4}</style>
+<text x="36" y="38" class="title">Held-out-user intervention effects</text>
+<text x="36" y="61" class="sub">Participant-bootstrap intervals; negative values favor the intervention</text>
+<line x1="683.3049544210085" y1="81" x2="683.3049544210085" y2="1283" class="zero"/>
+<line x1="360" y1="1291" x2="1040" y2="1291" class="axis"/>
+<text x="36" y="98" class="label">I1 duration removed · BGU-PatCut · Pattern Cutting</text>
+<line x1="682.7570535445986" y1="93" x2="683.6974068679789" y2="93" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="683.2257089394172" cy="93" r="5" fill="#e76f51"/>
+<text x="1050" y="98" class="small">-0.00 [-0.01, 0.01]</text>
+<text x="36" y="132" class="label">I2 duration residualized · BGU-PatCut · Pattern Cutting</text>
+<line x1="682.9849152563145" y1="127" x2="685.5211370105751" y2="127" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="684.2108347272062" cy="127" r="5" fill="#e76f51"/>
+<text x="1050" y="132" class="small">0.01 [-0.01, 0.04]</text>
+<text x="36" y="166" class="label">I3 identity subspace · BGU-PatCut · Pattern Cutting</text>
+<line x1="680.9668708042723" y1="161" x2="688.93498133875" y2="161" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="685.1243239880805" cy="161" r="5" fill="#e76f51"/>
+<text x="1050" y="166" class="small">0.03 [-0.04, 0.09]</text>
+<text x="36" y="200" class="label">I4 adversarial · BGU-PatCut · Pattern Cutting</text>
+<line x1="677.8612463098941" y1="195" x2="681.707665575256" y2="195" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="679.9091828634216" cy="195" r="5" fill="#e76f51"/>
+<text x="1050" y="200" class="small">-0.05 [-0.09, -0.03]</text>
+<text x="36" y="234" class="label">random projection · BGU-PatCut · Pattern Cutting</text>
+<line x1="681.9291676410323" y1="229" x2="685.7162352752498" y2="229" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="683.7623402352041" cy="229" r="5" fill="#e76f51"/>
+<text x="1050" y="234" class="small">0.01 [-0.02, 0.04]</text>
+<text x="36" y="268" class="label">I1 duration removed · JIGSAWS · Knot Tying</text>
+<line x1="680.8705039891172" y1="263" x2="684.4936337477782" y2="263" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="682.8990012239283" cy="263" r="5" fill="#e76f51"/>
+<text x="1050" y="268" class="small">-0.01 [-0.04, 0.02]</text>
+<text x="36" y="302" class="label">I2 duration residualized · JIGSAWS · Knot Tying</text>
+<line x1="677.0275416647953" y1="297" x2="705.1455579412177" y2="297" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="688.9435845706323" cy="297" r="5" fill="#e76f51"/>
+<text x="1050" y="302" class="small">0.09 [-0.10, 0.36]</text>
+<text x="36" y="336" class="label">I3 identity subspace · JIGSAWS · Knot Tying</text>
+<line x1="680.9008885253379" y1="331" x2="691.4899699506152" y2="331" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="685.9351855664544" cy="331" r="5" fill="#e76f51"/>
+<text x="1050" y="336" class="small">0.04 [-0.04, 0.13]</text>
+<text x="36" y="370" class="label">I4 adversarial · JIGSAWS · Knot Tying</text>
+<line x1="676.6801760772158" y1="365" x2="692.7054358496271" y2="365" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="685.1445655200473" cy="365" r="5" fill="#e76f51"/>
+<text x="1050" y="370" class="small">0.03 [-0.11, 0.15]</text>
+<text x="36" y="404" class="label">random projection · JIGSAWS · Knot Tying</text>
+<line x1="681.7080191439267" y1="399" x2="683.7347227574666" y2="399" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="682.728313556594" cy="399" r="5" fill="#e76f51"/>
+<text x="1050" y="404" class="small">-0.01 [-0.03, 0.01]</text>
+<text x="36" y="438" class="label">I1 duration removed · JIGSAWS · Needle Passing</text>
+<line x1="681.986542860111" y1="433" x2="683.4587770905819" y2="433" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="682.8437956084315" cy="433" r="5" fill="#e76f51"/>
+<text x="1050" y="438" class="small">-0.01 [-0.02, 0.00]</text>
+<text x="36" y="472" class="label">I2 duration residualized · JIGSAWS · Needle Passing</text>
+<line x1="675.2187418297946" y1="467" x2="690.4254872877917" y2="467" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="683.8335001792518" cy="467" r="5" fill="#e76f51"/>
+<text x="1050" y="472" class="small">0.01 [-0.13, 0.11]</text>
+<text x="36" y="506" class="label">I3 identity subspace · JIGSAWS · Needle Passing</text>
+<line x1="682.183333315678" y1="501" x2="701.0951404345486" y2="501" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="691.0803289082162" cy="501" r="5" fill="#e76f51"/>
+<text x="1050" y="506" class="small">0.13 [-0.02, 0.29]</text>
+<text x="36" y="540" class="label">I4 adversarial · JIGSAWS · Needle Passing</text>
+<line x1="689.2268929766497" y1="535" x2="696.5598536096937" y2="535" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="692.7849128958301" cy="535" r="5" fill="#e76f51"/>
+<text x="1050" y="540" class="small">0.15 [0.10, 0.21]</text>
+<text x="36" y="574" class="label">random projection · JIGSAWS · Needle Passing</text>
+<line x1="682.6708713723367" y1="569" x2="685.2563805559953" y2="569" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="683.9176146880842" cy="569" r="5" fill="#e76f51"/>
+<text x="1050" y="574" class="small">0.01 [-0.01, 0.03]</text>
+<text x="36" y="608" class="label">I1 duration removed · JIGSAWS · Suturing</text>
+<line x1="682.685562718676" y1="603" x2="683.4841433383419" y2="603" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="683.0861619494541" cy="603" r="5" fill="#e76f51"/>
+<text x="1050" y="608" class="small">-0.00 [-0.01, 0.00]</text>
+<text x="36" y="642" class="label">I2 duration residualized · JIGSAWS · Suturing</text>
+<line x1="674.3825349344352" y1="637" x2="687.8250194962411" y2="637" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="682.4749267862912" cy="637" r="5" fill="#e76f51"/>
+<text x="1050" y="642" class="small">-0.01 [-0.14, 0.07]</text>
+<text x="36" y="676" class="label">I3 identity subspace · JIGSAWS · Suturing</text>
+<line x1="661.815234704728" y1="671" x2="693.8365517875866" y2="671" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="678.1423975435986" cy="671" r="5" fill="#e76f51"/>
+<text x="1050" y="676" class="small">-0.08 [-0.35, 0.17]</text>
+<text x="36" y="710" class="label">I4 adversarial · JIGSAWS · Suturing</text>
+<line x1="667.0875369839158" y1="705" x2="687.7697535383707" y2="705" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="678.1615888912747" cy="705" r="5" fill="#e76f51"/>
+<text x="1050" y="710" class="small">-0.08 [-0.26, 0.07]</text>
+<text x="36" y="744" class="label">random projection · JIGSAWS · Suturing</text>
+<line x1="681.7219452380764" y1="739" x2="686.804283293965" y2="739" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="684.117525576203" cy="739" r="5" fill="#e76f51"/>
+<text x="1050" y="744" class="small">0.01 [-0.03, 0.06]</text>
+<text x="36" y="778" class="label">I1 duration removed · ROSMA · Pea on a Peg</text>
+<line x1="449.4750998372517" y1="773" x2="684.9418370230942" y2="773" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="517.6851691404729" cy="773" r="5" fill="#e76f51"/>
+<text x="1050" y="778" class="small">-7.11 [-21.36, 0.03]</text>
+<text x="36" y="812" class="label">I2 duration residualized · ROSMA · Pea on a Peg</text>
+<line x1="684.2950042290192" y1="807" x2="792.2542307802818" y2="807" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="735.8569955516334" cy="807" r="5" fill="#e76f51"/>
+<text x="1050" y="812" class="small">0.95 [0.02, 2.79]</text>
+<text x="36" y="846" class="label">I3 identity subspace · ROSMA · Pea on a Peg</text>
+<line x1="682.1138271697439" y1="841" x2="993.1034482758621" y2="841" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="924.7371471221104" cy="841" r="5" fill="#e76f51"/>
+<text x="1050" y="846" class="small">24.14 [-0.02, 72.41]</text>
+<text x="36" y="880" class="label">I4 adversarial · ROSMA · Pea on a Peg</text>
+<line x1="406.8965517241379" y1="875" x2="679.7775160171399" y2="875" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="474.94970867061573" cy="875" r="5" fill="#e76f51"/>
+<text x="1050" y="880" class="small">-14.18 [-42.35, -0.06]</text>
+<text x="36" y="914" class="label">random projection · ROSMA · Pea on a Peg</text>
+<line x1="683.680997162622" y1="909" x2="868.8036588871705" y2="909" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="801.7825321928123" cy="909" r="5" fill="#e76f51"/>
+<text x="1050" y="914" class="small">3.28 [0.01, 9.81]</text>
+<text x="36" y="948" class="label">I1 duration removed · ROSMA · Post and Sleeve</text>
+<line x1="681.4340308810647" y1="943" x2="683.2964334541347" y2="943" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="682.5755417499315" cy="943" r="5" fill="#e76f51"/>
+<text x="1050" y="948" class="small">-0.01 [-0.03, -0.00]</text>
+<text x="36" y="982" class="label">I2 duration residualized · ROSMA · Post and Sleeve</text>
+<line x1="675.0750069087469" y1="977" x2="686.8116945675611" y2="977" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="682.1521729247062" cy="977" r="5" fill="#e76f51"/>
+<text x="1050" y="982" class="small">-0.02 [-0.13, 0.06]</text>
+<text x="36" y="1016" class="label">I3 identity subspace · ROSMA · Post and Sleeve</text>
+<line x1="675.5482037919905" y1="1011" x2="692.885753114841" y2="1011" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="683.8540004146661" cy="1011" r="5" fill="#e76f51"/>
+<text x="1050" y="1016" class="small">0.01 [-0.12, 0.15]</text>
+<text x="36" y="1050" class="label">I4 adversarial · ROSMA · Post and Sleeve</text>
+<line x1="679.3086299161171" y1="1045" x2="683.7444544998542" y2="1045" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="681.5000769430494" cy="1045" r="5" fill="#e76f51"/>
+<text x="1050" y="1050" class="small">-0.03 [-0.06, 0.01]</text>
+<text x="36" y="1084" class="label">random projection · ROSMA · Post and Sleeve</text>
+<line x1="679.061703098605" y1="1079" x2="685.6771998745521" y2="1079" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="682.6347743830484" cy="1079" r="5" fill="#e76f51"/>
+<text x="1050" y="1084" class="small">-0.01 [-0.07, 0.04]</text>
+<text x="36" y="1118" class="label">I1 duration removed · ROSMA · Wire Chaser I</text>
+<line x1="680.6575460841116" y1="1113" x2="685.8341619071525" y2="1113" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="683.3860515832488" cy="1113" r="5" fill="#e76f51"/>
+<text x="1050" y="1118" class="small">0.00 [-0.04, 0.04]</text>
+<text x="36" y="1152" class="label">I2 duration residualized · ROSMA · Wire Chaser I</text>
+<line x1="680.2021172917337" y1="1147" x2="684.4571294590489" y2="1147" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="682.1232950751764" cy="1147" r="5" fill="#e76f51"/>
+<text x="1050" y="1152" class="small">-0.02 [-0.05, 0.02]</text>
+<text x="36" y="1186" class="label">I3 identity subspace · ROSMA · Wire Chaser I</text>
+<line x1="683.3049544210085" y1="1181" x2="683.9825610499477" y2="1181" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="683.5308272603081" cy="1181" r="5" fill="#e76f51"/>
+<text x="1050" y="1186" class="small">0.00 [0.00, 0.01]</text>
+<text x="36" y="1220" class="label">I4 adversarial · ROSMA · Wire Chaser I</text>
+<line x1="657.1563311126132" y1="1215" x2="695.2438085397371" y2="1215" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="679.4369767518172" cy="1215" r="5" fill="#e76f51"/>
+<text x="1050" y="1220" class="small">-0.06 [-0.43, 0.19]</text>
+<text x="36" y="1254" class="label">random projection · ROSMA · Wire Chaser I</text>
+<line x1="683.2737449489075" y1="1249" x2="683.3049544210085" y2="1249" stroke="#2a6f97" stroke-width="3"/>
+<circle cx="683.2945512632542" cy="1249" r="5" fill="#e76f51"/>
+<text x="1050" y="1254" class="small">-0.00 [-0.00, 0.00]</text>
+<line x1="360.0" y1="1291" x2="360.0" y2="1297" class="axis"/>
+<text x="360.0" y="1314" class="small" text-anchor="middle">-89.9</text>
+<line x1="473.3333333333333" y1="1291" x2="473.3333333333333" y2="1297" class="axis"/>
+<text x="473.3333333333333" y="1314" class="small" text-anchor="middle">-14.6</text>
+<line x1="586.6666666666666" y1="1291" x2="586.6666666666666" y2="1297" class="axis"/>
+<text x="586.6666666666666" y="1314" class="small" text-anchor="middle">-2.3</text>
+<line x1="700.0" y1="1291" x2="700.0" y2="1297" class="axis"/>
+<text x="700.0" y="1314" class="small" text-anchor="middle">0.27</text>
+<line x1="813.3333333333333" y1="1291" x2="813.3333333333333" y2="1297" class="axis"/>
+<text x="813.3333333333333" y="1314" class="small" text-anchor="middle">4.0</text>
+<line x1="926.6666666666666" y1="1291" x2="926.6666666666666" y2="1297" class="axis"/>
+<text x="926.6666666666666" y="1314" class="small" text-anchor="middle">24.9</text>
+<line x1="1040.0" y1="1291" x2="1040.0" y2="1297" class="axis"/>
+<text x="1040.0" y="1314" class="small" text-anchor="middle">153.8</text>
+<text x="700.0" y="1325" class="small" text-anchor="middle">Paired standardized MAE difference (asinh display scale)</text>
+</svg>

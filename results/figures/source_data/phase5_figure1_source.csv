@@ -1,0 +1,5 @@
+dataset,participants,trials,target,role
+JIGSAWS,8,103,Expert-rated GRS,Anchor / mechanism
+ROSMA,12,206,Observed task errors,External outcome
+BGU-PatCut,54,1254,Image-derived cutting error,External outcome
+BGU-SKILLS,18,938,No eligible independent target,Identity robustness

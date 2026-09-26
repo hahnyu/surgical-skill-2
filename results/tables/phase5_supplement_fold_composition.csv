@@ -1,0 +1,199 @@
+dataset,task,protocol,test_fold,trials,participants
+BGU-PatCut,Pattern Cutting,held_out_participant,gp00,118,5
+BGU-PatCut,Pattern Cutting,held_out_participant,gp01,118,5
+BGU-PatCut,Pattern Cutting,held_out_participant,gp02,118,5
+BGU-PatCut,Pattern Cutting,held_out_participant,gp03,118,5
+BGU-PatCut,Pattern Cutting,held_out_participant,gp04,139,6
+BGU-PatCut,Pattern Cutting,held_out_participant,gp05,138,6
+BGU-PatCut,Pattern Cutting,held_out_participant,gp06,137,6
+BGU-PatCut,Pattern Cutting,held_out_participant,gp07,134,6
+BGU-PatCut,Pattern Cutting,held_out_participant,gp08,117,5
+BGU-PatCut,Pattern Cutting,held_out_participant,gp09,117,5
+BGU-SKILLS,Knot Tying,held_out_participant,p00,14,1
+BGU-SKILLS,Knot Tying,held_out_participant,p01,17,1
+BGU-SKILLS,Knot Tying,held_out_participant,p02,18,1
+BGU-SKILLS,Knot Tying,held_out_participant,p03,16,1
+BGU-SKILLS,Knot Tying,held_out_participant,p04,16,1
+BGU-SKILLS,Knot Tying,held_out_participant,p05,17,1
+BGU-SKILLS,Knot Tying,held_out_participant,p06,17,1
+BGU-SKILLS,Knot Tying,held_out_participant,p07,18,1
+BGU-SKILLS,Knot Tying,held_out_participant,p08,18,1
+BGU-SKILLS,Knot Tying,held_out_participant,p09,18,1
+BGU-SKILLS,Knot Tying,held_out_participant,p10,18,1
+BGU-SKILLS,Knot Tying,held_out_participant,p11,18,1
+BGU-SKILLS,Knot Tying,held_out_participant,p12,17,1
+BGU-SKILLS,Knot Tying,held_out_participant,p13,18,1
+BGU-SKILLS,Knot Tying,held_out_participant,p14,17,1
+BGU-SKILLS,Knot Tying,held_out_participant,p15,18,1
+BGU-SKILLS,Knot Tying,held_out_participant,p16,18,1
+BGU-SKILLS,Knot Tying,held_out_participant,p17,18,1
+BGU-SKILLS,Ring Tower Transfer,held_out_participant,p00,14,1
+BGU-SKILLS,Ring Tower Transfer,held_out_participant,p01,17,1
+BGU-SKILLS,Ring Tower Transfer,held_out_participant,p02,18,1
+BGU-SKILLS,Ring Tower Transfer,held_out_participant,p03,18,1
+BGU-SKILLS,Ring Tower Transfer,held_out_participant,p04,16,1
+BGU-SKILLS,Ring Tower Transfer,held_out_participant,p05,14,1
+BGU-SKILLS,Ring Tower Transfer,held_out_participant,p06,18,1
+BGU-SKILLS,Ring Tower Transfer,held_out_participant,p07,18,1
+BGU-SKILLS,Ring Tower Transfer,held_out_participant,p08,18,1
+BGU-SKILLS,Ring Tower Transfer,held_out_participant,p09,18,1
+BGU-SKILLS,Ring Tower Transfer,held_out_participant,p10,18,1
+BGU-SKILLS,Ring Tower Transfer,held_out_participant,p11,18,1
+BGU-SKILLS,Ring Tower Transfer,held_out_participant,p12,17,1
+BGU-SKILLS,Ring Tower Transfer,held_out_participant,p13,18,1
+BGU-SKILLS,Ring Tower Transfer,held_out_participant,p14,18,1
+BGU-SKILLS,Ring Tower Transfer,held_out_participant,p15,18,1
+BGU-SKILLS,Ring Tower Transfer,held_out_participant,p16,18,1
+BGU-SKILLS,Ring Tower Transfer,held_out_participant,p17,18,1
+BGU-SKILLS,Suturing,held_out_participant,p00,13,1
+BGU-SKILLS,Suturing,held_out_participant,p01,17,1
+BGU-SKILLS,Suturing,held_out_participant,p02,18,1
+BGU-SKILLS,Suturing,held_out_participant,p03,18,1
+BGU-SKILLS,Suturing,held_out_participant,p04,16,1
+BGU-SKILLS,Suturing,held_out_participant,p05,18,1
+BGU-SKILLS,Suturing,held_out_participant,p06,18,1
+BGU-SKILLS,Suturing,held_out_participant,p07,18,1
+BGU-SKILLS,Suturing,held_out_participant,p08,18,1
+BGU-SKILLS,Suturing,held_out_participant,p09,18,1
+BGU-SKILLS,Suturing,held_out_participant,p10,18,1
+BGU-SKILLS,Suturing,held_out_participant,p11,18,1
+BGU-SKILLS,Suturing,held_out_participant,p12,17,1
+BGU-SKILLS,Suturing,held_out_participant,p13,18,1
+BGU-SKILLS,Suturing,held_out_participant,p14,18,1
+BGU-SKILLS,Suturing,held_out_participant,p15,18,1
+BGU-SKILLS,Suturing,held_out_participant,p16,18,1
+BGU-SKILLS,Suturing,held_out_participant,p17,18,1
+JIGSAWS,Knot Tying,held_out_participant,p00,5,1
+JIGSAWS,Knot Tying,held_out_participant,p01,5,1
+JIGSAWS,Knot Tying,held_out_participant,p02,5,1
+JIGSAWS,Knot Tying,held_out_participant,p03,4,1
+JIGSAWS,Knot Tying,held_out_participant,p04,4,1
+JIGSAWS,Knot Tying,held_out_participant,p05,3,1
+JIGSAWS,Knot Tying,held_out_participant,p06,5,1
+JIGSAWS,Knot Tying,held_out_participant,p07,5,1
+JIGSAWS,Needle Passing,held_out_participant,p00,5,1
+JIGSAWS,Needle Passing,held_out_participant,p01,5,1
+JIGSAWS,Needle Passing,held_out_participant,p02,3,1
+JIGSAWS,Needle Passing,held_out_participant,p03,4,1
+JIGSAWS,Needle Passing,held_out_participant,p04,4,1
+JIGSAWS,Needle Passing,held_out_participant,p05,3,1
+JIGSAWS,Needle Passing,held_out_participant,p06,4,1
+JIGSAWS,Suturing,held_out_participant,p00,5,1
+JIGSAWS,Suturing,held_out_participant,p01,5,1
+JIGSAWS,Suturing,held_out_participant,p02,5,1
+JIGSAWS,Suturing,held_out_participant,p03,5,1
+JIGSAWS,Suturing,held_out_participant,p04,5,1
+JIGSAWS,Suturing,held_out_participant,p05,4,1
+JIGSAWS,Suturing,held_out_participant,p06,5,1
+JIGSAWS,Suturing,held_out_participant,p07,5,1
+ROSMA,Pea on a Peg,held_out_participant,p00,6,1
+ROSMA,Pea on a Peg,held_out_participant,p01,6,1
+ROSMA,Pea on a Peg,held_out_participant,p02,6,1
+ROSMA,Pea on a Peg,held_out_participant,p03,6,1
+ROSMA,Pea on a Peg,held_out_participant,p04,6,1
+ROSMA,Pea on a Peg,held_out_participant,p05,6,1
+ROSMA,Pea on a Peg,held_out_participant,p06,6,1
+ROSMA,Pea on a Peg,held_out_participant,p07,6,1
+ROSMA,Pea on a Peg,held_out_participant,p08,6,1
+ROSMA,Pea on a Peg,held_out_participant,p09,5,1
+ROSMA,Pea on a Peg,held_out_participant,p10,6,1
+ROSMA,Pea on a Peg,held_out_participant,p11,6,1
+ROSMA,Post and Sleeve,held_out_participant,p00,6,1
+ROSMA,Post and Sleeve,held_out_participant,p01,6,1
+ROSMA,Post and Sleeve,held_out_participant,p02,5,1
+ROSMA,Post and Sleeve,held_out_participant,p03,6,1
+ROSMA,Post and Sleeve,held_out_participant,p04,5,1
+ROSMA,Post and Sleeve,held_out_participant,p05,5,1
+ROSMA,Post and Sleeve,held_out_participant,p06,6,1
+ROSMA,Post and Sleeve,held_out_participant,p07,4,1
+ROSMA,Post and Sleeve,held_out_participant,p08,6,1
+ROSMA,Post and Sleeve,held_out_participant,p09,6,1
+ROSMA,Post and Sleeve,held_out_participant,p10,4,1
+ROSMA,Post and Sleeve,held_out_participant,p11,6,1
+ROSMA,Wire Chaser I,held_out_participant,p00,6,1
+ROSMA,Wire Chaser I,held_out_participant,p01,6,1
+ROSMA,Wire Chaser I,held_out_participant,p02,6,1
+ROSMA,Wire Chaser I,held_out_participant,p03,6,1
+ROSMA,Wire Chaser I,held_out_participant,p04,6,1
+ROSMA,Wire Chaser I,held_out_participant,p05,5,1
+ROSMA,Wire Chaser I,held_out_participant,p06,6,1
+ROSMA,Wire Chaser I,held_out_participant,p07,6,1
+ROSMA,Wire Chaser I,held_out_participant,p08,6,1
+ROSMA,Wire Chaser I,held_out_participant,p09,6,1
+ROSMA,Wire Chaser I,held_out_participant,p10,6,1
+ROSMA,Wire Chaser I,held_out_participant,p11,5,1
+BGU-PatCut,Pattern Cutting,same_participant,rep01,49,49
+BGU-PatCut,Pattern Cutting,same_participant,rep02,54,54
+BGU-PatCut,Pattern Cutting,same_participant,rep03,53,53
+BGU-PatCut,Pattern Cutting,same_participant,rep04,51,51
+BGU-PatCut,Pattern Cutting,same_participant,rep05,53,53
+BGU-PatCut,Pattern Cutting,same_participant,rep06,54,54
+BGU-PatCut,Pattern Cutting,same_participant,rep07,53,53
+BGU-PatCut,Pattern Cutting,same_participant,rep08,53,53
+BGU-PatCut,Pattern Cutting,same_participant,rep09,52,52
+BGU-PatCut,Pattern Cutting,same_participant,rep10,51,51
+BGU-PatCut,Pattern Cutting,same_participant,rep11,53,53
+BGU-PatCut,Pattern Cutting,same_participant,rep12,53,53
+BGU-PatCut,Pattern Cutting,same_participant,rep13,54,54
+BGU-PatCut,Pattern Cutting,same_participant,rep14,53,53
+BGU-PatCut,Pattern Cutting,same_participant,rep15,52,52
+BGU-PatCut,Pattern Cutting,same_participant,rep16,54,54
+BGU-PatCut,Pattern Cutting,same_participant,rep17,53,53
+BGU-PatCut,Pattern Cutting,same_participant,rep18,53,53
+BGU-PatCut,Pattern Cutting,same_participant,rep19,54,54
+BGU-PatCut,Pattern Cutting,same_participant,rep20,49,49
+BGU-PatCut,Pattern Cutting,same_participant,rep21,54,54
+BGU-PatCut,Pattern Cutting,same_participant,rep22,49,49
+BGU-PatCut,Pattern Cutting,same_participant,rep23,51,51
+BGU-PatCut,Pattern Cutting,same_participant,rep24,49,49
+BGU-SKILLS,Knot Tying,same_participant,rep01,53,18
+BGU-SKILLS,Knot Tying,same_participant,rep02,53,18
+BGU-SKILLS,Knot Tying,same_participant,rep03,54,18
+BGU-SKILLS,Knot Tying,same_participant,rep04,50,18
+BGU-SKILLS,Knot Tying,same_participant,rep05,53,18
+BGU-SKILLS,Knot Tying,same_participant,rep06,48,18
+BGU-SKILLS,Ring Tower Transfer,same_participant,rep01,54,18
+BGU-SKILLS,Ring Tower Transfer,same_participant,rep02,54,18
+BGU-SKILLS,Ring Tower Transfer,same_participant,rep03,54,18
+BGU-SKILLS,Ring Tower Transfer,same_participant,rep04,52,18
+BGU-SKILLS,Ring Tower Transfer,same_participant,rep05,51,18
+BGU-SKILLS,Ring Tower Transfer,same_participant,rep06,47,18
+BGU-SKILLS,Suturing,same_participant,rep01,54,18
+BGU-SKILLS,Suturing,same_participant,rep02,53,18
+BGU-SKILLS,Suturing,same_participant,rep03,54,18
+BGU-SKILLS,Suturing,same_participant,rep04,52,18
+BGU-SKILLS,Suturing,same_participant,rep05,53,18
+BGU-SKILLS,Suturing,same_participant,rep06,49,18
+JIGSAWS,Knot Tying,same_participant,rep01,7,7
+JIGSAWS,Knot Tying,same_participant,rep02,7,7
+JIGSAWS,Knot Tying,same_participant,rep03,8,8
+JIGSAWS,Knot Tying,same_participant,rep04,7,7
+JIGSAWS,Knot Tying,same_participant,rep05,7,7
+JIGSAWS,Needle Passing,same_participant,rep01,5,5
+JIGSAWS,Needle Passing,same_participant,rep02,5,5
+JIGSAWS,Needle Passing,same_participant,rep03,6,6
+JIGSAWS,Needle Passing,same_participant,rep04,7,7
+JIGSAWS,Needle Passing,same_participant,rep05,5,5
+JIGSAWS,Suturing,same_participant,rep01,8,8
+JIGSAWS,Suturing,same_participant,rep02,7,7
+JIGSAWS,Suturing,same_participant,rep03,8,8
+JIGSAWS,Suturing,same_participant,rep04,8,8
+JIGSAWS,Suturing,same_participant,rep05,8,8
+ROSMA,Pea on a Peg,same_participant,rep01,12,12
+ROSMA,Pea on a Peg,same_participant,rep02,12,12
+ROSMA,Pea on a Peg,same_participant,rep03,12,12
+ROSMA,Pea on a Peg,same_participant,rep04,12,12
+ROSMA,Pea on a Peg,same_participant,rep05,12,12
+ROSMA,Pea on a Peg,same_participant,rep06,11,11
+ROSMA,Post and Sleeve,same_participant,rep01,12,12
+ROSMA,Post and Sleeve,same_participant,rep02,12,12
+ROSMA,Post and Sleeve,same_participant,rep03,12,12
+ROSMA,Post and Sleeve,same_participant,rep04,12,12
+ROSMA,Post and Sleeve,same_participant,rep05,10,10
+ROSMA,Post and Sleeve,same_participant,rep06,7,7
+ROSMA,Wire Chaser I,same_participant,rep01,12,12
+ROSMA,Wire Chaser I,same_participant,rep02,12,12
+ROSMA,Wire Chaser I,same_participant,rep03,12,12
+ROSMA,Wire Chaser I,same_participant,rep04,12,12
+ROSMA,Wire Chaser I,same_participant,rep05,12,12
+ROSMA,Wire Chaser I,same_participant,rep06,10,10

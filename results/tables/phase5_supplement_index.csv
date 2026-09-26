@@ -1,0 +1,12 @@
+planned_item,artifact,status
+full fold composition,phase5_supplement_fold_composition.csv,complete
+participant-level results,results/locked/phase5_participant_*.csv,complete
+hyperparameter grids and selections,phase5_supplement_hyperparameter_selections.csv; phase3/phase4 YAML,complete
+all seeds,phase5_supplement_seed_stability.csv; phase4 YAML,complete
+exclusions and missingness,phase5_supplement_missingness.csv,complete
+sensitivity to outcome definition,reports/tables/target_provenance.csv,limited: secondary BGU component outcomes were not modeled in frozen Phase 3-4 predictions
+leave-one-participant influence,results/locked/phase5_leave_one_participant.csv,complete
+duration removal/residualization,phase5_table5_interventions.csv; phase4 YAML,complete
+random projection control,phase5_table5_interventions.csv,complete
+training curves and convergence,phase5_supplement_seed_stability.csv; phase4 selection records,limited: epoch-wise losses were not retained; all scheduled fits completed
+literature search update,docs/literature_search/search_log.md,complete 2026-09-26

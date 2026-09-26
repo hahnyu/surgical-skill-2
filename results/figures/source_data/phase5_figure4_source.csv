@@ -1,0 +1,7 @@
+intervention,intervention_short,held_standardized_mae,nonlinear_identity_balanced_accuracy
+I0_unsuppressed,I0,2.8282094854,0.555757247828
+I1_duration_removed,I1,1.80795740465,0.557643148408
+I2_duration_residualized,I2,2.97260083104,0.531023162331
+I3_identity_subspace,I3,6.29500569045,0.417873584887
+I4_adversarial,I4,5.92320051099,0.364732978049
+random_projection,Random,3.29789451754,0.5669177863

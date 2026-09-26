@@ -1,0 +1,8 @@
+endpoint,dataset,task,target_name,metric,estimate,ci_low,ci_high,participants,replicates,label
+protocol_gap,BGU-PatCut,Pattern Cutting,TE,held_minus_same_standardized_mae,0.0744519222774,0.0363274174025,0.116679473671,54,2000,BGU-PatCut · Pattern Cutting
+protocol_gap,JIGSAWS,Knot Tying,GRS,held_minus_same_standardized_mae,0.156113858362,-0.024451213513,0.354499392679,8,2000,JIGSAWS · Knot Tying
+protocol_gap,JIGSAWS,Needle Passing,GRS,held_minus_same_standardized_mae,0.046483288801,-0.108743697077,0.195075361417,7,2000,JIGSAWS · Needle Passing
+protocol_gap,JIGSAWS,Suturing,GRS,held_minus_same_standardized_mae,0.346006299155,0.0459065294423,0.680178909517,8,2000,JIGSAWS · Suturing
+protocol_gap,ROSMA,Pea on a Peg,Errors,held_minus_same_standardized_mae,-19.6124229513,-58.8406425522,0.0252622111849,12,2000,ROSMA · Pea on a Peg
+protocol_gap,ROSMA,Post and Sleeve,Errors,held_minus_same_standardized_mae,0.0228004175655,-0.0941338231081,0.13441770248,12,2000,ROSMA · Post and Sleeve
+protocol_gap,ROSMA,Wire Chaser I,Errors,held_minus_same_standardized_mae,0.123961156925,-0.0404776838497,0.39218967319,12,2000,ROSMA · Wire Chaser I

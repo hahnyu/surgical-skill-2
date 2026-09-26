@@ -1,0 +1,43 @@
+dataset,task,protocol,target_name,model,participants,trials,participant_average_metric,ci_low,ci_high,metric_name
+BGU-PatCut,Pattern Cutting,held_out_participant,TE,ridge,54,1254,10440.4058879,8421.70997865,12955.3986274,mae
+BGU-PatCut,Pattern Cutting,held_out_participant,TE,duration_ridge,54,1254,12340.8149746,10351.5023732,14940.2631321,mae
+BGU-PatCut,Pattern Cutting,held_out_participant,TE,feature_free_mean,54,1254,12334.1089384,10317.3346215,15003.7984783,mae
+BGU-PatCut,Pattern Cutting,same_participant,TE,ridge,54,1254,9231.21398398,7525.50013894,11527.7389976,mae
+BGU-PatCut,Pattern Cutting,same_participant,TE,duration_ridge,54,1254,12241.2105397,10333.1197511,14765.2101612,mae
+BGU-PatCut,Pattern Cutting,same_participant,TE,feature_free_mean,54,1254,12245.5764868,10264.8862096,14736.2836194,mae
+JIGSAWS,Knot Tying,held_out_participant,GRS,ridge,8,36,3.50474609592,2.58642479693,4.36571398925,mae
+JIGSAWS,Knot Tying,held_out_participant,GRS,duration_ridge,8,36,3.30197993827,2.59937088325,3.9819367842,mae
+JIGSAWS,Knot Tying,held_out_participant,GRS,feature_free_mean,8,36,5.12545770202,4.05368758146,6.16134072581,mae
+JIGSAWS,Knot Tying,same_participant,GRS,ridge,8,36,2.73492955485,2.27005720697,3.44114739249,mae
+JIGSAWS,Knot Tying,same_participant,GRS,duration_ridge,8,36,2.9476566293,2.32042271771,3.62923871443,mae
+JIGSAWS,Knot Tying,same_participant,GRS,feature_free_mean,8,36,4.70970853859,3.92813834154,5.4838362069,mae
+JIGSAWS,Needle Passing,held_out_participant,GRS,ridge,7,28,3.20235057565,2.23034030116,4.13292601243,mae
+JIGSAWS,Needle Passing,held_out_participant,GRS,duration_ridge,7,28,4.8263222986,3.44147483425,5.96068657199,mae
+JIGSAWS,Needle Passing,held_out_participant,GRS,feature_free_mean,7,28,4.55972567288,3.30624107143,5.78364958592,mae
+JIGSAWS,Needle Passing,same_participant,GRS,ridge,7,28,3.02884149533,2.01295055688,4.10322778019,mae
+JIGSAWS,Needle Passing,same_participant,GRS,duration_ridge,7,28,4.47213347213,3.4685701537,5.38005150112,mae
+JIGSAWS,Needle Passing,same_participant,GRS,feature_free_mean,7,28,4.38662960573,3.31238157977,5.37996500609,mae
+JIGSAWS,Suturing,held_out_participant,GRS,ridge,8,39,4.96777404026,3.38658714608,6.67879050294,mae
+JIGSAWS,Suturing,held_out_participant,GRS,duration_ridge,8,39,4.86096457508,3.14798727376,6.48822164533,mae
+JIGSAWS,Suturing,held_out_participant,GRS,feature_free_mean,8,39,4.67757352941,3.05073529412,6.26877757353,mae
+JIGSAWS,Suturing,same_participant,GRS,ridge,8,39,3.24556188953,2.41903168701,4.04840141021,mae
+JIGSAWS,Suturing,same_participant,GRS,duration_ridge,8,39,4.22622289437,2.90953212728,5.50502706281,mae
+JIGSAWS,Suturing,same_participant,GRS,feature_free_mean,8,39,4.3279233871,2.96622983871,5.62234879032,mae
+ROSMA,Pea on a Peg,held_out_participant,Errors,ridge,12,71,6.47532571409,0.710561781381,17.7744710806,mae
+ROSMA,Pea on a Peg,held_out_participant,Errors,duration_ridge,12,71,0.871760501903,0.719533089981,1.04834507997,mae
+ROSMA,Pea on a Peg,held_out_participant,Errors,feature_free_mean,12,71,0.855905205905,0.70674048174,1.03781371406,mae
+ROSMA,Pea on a Peg,same_participant,Errors,ridge,12,71,21.1195259107,0.712256782262,61.7933830962,mae
+ROSMA,Pea on a Peg,same_participant,Errors,duration_ridge,12,71,0.844989593639,0.707447872991,1.00062850675,mae
+ROSMA,Pea on a Peg,same_participant,Errors,feature_free_mean,12,71,0.837099811676,0.689538606403,1.00282603578,mae
+ROSMA,Post and Sleeve,held_out_participant,Errors,ridge,12,65,0.443333394901,0.347505908806,0.549228781943,mae
+ROSMA,Post and Sleeve,held_out_participant,Errors,duration_ridge,12,65,0.453088513563,0.367090615058,0.547257430885,mae
+ROSMA,Post and Sleeve,held_out_participant,Errors,feature_free_mean,12,65,0.440517427681,0.354414912707,0.54228460452,mae
+ROSMA,Post and Sleeve,same_participant,Errors,ridge,12,65,0.433385149491,0.312224926709,0.566786135216,mae
+ROSMA,Post and Sleeve,same_participant,Errors,duration_ridge,12,65,0.453828836048,0.365849800404,0.549784254297,mae
+ROSMA,Post and Sleeve,same_participant,Errors,feature_free_mean,12,65,0.431192980554,0.33691971726,0.534507197873,mae
+ROSMA,Wire Chaser I,held_out_participant,Errors,ridge,12,70,0.518444202306,0.336298643532,0.728788787223,mae
+ROSMA,Wire Chaser I,held_out_participant,Errors,duration_ridge,12,70,0.548306386203,0.407301890048,0.725566830434,mae
+ROSMA,Wire Chaser I,held_out_participant,Errors,feature_free_mean,12,70,0.554922542735,0.415705128205,0.738557024573,mae
+ROSMA,Wire Chaser I,same_participant,Errors,ridge,12,70,0.443902916069,0.330460057568,0.55383564545,mae
+ROSMA,Wire Chaser I,same_participant,Errors,duration_ridge,12,70,0.505166801911,0.370326789279,0.670952748948,mae
+ROSMA,Wire Chaser I,same_participant,Errors,feature_free_mean,12,70,0.534482758621,0.394428480204,0.712110472542,mae

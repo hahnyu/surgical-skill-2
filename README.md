@@ -5,10 +5,11 @@ This repository implements the prospective protocol in
 The scientific question is whether suppressing operator-identifying information
 changes same-operator performance and generalization to an unseen operator.
 
-Phases 0–4 are complete. The repository is stopped before Phase 5 manuscript
-synthesis and robustness work. Phase 4 fitted the prespecified identity
-interventions and designated I3 linear identity-subspace removal as the primary
-comparison after I4 failed nonlinear-probe verification.
+Phases 0–5 are complete. Phase 4 fitted the prespecified identity interventions
+and designated I3 linear identity-subspace removal as the primary comparison
+after I4 failed nonlinear-probe verification. Phase 5 locks the exact inputs,
+participant-level inference, robustness outputs, six figures, and five main
+tables. Manuscript work remains Phase 6.
 
 ## Local JIGSAWS connection
 
@@ -61,3 +62,17 @@ effects, JIGSAWS skill endpoint, controls, and seed stability are documented in
 tables are under `results/metrics/`, and
 [`data/manifests/phase4_artifacts.csv`](data/manifests/phase4_artifacts.csv)
 records the hashes of all private out-of-fold artifacts.
+
+## Phase 5 locked analysis
+
+The final locked results are documented in
+[`reports/final_results.md`](reports/final_results.md). Run the complete gate,
+including a byte-identical second build, with:
+
+```bash
+.venv/bin/python scripts/run_phase5_locked.py
+```
+
+Machine-readable participant estimates, bootstrap and permutation outputs,
+figure sources, tables, and the complete artifact manifest are under
+`results/` and `data/manifests/phase5_artifacts.csv`.

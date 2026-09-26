@@ -40,3 +40,24 @@ or access route compatible with independent research. A target advanced to the
 primary performance analysis only when it varied at trial level and was not an
 algebraic restatement of the planned kinematic predictors.
 
+## Analysis-lock update: 2026-09-26
+
+The search was repeated immediately before the Phase 5 analysis lock, as
+required by Risk 7 of the protocol. Searches covered PubMed, arXiv, IEEE, and
+Springer using combinations of `surgical skill assessment`, `JIGSAWS`,
+`ROSMA`, `unseen surgeon`, `operator identity`, `domain generalization`, and
+`identity invariant representation`, restricted to 2024–2026 where the
+interface permitted. Result counts were not consistently exposed.
+
+| Source screened | Relevance and lock decision |
+|---|---|
+| [Multimodal learning for automated robotic surgical skill assessment](https://pubmed.ncbi.nlm.nih.gov/41399175/) (2025) | Directly overlaps JIGSAWS and ROSMA and combines video and kinematics. Retain for the manuscript comparison; the indexed abstract reports skill classification performance but does not describe the paired identity-suppression intervention and participant-level inference used here. |
+| [OSS: Open Suturing Skills Vision-Based Assessment Challenge 2024–2025](https://arxiv.org/abs/2605.22200) (2026) | New open-surgery benchmark with skill classification, OSATS prediction, and tracking. Retain as a current benchmark and as evidence that fine-grained score prediction remains difficult. It does not displace this study's repeated-participant identity-confounding question. |
+| [Generalized Recognition of Basic Surgical Actions Enables Skill Assessment and Vision-Language-Model-based Surgical Planning](https://arxiv.org/abs/2603.12787) (2026) | New multi-specialty action-recognition foundation model with a downstream skill application. Retain for breadth/generalization context; no matching operator-identity intervention was identified in the abstract. |
+| [AI-Based Markerless Computer Vision Framework for Open Surgery Skill Assessment](https://pubmed.ncbi.nlm.nih.gov/42132409/) (2026) | Small prototype connecting markerless hand kinematics with expert ratings. Retain for construct-validity context; it does not test repeated-operator identity suppression. |
+
+No directly overlapping paper was identified that combines the same-versus-held
+participant protocol gap, fresh identity probes, participant-wise versus
+record-wise permutation, and a targeted identity intervention across the
+included public datasets. The search therefore changes the manuscript context,
+not the locked analysis or its claims.

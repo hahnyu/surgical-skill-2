@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="650" viewBox="0 0 920 650">
+<rect width="100%" height="100%" fill="#fbfaf7"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#18212b}.title{font-size:25px;font-weight:700}.sub{font-size:13px;fill:#52606d}.label{font-size:13px}.small{font-size:11px;fill:#52606d}.axis{stroke:#8b98a5;stroke-width:1}.grid{stroke:#dfe4e8;stroke-width:1}.zero{stroke:#273746;stroke-width:1.5;stroke-dasharray:5 4}</style>
+<text x="36" y="38" class="title">Utility–identity plane</text>
+<text x="36" y="61" class="sub">Lower is better on both axes; task error is averaged after within-task training-SD standardization</text>
+<line x1="105.0" y1="100" x2="105.0" y2="570" class="grid"/>
+<text x="105.0" y="594" class="small" text-anchor="middle">0.00</text>
+<line x1="255.0" y1="100" x2="255.0" y2="570" class="grid"/>
+<text x="255.0" y="594" class="small" text-anchor="middle">0.20</text>
+<line x1="405.0" y1="100" x2="405.0" y2="570" class="grid"/>
+<text x="405.0" y="594" class="small" text-anchor="middle">0.40</text>
+<line x1="555.0" y1="100" x2="555.0" y2="570" class="grid"/>
+<text x="555.0" y="594" class="small" text-anchor="middle">0.60</text>
+<line x1="705.0" y1="100" x2="705.0" y2="570" class="grid"/>
+<text x="705.0" y="594" class="small" text-anchor="middle">0.80</text>
+<line x1="855.0" y1="100" x2="855.0" y2="570" class="grid"/>
+<text x="855.0" y="594" class="small" text-anchor="middle">1.00</text>
+<line x1="105" y1="570.0" x2="855" y2="570.0" class="grid"/>
+<text x="93" y="574.0" class="small" text-anchor="end">0.00</text>
+<line x1="105" y1="476.0" x2="855" y2="476.0" class="grid"/>
+<text x="93" y="480.0" class="small" text-anchor="end">1.41</text>
+<line x1="105" y1="382.0" x2="855" y2="382.0" class="grid"/>
+<text x="93" y="386.0" class="small" text-anchor="end">2.82</text>
+<line x1="105" y1="288.0" x2="855" y2="288.0" class="grid"/>
+<text x="93" y="292.0" class="small" text-anchor="end">4.23</text>
+<line x1="105" y1="194.0" x2="855" y2="194.0" class="grid"/>
+<text x="93" y="198.0" class="small" text-anchor="end">5.64</text>
+<line x1="105" y1="100.0" x2="855" y2="100.0" class="grid"/>
+<text x="93" y="104.0" class="small" text-anchor="end">7.05</text>
+<circle cx="521.8179358708451" cy="381.4635685152417" r="9" fill="#264653" stroke="#fff" stroke-width="2"/>
+<text x="533.8179358708451" y="371.4635685152417" class="label" font-weight="700">I0</text>
+<circle cx="523.2323613058109" cy="449.47645352685043" r="9" fill="#457b9d" stroke="#fff" stroke-width="2"/>
+<text x="535.2323613058109" y="439.47645352685043" class="label" font-weight="700">I1</text>
+<circle cx="503.2673717480303" cy="371.83803363738923" r="9" fill="#2a9d8f" stroke="#fff" stroke-width="2"/>
+<text x="515.2673717480303" y="361.83803363738923" class="label" font-weight="700">I2</text>
+<circle cx="418.40518866493926" cy="150.3571428571429" r="9" fill="#e76f51" stroke="#fff" stroke-width="2"/>
+<text x="430.40518866493926" y="140.3571428571429" class="label" font-weight="700">I3</text>
+<circle cx="378.549733537098" cy="175.1427261404267" r="9" fill="#8d6ab8" stroke="#fff" stroke-width="2"/>
+<text x="390.549733537098" y="165.1427261404267" class="label" font-weight="700">I4</text>
+<circle cx="530.1883397251843" cy="350.1530378286111" r="9" fill="#f4a261" stroke="#fff" stroke-width="2"/>
+<text x="542.1883397251843" y="340.1530378286111" class="label" font-weight="700">Random</text>
+<text x="480.0" y="625" class="label" text-anchor="middle">Nonlinear identity-probe balanced accuracy</text>
+<text x="28" y="335.0" class="label" text-anchor="middle" transform="rotate(-90 28 335.0)">Held-out participant standardized MAE</text>
+</svg>

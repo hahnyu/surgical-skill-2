@@ -1,0 +1,8 @@
+panel,label,estimate,ci_low,ci_high
+same_user_skill,I0,NA,NA,NA
+identity_probe,I0,0.806448412698,NA,NA
+same_user_skill,I3,NA,NA,NA
+identity_probe,I3,0.659226190476,NA,NA
+held_grs_effect,Knot Tying,0.0422552244601,-0.037001098235,0.128087819349
+held_grs_effect,Needle Passing,0.125200713042,-0.0180146986872,0.29030458244
+held_grs_effect,Suturing,-0.0830079473274,-0.336012627642,0.156369228179

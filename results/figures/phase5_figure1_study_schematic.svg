@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="690" viewBox="0 0 1200 690">
+<rect width="100%" height="100%" fill="#fbfaf7"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#18212b}.title{font-size:25px;font-weight:700}.sub{font-size:13px;fill:#52606d}.label{font-size:13px}.small{font-size:11px;fill:#52606d}.axis{stroke:#8b98a5;stroke-width:1}.grid{stroke:#dfe4e8;stroke-width:1}.zero{stroke:#273746;stroke-width:1.5;stroke-dasharray:5 4}</style>
+<text x="36" y="38" class="title">Study design</text>
+<text x="36" y="61" class="sub">Repeated trials, paired protocols, identity interventions, and two endpoint families</text>
+<rect x="55" y="105" width="165" height="115" rx="12" fill="#2a6f97" opacity="0.13" stroke="#2a6f97" stroke-width="2"/>
+<text x="69" y="137" class="label" font-weight="700">JIGSAWS</text>
+<text x="69" y="162" class="small">Anchor / mechanism</text>
+<text x="69" y="184" class="small">n=8; trials=103</text>
+<text x="69" y="204" class="small">Expert-rated GRS</text>
+<rect x="255" y="105" width="165" height="115" rx="12" fill="#2a9d8f" opacity="0.13" stroke="#2a9d8f" stroke-width="2"/>
+<text x="269" y="137" class="label" font-weight="700">ROSMA</text>
+<text x="269" y="162" class="small">External outcome</text>
+<text x="269" y="184" class="small">n=12; trials=206</text>
+<text x="269" y="204" class="small">Observed task errors</text>
+<rect x="455" y="105" width="165" height="115" rx="12" fill="#e76f51" opacity="0.13" stroke="#e76f51" stroke-width="2"/>
+<text x="469" y="137" class="label" font-weight="700">BGU-PatCut</text>
+<text x="469" y="162" class="small">External outcome</text>
+<text x="469" y="184" class="small">n=54; trials=1254</text>
+<text x="469" y="204" class="small">Image-derived cutting error</text>
+<rect x="655" y="105" width="165" height="115" rx="12" fill="#8d6ab8" opacity="0.13" stroke="#8d6ab8" stroke-width="2"/>
+<text x="669" y="137" class="label" font-weight="700">BGU-SKILLS</text>
+<text x="669" y="162" class="small">Identity robustness</text>
+<text x="669" y="184" class="small">n=18; trials=938</text>
+<text x="669" y="204" class="small">No eligible independent target</text>
+<path d="M820 162 H895" stroke="#52606d" stroke-width="2" marker-end="url(#arrow)"/>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#52606d"/></marker></defs>
+<rect x="900" y="105" width="245" height="115" rx="12" fill="#eef2f5" stroke="#52606d"/>
+<text x="920" y="137" class="label" font-weight="700">Harmonized kinematics</text>
+<text x="920" y="162" class="small">Fold-fitted preprocessing</text>
+<text x="920" y="184" class="small">No outer-test participant leakage</text>
+<text x="920" y="204" class="small">Complete trials stay intact</text>
+<rect x="75" y="305" width="220" height="92" rx="12" fill="#ffffff" stroke="#2a6f97" stroke-width="2"/>
+<text x="91" y="339" class="label" font-weight="700">Same-participant</text>
+<text x="91" y="364" class="small">Repetition-held-out; participant retained</text>
+<path d="M295 351 H367" stroke="#52606d" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="375" y="305" width="220" height="92" rx="12" fill="#ffffff" stroke="#2a6f97" stroke-width="2"/>
+<text x="391" y="339" class="label" font-weight="700">Held-out-participant</text>
+<text x="391" y="364" class="small">Complete participant absent from fitting</text>
+<path d="M595 351 H667" stroke="#52606d" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="675" y="305" width="220" height="92" rx="12" fill="#ffffff" stroke="#2a6f97" stroke-width="2"/>
+<text x="691" y="339" class="label" font-weight="700">I0–I4 + controls</text>
+<text x="691" y="364" class="small">Duration, identity subspace, adversarial</text>
+<path d="M895 351 H967" stroke="#52606d" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="975" y="305" width="220" height="92" rx="12" fill="#ffffff" stroke="#2a6f97" stroke-width="2"/>
+<text x="991" y="339" class="label" font-weight="700">Frozen representation</text>
+<text x="991" y="364" class="small">Fresh linear and nonlinear probes</text>
+<path d="M1085 397 V475" stroke="#52606d" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="690" y="490" width="220" height="105" rx="12" fill="#e8f3f8" stroke="#2a6f97" stroke-width="2"/>
+<text x="708" y="525" class="label" font-weight="700">Outcome endpoint</text>
+<text x="708" y="551" class="small">Participant-average MAE</text>
+<text x="708" y="574" class="small">Same vs held; suppression vs I0</text>
+<rect x="960" y="490" width="220" height="105" rx="12" fill="#e8f5f1" stroke="#2a9d8f" stroke-width="2"/>
+<text x="978" y="525" class="label" font-weight="700">Identity endpoint</text>
+<text x="978" y="551" class="small">Fresh-probe balanced accuracy</text>
+<text x="978" y="574" class="small">Participant-level permutation null</text>
+<text x="55" y="650" class="sub">All uncertainty resamples participants; predictions are out of fold and linked to immutable configuration hashes.</text>
+</svg>

@@ -1,0 +1,114 @@
+dataset,task,target_name,participant_key,value,metric
+BGU-PatCut,Pattern Cutting,TE,00cb1691e0269335,-0.038659553054,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,04a2174a00e9eaee,0.0991729571187,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,06c149e3db753ac9,0.0212694880452,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,07e4a8a622c6c061,0.300333759143,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,0b5a6e716e0f9ec8,0.0254061290554,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,1978f4f70c842aa0,-0.0230001956755,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,1ee8ba17c40f09f9,-0.0105701555166,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,1f6678822699dfa7,0.0381874267904,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,365e66ed049642f7,-0.00345097792273,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,3744b4c81e2fa112,0.0121138121139,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,39217b224e1e7dd9,0.170552980942,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,3cc2d0c1e092ee48,-0.0249875301953,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,42671d70d6955218,0.0365737083811,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,46ee30e3660a75bd,0.127816738078,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,486139ef1bf26da7,0.0267663855136,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,49ac47bedc624a2b,0.604150282112,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,4c04d6f41f7a01ae,0.0181433797371,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,4e1c4c5070a1b6df,0.140521813472,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,4f945a4288b40e3a,-0.0601016368649,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,59efb533ae3ce1b6,0.214378226263,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,5d92d96026dd32cc,0.0400401254913,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,5dd37e46103a6c26,0.02096691327,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,5eeb16f1128deaab,0.018457619374,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,663e3ef1ca848a27,0.00709571689397,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,66cd386c6d7dda6f,-0.0169263284035,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,670962c80ced6313,0.0141254571599,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,69fd373b5d9cdbe6,0.240038232479,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,6d1f3931902a0431,0.0290478787277,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,7230f8af9577144d,0.596902650059,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,7ffe14cac8d97368,0.00895161436158,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,8836b745ed7d635a,-0.0156138391617,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,8a411c0c56321642,0.200436878522,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,9852a76c9e69d35e,0.398245915876,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,9bd12f466e67b17a,-0.0214930538749,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,a07b063af6fe83b9,0.00259630399539,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,a1785905abdd3254,-0.197402048126,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,a475a3bc6c4eea4d,0.0496360922043,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,a8fab43caebfbd89,0.0435146796131,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,aa0d7d46833e349f,-0.00104853100301,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,ab4ee15345cb0355,0.149803563639,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,ab666d2b1a7593c7,0.123361030285,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,afebe64e5b7011bf,0.260325111748,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,b93395be5060141e,-0.0231066546792,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,ba742be2a5d01143,0.0841603674033,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,bfa05f5580eecf9c,0.0166187746063,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,c7fe755b657fcf6f,0.104181424285,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,cb29ee1f8a7947fd,0.00183466144234,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,db3744c4abf013c3,0.0285985403085,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,db7f272f8ade0360,-0.172781161424,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,e2d6f133de3c5cff,0.101983388554,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,e3d0fcc9aa264b85,0.0279853249408,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,f387a07a62292e17,0.0176034940706,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,f42b5c78909f2bb5,-0.035431858125,held_minus_same_standardized_mae
+BGU-PatCut,Pattern Cutting,TE,f71c3817b1829c08,0.243078480933,held_minus_same_standardized_mae
+JIGSAWS,Knot Tying,GRS,1190aea7c495a811,-0.0146296205412,held_minus_same_standardized_mae
+JIGSAWS,Knot Tying,GRS,58c1ada8121d1280,0.266867539302,held_minus_same_standardized_mae
+JIGSAWS,Knot Tying,GRS,8a6c390ae274f9f3,0.127813760574,held_minus_same_standardized_mae
+JIGSAWS,Knot Tying,GRS,92536147cc9e21f2,0.686991266856,held_minus_same_standardized_mae
+JIGSAWS,Knot Tying,GRS,949f4c809753731d,0.0562923510671,held_minus_same_standardized_mae
+JIGSAWS,Knot Tying,GRS,d76d0a0748367919,-0.088220472456,held_minus_same_standardized_mae
+JIGSAWS,Knot Tying,GRS,e15a94942a3a95ba,0.423514266911,held_minus_same_standardized_mae
+JIGSAWS,Knot Tying,GRS,fd76d6e3edddb153,-0.209718224816,held_minus_same_standardized_mae
+JIGSAWS,Needle Passing,GRS,1190aea7c495a811,0.0778283843125,held_minus_same_standardized_mae
+JIGSAWS,Needle Passing,GRS,58c1ada8121d1280,-0.0208755502595,held_minus_same_standardized_mae
+JIGSAWS,Needle Passing,GRS,8a6c390ae274f9f3,-0.0424858131302,held_minus_same_standardized_mae
+JIGSAWS,Needle Passing,GRS,92536147cc9e21f2,0.213595407272,held_minus_same_standardized_mae
+JIGSAWS,Needle Passing,GRS,949f4c809753731d,0.0637059700875,held_minus_same_standardized_mae
+JIGSAWS,Needle Passing,GRS,d76d0a0748367919,0.394051335745,held_minus_same_standardized_mae
+JIGSAWS,Needle Passing,GRS,e15a94942a3a95ba,-0.36043671242,held_minus_same_standardized_mae
+JIGSAWS,Suturing,GRS,1190aea7c495a811,1.20009170782,held_minus_same_standardized_mae
+JIGSAWS,Suturing,GRS,58c1ada8121d1280,1.01660535673,held_minus_same_standardized_mae
+JIGSAWS,Suturing,GRS,8a6c390ae274f9f3,0.294013494513,held_minus_same_standardized_mae
+JIGSAWS,Suturing,GRS,92536147cc9e21f2,-0.0866738505445,held_minus_same_standardized_mae
+JIGSAWS,Suturing,GRS,949f4c809753731d,0.234101283369,held_minus_same_standardized_mae
+JIGSAWS,Suturing,GRS,d76d0a0748367919,0.121930644085,held_minus_same_standardized_mae
+JIGSAWS,Suturing,GRS,e15a94942a3a95ba,0.151997116565,held_minus_same_standardized_mae
+JIGSAWS,Suturing,GRS,fd76d6e3edddb153,-0.164015359293,held_minus_same_standardized_mae
+ROSMA,Pea on a Peg,Errors,0125e4b846782afa,0.090644021429,held_minus_same_standardized_mae
+ROSMA,Pea on a Peg,Errors,0195bb04ec197e58,-0.0941482471039,held_minus_same_standardized_mae
+ROSMA,Pea on a Peg,Errors,0aa4e69f8271b399,0.0703445667479,held_minus_same_standardized_mae
+ROSMA,Pea on a Peg,Errors,28afec44ecb5a44f,-235.287096471,held_minus_same_standardized_mae
+ROSMA,Pea on a Peg,Errors,771c8a06d6cad5d2,-0.0200662358,held_minus_same_standardized_mae
+ROSMA,Pea on a Peg,Errors,8aefd6243acda362,0.0860628667009,held_minus_same_standardized_mae
+ROSMA,Pea on a Peg,Errors,93693aa0b4f9fa81,0.0419189504073,held_minus_same_standardized_mae
+ROSMA,Pea on a Peg,Errors,b1c4e2d2d98f4082,-0.0899070594345,held_minus_same_standardized_mae
+ROSMA,Pea on a Peg,Errors,c374dce1b2528480,0.0400339751489,held_minus_same_standardized_mae
+ROSMA,Pea on a Peg,Errors,c57f31090140a25b,-0.0339025905852,held_minus_same_standardized_mae
+ROSMA,Pea on a Peg,Errors,c8bc975f0ec5e372,-0.0502939896156,held_minus_same_standardized_mae
+ROSMA,Pea on a Peg,Errors,fafca8d09ec7ea76,-0.102665202999,held_minus_same_standardized_mae
+ROSMA,Post and Sleeve,Errors,0125e4b846782afa,-0.445679955722,held_minus_same_standardized_mae
+ROSMA,Post and Sleeve,Errors,0195bb04ec197e58,-0.133756205565,held_minus_same_standardized_mae
+ROSMA,Post and Sleeve,Errors,0aa4e69f8271b399,0.235896356915,held_minus_same_standardized_mae
+ROSMA,Post and Sleeve,Errors,28afec44ecb5a44f,0.12192102101,held_minus_same_standardized_mae
+ROSMA,Post and Sleeve,Errors,771c8a06d6cad5d2,0.249409838034,held_minus_same_standardized_mae
+ROSMA,Post and Sleeve,Errors,8aefd6243acda362,0.0158455888736,held_minus_same_standardized_mae
+ROSMA,Post and Sleeve,Errors,93693aa0b4f9fa81,0.0760716195045,held_minus_same_standardized_mae
+ROSMA,Post and Sleeve,Errors,b1c4e2d2d98f4082,0.331394946736,held_minus_same_standardized_mae
+ROSMA,Post and Sleeve,Errors,c374dce1b2528480,0.0340378845679,held_minus_same_standardized_mae
+ROSMA,Post and Sleeve,Errors,c57f31090140a25b,-0.0355715975403,held_minus_same_standardized_mae
+ROSMA,Post and Sleeve,Errors,c8bc975f0ec5e372,-0.0971488743856,held_minus_same_standardized_mae
+ROSMA,Post and Sleeve,Errors,fafca8d09ec7ea76,-0.0788156116435,held_minus_same_standardized_mae
+ROSMA,Wire Chaser I,Errors,0125e4b846782afa,-0.163498689126,held_minus_same_standardized_mae
+ROSMA,Wire Chaser I,Errors,0195bb04ec197e58,-0.101630962004,held_minus_same_standardized_mae
+ROSMA,Wire Chaser I,Errors,0aa4e69f8271b399,0.0267270292315,held_minus_same_standardized_mae
+ROSMA,Wire Chaser I,Errors,28afec44ecb5a44f,0.173434769782,held_minus_same_standardized_mae
+ROSMA,Wire Chaser I,Errors,771c8a06d6cad5d2,0.144026955625,held_minus_same_standardized_mae
+ROSMA,Wire Chaser I,Errors,8aefd6243acda362,-0.0501907937246,held_minus_same_standardized_mae
+ROSMA,Wire Chaser I,Errors,93693aa0b4f9fa81,1.49644686693,held_minus_same_standardized_mae
+ROSMA,Wire Chaser I,Errors,b1c4e2d2d98f4082,0.0312245401247,held_minus_same_standardized_mae
+ROSMA,Wire Chaser I,Errors,c374dce1b2528480,-0.00736825083661,held_minus_same_standardized_mae
+ROSMA,Wire Chaser I,Errors,c57f31090140a25b,-0.0104382315314,held_minus_same_standardized_mae
+ROSMA,Wire Chaser I,Errors,c8bc975f0ec5e372,0.00461437409077,held_minus_same_standardized_mae
+ROSMA,Wire Chaser I,Errors,fafca8d09ec7ea76,-0.0558137254525,held_minus_same_standardized_mae

@@ -1,0 +1,375 @@
+endpoint,dataset,task,target_name,metric,estimate,ci_low,ci_high,participants,replicates,protocol,seed,candidate,baseline,model
+protocol_gap,BGU-PatCut,Pattern Cutting,TE,held_minus_same_standardized_mae,0.0744519222774,0.0363274174025,0.116679473671,54,2000,NA,NA,NA,NA,NA
+protocol_gap,JIGSAWS,Knot Tying,GRS,held_minus_same_standardized_mae,0.156113858362,-0.024451213513,0.354499392679,8,2000,NA,NA,NA,NA,NA
+protocol_gap,JIGSAWS,Needle Passing,GRS,held_minus_same_standardized_mae,0.046483288801,-0.108743697077,0.195075361417,7,2000,NA,NA,NA,NA,NA
+protocol_gap,JIGSAWS,Suturing,GRS,held_minus_same_standardized_mae,0.346006299155,0.0459065294423,0.680178909517,8,2000,NA,NA,NA,NA,NA
+protocol_gap,ROSMA,Pea on a Peg,Errors,held_minus_same_standardized_mae,-19.6124229513,-58.8406425522,0.0252622111849,12,2000,NA,NA,NA,NA,NA
+protocol_gap,ROSMA,Post and Sleeve,Errors,held_minus_same_standardized_mae,0.0228004175655,-0.0941338231081,0.13441770248,12,2000,NA,NA,NA,NA,NA
+protocol_gap,ROSMA,Wire Chaser I,Errors,held_minus_same_standardized_mae,0.123961156925,-0.0404776838497,0.39218967319,12,2000,NA,NA,NA,NA,NA
+task_effect,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,-0.00127271736204,-0.00942464728452,0.00632118663647,54,2000,held_out_participant,20260921,I1_duration_removed,I0_unsuppressed,NA
+task_effect,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,0.0145493463198,-0.00570107451527,0.0360396912626,54,2000,held_out_participant,20260921,I2_duration_residualized,I0_unsuppressed,NA
+task_effect,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,0.0292240274199,-0.0375644105306,0.0961870831602,54,2000,held_out_participant,20260921,I3_identity_subspace,I0_unsuppressed,NA
+task_effect,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,-0.0512274951782,-0.097891984802,-0.00659425866074,54,2000,held_out_participant,20260921,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,-0.0246485294248,-0.0713943822467,0.0156581511522,54,2000,held_out_participant,20260921,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,0.0073458818518,-0.0232129959241,0.03848538932,54,2000,held_out_participant,20260921,random_projection,I0_unsuppressed,NA
+task_effect,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,-0.0457720548509,-0.100609149875,-0.00113363167333,54,2000,held_out_participant,20260922,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,-0.0334805592102,-0.0938054981526,0.0124554381341,54,2000,held_out_participant,20260922,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,-0.0666942884281,-0.101372536954,-0.0311268557087,54,2000,held_out_participant,20260923,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,-0.0212074490318,-0.0565778005085,0.0124207448023,54,2000,held_out_participant,20260923,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,0.000347084447876,-0.00501757115821,0.0059873112239,54,2000,same_participant,20260921,I1_duration_removed,I0_unsuppressed,NA
+task_effect,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,0.00257122004061,-0.0110672497847,0.0182276722342,54,2000,same_participant,20260921,I2_duration_residualized,I0_unsuppressed,NA
+task_effect,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,0.0432567535285,0.0063939409984,0.0819447281039,54,2000,same_participant,20260921,I3_identity_subspace,I0_unsuppressed,NA
+task_effect,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,0.0305412893743,0.00689111017746,0.0572257554979,54,2000,same_participant,20260921,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,0.0131335659469,-0.0067019136159,0.034037863862,54,2000,same_participant,20260921,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,-0.00123877337554,-0.00291807353892,0.000328877419914,54,2000,same_participant,20260921,random_projection,I0_unsuppressed,NA
+task_effect,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,0.0159463670414,-0.0153083431269,0.051515496464,54,2000,same_participant,20260922,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,-0.00593171970061,-0.0246707257115,0.0132276603582,54,2000,same_participant,20260922,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,0.0277010613986,-0.000688447097924,0.0560944946921,54,2000,same_participant,20260923,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,0.0170770394967,-0.00126792455472,0.0339079191045,54,2000,same_participant,20260923,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,-0.00651983170024,-0.0374365724583,0.0187996213538,8,2000,held_out_participant,20260921,I1_duration_removed,I0_unsuppressed,NA
+task_effect,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,0.0906826892332,-0.113575012808,0.342626250959,8,2000,held_out_participant,20260921,I2_duration_residualized,I0_unsuppressed,NA
+task_effect,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,0.0422552244601,-0.037001098235,0.128087819349,8,2000,held_out_participant,20260921,I3_identity_subspace,I0_unsuppressed,NA
+task_effect,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,0.0154658139564,-0.204076593229,0.221036846584,8,2000,held_out_participant,20260921,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,0.105492819113,0.0240179174044,0.194533533719,8,2000,held_out_participant,20260921,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,-0.00926123632352,-0.0268220701999,0.0068088265249,8,2000,held_out_participant,20260921,random_projection,I0_unsuppressed,NA
+task_effect,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,0.0321771701609,-0.136418042135,0.187633168843,8,2000,held_out_participant,20260922,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,-0.0770354809833,-0.158434714865,-0.00969199521314,8,2000,held_out_participant,20260922,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,0.0410047826737,-0.0760167846809,0.169840320346,8,2000,held_out_participant,20260923,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,-0.0684118643324,-0.284324466416,0.137606696836,8,2000,held_out_participant,20260923,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,-0.00188529342349,-0.0208388502698,0.0144280622005,8,2000,same_participant,20260921,I1_duration_removed,I0_unsuppressed,NA
+task_effect,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,0.108840692204,-0.0162386482898,0.284211796251,8,2000,same_participant,20260921,I2_duration_residualized,I0_unsuppressed,NA
+task_effect,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,0.0308562160111,0.00988058349522,0.0535959786187,8,2000,same_participant,20260921,I3_identity_subspace,I0_unsuppressed,NA
+task_effect,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,0.180361669562,0.0368294580247,0.317784200329,8,2000,same_participant,20260921,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,-0.0684807009884,-0.188279982831,0.0726799169238,8,2000,same_participant,20260921,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,0.00661501595427,-0.00717625195063,0.0196696990842,8,2000,same_participant,20260921,random_projection,I0_unsuppressed,NA
+task_effect,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,-0.0800014553637,-0.210363869014,0.0647855721097,8,2000,same_participant,20260922,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,-0.063765768362,-0.195700730817,0.0899472464495,8,2000,same_participant,20260922,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,0.0232851718752,-0.138803036162,0.167416397957,8,2000,same_participant,20260923,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,-0.0458970469039,-0.10440793913,0.00572340457494,8,2000,same_participant,20260923,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,-0.00740647950085,-0.0211758473261,0.00280100669744,7,2000,held_out_participant,20260921,I1_duration_removed,I0_unsuppressed,NA
+task_effect,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,0.00848877748983,-0.135021353547,0.11557455051,7,2000,held_out_participant,20260921,I2_duration_residualized,I0_unsuppressed,NA
+task_effect,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,0.125200713042,-0.0180146986872,0.29030458244,7,2000,held_out_participant,20260921,I3_identity_subspace,I0_unsuppressed,NA
+task_effect,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,0.167123068812,0.0406366694578,0.2992935946,7,2000,held_out_participant,20260921,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,0.227339053228,0.025716511205,0.522789999263,7,2000,held_out_participant,20260921,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,0.00983975003968,-0.0119423282414,0.032324993218,7,2000,held_out_participant,20260921,random_projection,I0_unsuppressed,NA
+task_effect,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,0.145659198603,-0.0184888407015,0.299500749391,7,2000,held_out_participant,20260922,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,0.380835483291,0.0595178507788,0.763262996077,7,2000,held_out_participant,20260922,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,0.145741251189,0.0432305941177,0.238080732239,7,2000,held_out_participant,20260923,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,0.0803614485379,-0.192985058252,0.324706622241,7,2000,held_out_participant,20260923,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,-0.000597447446208,-0.0055891409909,0.00384568612792,7,2000,same_participant,20260921,I1_duration_removed,I0_unsuppressed,NA
+task_effect,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,0.0201422803155,-0.0598188155683,0.113163895406,7,2000,same_participant,20260921,I2_duration_residualized,I0_unsuppressed,NA
+task_effect,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,-0.000454754392363,-0.0295097190226,0.0250416920737,7,2000,same_participant,20260921,I3_identity_subspace,I0_unsuppressed,NA
+task_effect,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,0.011017652475,-0.0504833982797,0.0814923512536,7,2000,same_participant,20260921,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,0.0175785583472,-0.0499455468077,0.0887485437199,7,2000,same_participant,20260921,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,-0.00553978809958,-0.0109739026554,0.000562050367524,7,2000,same_participant,20260921,random_projection,I0_unsuppressed,NA
+task_effect,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,0.163369834249,0.0566805194737,0.269241455005,7,2000,same_participant,20260922,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,0.0932471820944,-0.0200596454632,0.215681595766,7,2000,same_participant,20260922,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,0.0228401909832,-0.153679783028,0.15712282605,7,2000,same_participant,20260923,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,-0.0249617582466,-0.097493206971,0.049877410664,7,2000,same_participant,20260923,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Suturing,GRS,standardized_mae_difference,-0.00351390980929,-0.0102591359787,0.00324633412894,8,2000,held_out_participant,20260921,I1_duration_removed,I0_unsuppressed,NA
+task_effect,JIGSAWS,Suturing,GRS,standardized_mae_difference,-0.0133310008747,-0.146788654542,0.0736137691516,8,2000,held_out_participant,20260921,I2_duration_residualized,I0_unsuppressed,NA
+task_effect,JIGSAWS,Suturing,GRS,standardized_mae_difference,-0.0830079473274,-0.336012627642,0.156369228179,8,2000,held_out_participant,20260921,I3_identity_subspace,I0_unsuppressed,NA
+task_effect,JIGSAWS,Suturing,GRS,standardized_mae_difference,-0.0743826836838,-0.197364027752,0.039852959508,8,2000,held_out_participant,20260921,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Suturing,GRS,standardized_mae_difference,0.0273390777026,-0.059329582374,0.100772863464,8,2000,held_out_participant,20260921,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Suturing,GRS,standardized_mae_difference,0.0130506178046,-0.0256707035049,0.0554114174271,8,2000,held_out_participant,20260921,random_projection,I0_unsuppressed,NA
+task_effect,JIGSAWS,Suturing,GRS,standardized_mae_difference,-0.0639386055168,-0.300453300823,0.163997188413,8,2000,held_out_participant,20260922,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Suturing,GRS,standardized_mae_difference,-0.00674434558023,-0.0700366245359,0.0579445256427,8,2000,held_out_participant,20260922,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Suturing,GRS,standardized_mae_difference,-0.109774720191,-0.371111547584,0.0972251622895,8,2000,held_out_participant,20260923,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Suturing,GRS,standardized_mae_difference,0.0529960594037,-0.115820265138,0.223059883739,8,2000,held_out_participant,20260923,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Suturing,GRS,standardized_mae_difference,-0.0114913056026,-0.0351996516837,0.00957330630216,8,2000,same_participant,20260921,I1_duration_removed,I0_unsuppressed,NA
+task_effect,JIGSAWS,Suturing,GRS,standardized_mae_difference,0.0599782391837,0.00806504755942,0.119323374297,8,2000,same_participant,20260921,I2_duration_residualized,I0_unsuppressed,NA
+task_effect,JIGSAWS,Suturing,GRS,standardized_mae_difference,0.0274773673849,-0.101111806292,0.131198348668,8,2000,same_participant,20260921,I3_identity_subspace,I0_unsuppressed,NA
+task_effect,JIGSAWS,Suturing,GRS,standardized_mae_difference,0.0688464699614,-0.0891313433517,0.196587570286,8,2000,same_participant,20260921,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Suturing,GRS,standardized_mae_difference,-0.00592648148839,-0.150680348004,0.136607358606,8,2000,same_participant,20260921,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Suturing,GRS,standardized_mae_difference,0.00753955260269,-0.00990864273383,0.0236767701843,8,2000,same_participant,20260921,random_projection,I0_unsuppressed,NA
+task_effect,JIGSAWS,Suturing,GRS,standardized_mae_difference,-0.155172138011,-0.286998584198,-0.0214858141286,8,2000,same_participant,20260922,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Suturing,GRS,standardized_mae_difference,-0.0327202145048,-0.114453641865,0.0484238206892,8,2000,same_participant,20260922,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Suturing,GRS,standardized_mae_difference,0.0371116007704,-0.0824889562976,0.163840724633,8,2000,same_participant,20260923,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,JIGSAWS,Suturing,GRS,standardized_mae_difference,0.111620834564,0.0223598826469,0.243421797327,8,2000,same_participant,20260923,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,-7.1126391293,-21.3629083227,0.0240451952318,12,2000,held_out_participant,20260921,I1_duration_removed,I0_unsuppressed,NA
+task_effect,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,0.947843942935,0.0158163619971,2.79071387732,12,2000,held_out_participant,20260921,I2_duration_residualized,I0_unsuppressed,NA
+task_effect,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,24.1414557609,-0.0191472519868,72.4094788411,12,2000,held_out_participant,20260921,I3_identity_subspace,I0_unsuppressed,NA
+task_effect,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,2.82054323236,-0.203640189213,8.64353898768,12,2000,held_out_participant,20260921,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,1.37269367356,-0.266718870937,4.45487522939,12,2000,held_out_participant,20260921,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,3.27775088256,0.0056773976847,9.81086789258,12,2000,held_out_participant,20260921,random_projection,I0_unsuppressed,NA
+task_effect,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,-75.6427511194,-226.713718544,0.0103675267137,12,2000,held_out_participant,20260922,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,-89.6266061319,-268.638651858,-0.0588349202319,12,2000,held_out_participant,20260922,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,30.2798429462,-0.241832339718,91.147960815,12,2000,held_out_participant,20260923,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,25.1572372042,-0.183152380448,75.7000538521,12,2000,held_out_participant,20260923,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,-6.79991083688,-20.3669459556,-0.00665665268117,12,2000,same_participant,20260921,I1_duration_removed,I0_unsuppressed,NA
+task_effect,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,-0.0482642351619,-0.188107608512,0.0326719392807,12,2000,same_participant,20260921,I2_duration_residualized,I0_unsuppressed,NA
+task_effect,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,-21.0187533963,-63.070391172,0.0565002345086,12,2000,same_participant,20260921,I3_identity_subspace,I0_unsuppressed,NA
+task_effect,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,-99.2514925772,-297.685221825,0.0329234941977,12,2000,same_participant,20260921,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,-28.5549044222,-85.4125145459,-0.0795650135206,12,2000,same_participant,20260921,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,11.4872353817,-0.0211133604615,34.4856968242,12,2000,same_participant,20260921,random_projection,I0_unsuppressed,NA
+task_effect,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,-141.56127594,-424.307122831,-0.129866212037,12,2000,same_participant,20260922,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,-133.654364581,-400.56342601,-0.164799118419,12,2000,same_participant,20260922,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,161.549330189,-0.0885437843944,484.661951099,12,2000,same_participant,20260923,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,141.18887217,-0.15864889975,423.733116458,12,2000,same_participant,20260923,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,-0.0117149537695,-0.0302001560739,-0.000472567446016,12,2000,held_out_participant,20260921,I1_duration_removed,I0_unsuppressed,NA
+task_effect,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,-0.0185152316406,-0.128740882564,0.0577239780153,12,2000,held_out_participant,20260921,I2_duration_residualized,I0_unsuppressed,NA
+task_effect,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,0.00881803254557,-0.125073487628,0.148668355497,12,2000,held_out_participant,20260921,I3_identity_subspace,I0_unsuppressed,NA
+task_effect,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,-0.0873008854474,-0.198187723203,0.00781055995778,12,2000,held_out_participant,20260921,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,-0.123896741353,-0.279792844453,0.0306922193004,12,2000,held_out_participant,20260921,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,-0.0107635917127,-0.0734424694889,0.0423389248308,12,2000,held_out_participant,20260921,random_projection,I0_unsuppressed,NA
+task_effect,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,0.0358528950033,-0.149600064991,0.249942799499,12,2000,held_out_participant,20260922,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,-0.0487577071529,-0.192823981142,0.0833593640755,12,2000,held_out_participant,20260922,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,-0.0355255482533,-0.175486894569,0.110341876593,12,2000,held_out_participant,20260923,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,0.0381935316822,-0.0672222726571,0.137460216886,12,2000,held_out_participant,20260923,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,-0.00276988339581,-0.0103344242547,0.00354719265091,12,2000,same_participant,20260921,I1_duration_removed,I0_unsuppressed,NA
+task_effect,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,0.00654430237001,-0.031590352277,0.0361693137517,12,2000,same_participant,20260921,I2_duration_residualized,I0_unsuppressed,NA
+task_effect,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,0.0990974459619,0.0262504048998,0.172472590117,12,2000,same_participant,20260921,I3_identity_subspace,I0_unsuppressed,NA
+task_effect,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,0.0426981759628,-0.0688267653715,0.143819751625,12,2000,same_participant,20260921,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,0.0427984685814,-0.0790825445765,0.154552571498,12,2000,same_participant,20260921,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,0.0290133949072,0.00623892010538,0.0521807968403,12,2000,same_participant,20260921,random_projection,I0_unsuppressed,NA
+task_effect,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,0.0962238151986,-0.102977461048,0.249944918829,12,2000,same_participant,20260922,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,0.0532291161547,-0.108582928893,0.204699195882,12,2000,same_participant,20260922,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,0.0473124331285,-0.00960906654101,0.10435317137,12,2000,same_participant,20260923,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,0.102216226145,-0.00852245689062,0.205520396599,12,2000,same_participant,20260923,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,0.00130245618602,-0.0392374540773,0.0420401642168,12,2000,held_out_participant,20260921,I1_duration_removed,I0_unsuppressed,NA
+task_effect,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,-0.018979104005,-0.0481829413209,0.01961359192,12,2000,held_out_participant,20260921,I2_duration_residualized,I0_unsuppressed,NA
+task_effect,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,0.00362762433028,0,0.0108828729908,12,2000,held_out_participant,20260921,I3_identity_subspace,I0_unsuppressed,NA
+task_effect,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,-0.0302987500901,-0.487569057138,0.29775208564,12,2000,held_out_participant,20260921,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,-0.0594431520005,-0.464239826764,0.236686283889,12,2000,held_out_participant,20260921,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,-0.000167079254427,-0.00050123776328,0,12,2000,held_out_participant,20260921,random_projection,I0_unsuppressed,NA
+task_effect,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,-0.0225524574639,-0.393261190928,0.25072797604,12,2000,held_out_participant,20260922,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,-0.0260386254914,-0.218312219269,0.110729431254,12,2000,held_out_participant,20260922,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,-0.133632909253,-0.455725590284,0.12033507765,12,2000,held_out_participant,20260923,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,0.0432167650659,-0.154226663701,0.296519103962,12,2000,held_out_participant,20260923,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,-0.0182449802252,-0.0688342569712,0.0304990083974,12,2000,same_participant,20260921,I1_duration_removed,I0_unsuppressed,NA
+task_effect,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,0.0307581415619,-0.00997232926865,0.0789876363964,12,2000,same_participant,20260921,I2_duration_residualized,I0_unsuppressed,NA
+task_effect,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,0.0580709959435,0.0103967341854,0.103336255923,12,2000,same_participant,20260921,I3_identity_subspace,I0_unsuppressed,NA
+task_effect,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,0.0462833870774,-0.0177269618303,0.125459139913,12,2000,same_participant,20260921,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,-0.0178452634249,-0.21407934533,0.114014653336,12,2000,same_participant,20260921,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,-0.00108684443811,-0.0131509433705,0.0120763375058,12,2000,same_participant,20260921,random_projection,I0_unsuppressed,NA
+task_effect,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,-0.0674587228897,-0.30886938259,0.138897268971,12,2000,same_participant,20260922,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,-0.119958110982,-0.468347187555,0.11172627466,12,2000,same_participant,20260922,I4_shuffled_identity,I4_capacity_lambda0,NA
+task_effect,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,-0.00900400485339,-0.197554219578,0.156694130986,12,2000,same_participant,20260923,I4_adversarial,I4_capacity_lambda0,NA
+task_effect,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,0.0378742332906,-0.0911131038043,0.186122984243,12,2000,same_participant,20260923,I4_shuffled_identity,I4_capacity_lambda0,NA
+held_task_effect_seed_average,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,-0.00127271736204,-0.0087996407493,0.00630299930464,54,2000,held_out_participant,NA,I1_duration_removed,I0_unsuppressed,NA
+held_task_effect_seed_average,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,0.0145493463198,-0.00513999128798,0.0356003751902,54,2000,held_out_participant,NA,I2_duration_residualized,I0_unsuppressed,NA
+held_task_effect_seed_average,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,0.0292240274199,-0.037559468606,0.0905439514859,54,2000,held_out_participant,NA,I3_identity_subspace,I0_unsuppressed,NA
+held_task_effect_seed_average,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,-0.0545646128191,-0.0875397500688,-0.0256559696967,54,2000,held_out_participant,NA,I4_adversarial,I4_capacity_lambda0,NA
+held_task_effect_seed_average,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,-0.0264455125556,-0.0592700179846,0.00237853383096,54,2000,held_out_participant,NA,I4_shuffled_identity,I4_capacity_lambda0,NA
+held_task_effect_seed_average,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,0.0073458818518,-0.0220975340831,0.0387359033201,54,2000,held_out_participant,NA,random_projection,I0_unsuppressed,NA
+held_task_effect_seed_average,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,-0.00651983170024,-0.0391082986072,0.019091868387,8,2000,held_out_participant,NA,I1_duration_removed,I0_unsuppressed,NA
+held_task_effect_seed_average,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,0.0906826892332,-0.10098886541,0.358007082117,8,2000,held_out_participant,NA,I2_duration_residualized,I0_unsuppressed,NA
+held_task_effect_seed_average,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,0.0422552244601,-0.0386199412953,0.131833847597,8,2000,held_out_participant,NA,I3_identity_subspace,I0_unsuppressed,NA
+held_task_effect_seed_average,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,0.029549255597,-0.106597685443,0.151550038006,8,2000,held_out_participant,NA,I4_adversarial,I4_capacity_lambda0,NA
+held_task_effect_seed_average,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,-0.013318175401,-0.0946162125638,0.0642439896009,8,2000,held_out_participant,NA,I4_shuffled_identity,I4_capacity_lambda0,NA
+held_task_effect_seed_average,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,-0.00926123632352,-0.0256502893614,0.00690232184742,8,2000,held_out_participant,NA,random_projection,I0_unsuppressed,NA
+held_task_effect_seed_average,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,-0.00740647950085,-0.0211758473261,0.00247046171715,7,2000,held_out_participant,NA,I1_duration_removed,I0_unsuppressed,NA
+held_task_effect_seed_average,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,0.00848877748983,-0.130233464414,0.114608291662,7,2000,held_out_participant,NA,I2_duration_residualized,I0_unsuppressed,NA
+held_task_effect_seed_average,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,0.125200713042,-0.0180146986872,0.28962147665,7,2000,held_out_participant,NA,I3_identity_subspace,I0_unsuppressed,NA
+held_task_effect_seed_average,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,0.152841172868,0.0952523703935,0.214490979593,7,2000,held_out_participant,NA,I4_adversarial,I4_capacity_lambda0,NA
+held_task_effect_seed_average,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,0.229511995019,0.0624136263869,0.400421732264,7,2000,held_out_participant,NA,I4_shuffled_identity,I4_capacity_lambda0,NA
+held_task_effect_seed_average,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,0.00983975003968,-0.0101838265062,0.0313458863218,7,2000,held_out_participant,NA,random_projection,I0_unsuppressed,NA
+held_task_effect_seed_average,JIGSAWS,Suturing,GRS,standardized_mae_difference,-0.00351390980929,-0.00994786511883,0.00287785618591,8,2000,held_out_participant,NA,I1_duration_removed,I0_unsuppressed,NA
+held_task_effect_seed_average,JIGSAWS,Suturing,GRS,standardized_mae_difference,-0.0133310008747,-0.143788875204,0.072657995504,8,2000,held_out_participant,NA,I2_duration_residualized,I0_unsuppressed,NA
+held_task_effect_seed_average,JIGSAWS,Suturing,GRS,standardized_mae_difference,-0.0830079473274,-0.352027134144,0.169949702736,8,2000,held_out_participant,NA,I3_identity_subspace,I0_unsuppressed,NA
+held_task_effect_seed_average,JIGSAWS,Suturing,GRS,standardized_mae_difference,-0.0826986697971,-0.263413674771,0.0717680887998,8,2000,held_out_participant,NA,I4_adversarial,I4_capacity_lambda0,NA
+held_task_effect_seed_average,JIGSAWS,Suturing,GRS,standardized_mae_difference,0.024530263842,-0.0483331849898,0.100445412854,8,2000,held_out_participant,NA,I4_shuffled_identity,I4_capacity_lambda0,NA
+held_task_effect_seed_average,JIGSAWS,Suturing,GRS,standardized_mae_difference,0.0130506178046,-0.0254265572867,0.0562303387769,8,2000,held_out_participant,NA,random_projection,I0_unsuppressed,NA
+held_task_effect_seed_average,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,-7.1126391293,-21.3641663498,0.0262920771799,12,2000,held_out_participant,NA,I1_duration_removed,I0_unsuppressed,NA
+held_task_effect_seed_average,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,0.947843942935,0.0159013020263,2.78974134713,12,2000,held_out_participant,NA,I2_duration_residualized,I0_unsuppressed,NA
+held_task_effect_seed_average,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,24.1414557609,-0.0191311903019,72.4070848014,12,2000,held_out_participant,NA,I3_identity_subspace,I0_unsuppressed,NA
+held_task_effect_seed_average,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,-14.1807883136,-42.3493482122,-0.056682509004,12,2000,held_out_participant,NA,I4_adversarial,I4_capacity_lambda0,NA
+held_task_effect_seed_average,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,-21.0322250847,-62.8695227363,-0.077065781864,12,2000,held_out_participant,NA,I4_shuffled_identity,I4_capacity_lambda0,NA
+held_task_effect_seed_average,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,3.27775088256,0.00603944725596,9.81052245361,12,2000,held_out_participant,NA,random_projection,I0_unsuppressed,NA
+held_task_effect_seed_average,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,-0.0117149537695,-0.030052370325,-0.000136850447115,12,2000,held_out_participant,NA,I1_duration_removed,I0_unsuppressed,NA
+held_task_effect_seed_average,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,-0.0185152316406,-0.132561753223,0.0563495554902,12,2000,held_out_participant,NA,I2_duration_residualized,I0_unsuppressed,NA
+held_task_effect_seed_average,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,0.00881803254557,-0.124899276177,0.154479719297,12,2000,held_out_participant,NA,I3_identity_subspace,I0_unsuppressed,NA
+held_task_effect_seed_average,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,-0.0289911795658,-0.064226790628,0.0070586216853,12,2000,held_out_participant,NA,I4_adversarial,I4_capacity_lambda0,NA
+held_task_effect_seed_average,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,-0.044820305608,-0.106533242956,0.00836058139912,12,2000,held_out_participant,NA,I4_shuffled_identity,I4_capacity_lambda0,NA
+held_task_effect_seed_average,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,-0.0107635917127,-0.0682012296574,0.0381085151551,12,2000,held_out_participant,NA,random_projection,I0_unsuppressed,NA
+held_task_effect_seed_average,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,0.00130245618602,-0.0425313454391,0.0406313474783,12,2000,held_out_participant,NA,I1_duration_removed,I0_unsuppressed,NA
+held_task_effect_seed_average,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,-0.018979104005,-0.0498535461672,0.0185054899878,12,2000,held_out_participant,NA,I2_duration_residualized,I0_unsuppressed,NA
+held_task_effect_seed_average,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,0.00362762433028,0,0.0108828729908,12,2000,held_out_participant,NA,I3_identity_subspace,I0_unsuppressed,NA
+held_task_effect_seed_average,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,-0.0621613722688,-0.432411938177,0.192920290313,12,2000,held_out_participant,NA,I4_adversarial,I4_capacity_lambda0,NA
+held_task_effect_seed_average,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,-0.0140883374753,-0.262648457507,0.190132701955,12,2000,held_out_participant,NA,I4_shuffled_identity,I4_capacity_lambda0,NA
+held_task_effect_seed_average,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,-0.000167079254427,-0.00050123776328,0,12,2000,held_out_participant,NA,random_projection,I0_unsuppressed,NA
+identity_effect,BGU-PatCut,Pattern Cutting,NA,participant_accuracy_difference,-0.00659120330902,-0.0155058954851,0.00276961501919,54,2000,NA,20260921,I1_duration_removed,I0_unsuppressed,linear_probe
+identity_effect,BGU-PatCut,Pattern Cutting,NA,participant_accuracy_difference,0.00620746395469,-0.00821055109205,0.019794496722,54,2000,NA,20260921,I2_duration_residualized,I0_unsuppressed,linear_probe
+identity_effect,BGU-PatCut,Pattern Cutting,NA,participant_accuracy_difference,-0.0193150602358,-0.0286024720421,-0.00946592505762,54,2000,NA,20260921,I3_identity_subspace,I0_unsuppressed,linear_probe
+identity_effect,BGU-PatCut,Pattern Cutting,NA,participant_accuracy_difference,-0.0620563252383,-0.0960722670162,-0.0276085077934,54,2000,NA,20260921,I4_adversarial,I4_capacity_lambda0,linear_probe
+identity_effect,BGU-PatCut,Pattern Cutting,NA,participant_accuracy_difference,-0.008655599555,-0.0389239925951,0.0217407860524,54,2000,NA,20260921,I4_shuffled_identity,I4_capacity_lambda0,linear_probe
+identity_effect,BGU-PatCut,Pattern Cutting,NA,participant_accuracy_difference,0.000453885257807,-0.00459715799656,0.00546840689504,54,2000,NA,20260921,random_projection,I0_unsuppressed,linear_probe
+identity_effect,BGU-PatCut,Pattern Cutting,NA,participant_accuracy_difference,-0.0406150009411,-0.0833573463238,-0.000335855100348,54,2000,NA,20260922,I4_adversarial,I4_capacity_lambda0,linear_probe
+identity_effect,BGU-PatCut,Pattern Cutting,NA,participant_accuracy_difference,-0.0247612425149,-0.0566875514113,0.00756149530153,54,2000,NA,20260922,I4_shuffled_identity,I4_capacity_lambda0,linear_probe
+identity_effect,BGU-PatCut,Pattern Cutting,NA,participant_accuracy_difference,-0.0417721187436,-0.0775082937215,-0.0063632829431,54,2000,NA,20260923,I4_adversarial,I4_capacity_lambda0,linear_probe
+identity_effect,BGU-PatCut,Pattern Cutting,NA,participant_accuracy_difference,-0.0308136576253,-0.0617925938125,0.00205928330928,54,2000,NA,20260923,I4_shuffled_identity,I4_capacity_lambda0,linear_probe
+identity_effect,BGU-PatCut,Pattern Cutting,NA,participant_accuracy_difference,0.0171836704232,-0.00486254439926,0.0410916304379,54,2000,NA,20260921,I1_duration_removed,I0_unsuppressed,nonlinear_probe
+identity_effect,BGU-PatCut,Pattern Cutting,NA,participant_accuracy_difference,0.0324509762916,0.00524519260932,0.0600366806436,54,2000,NA,20260921,I2_duration_residualized,I0_unsuppressed,nonlinear_probe
+identity_effect,BGU-PatCut,Pattern Cutting,NA,participant_accuracy_difference,-0.0287884477462,-0.0561681058751,-0.00326863828169,54,2000,NA,20260921,I3_identity_subspace,I0_unsuppressed,nonlinear_probe
+identity_effect,BGU-PatCut,Pattern Cutting,NA,participant_accuracy_difference,-0.0812314422182,-0.115506620779,-0.0468396002816,54,2000,NA,20260921,I4_adversarial,I4_capacity_lambda0,nonlinear_probe
+identity_effect,BGU-PatCut,Pattern Cutting,NA,participant_accuracy_difference,-0.0249487937467,-0.0569759687106,0.00936972662729,54,2000,NA,20260921,I4_shuffled_identity,I4_capacity_lambda0,nonlinear_probe
+identity_effect,BGU-PatCut,Pattern Cutting,NA,participant_accuracy_difference,0.0052840598983,-0.0194215579659,0.0297819605444,54,2000,NA,20260921,random_projection,I0_unsuppressed,nonlinear_probe
+identity_effect,BGU-PatCut,Pattern Cutting,NA,participant_accuracy_difference,-0.0721845787063,-0.105160939101,-0.0402160842378,54,2000,NA,20260922,I4_adversarial,I4_capacity_lambda0,nonlinear_probe
+identity_effect,BGU-PatCut,Pattern Cutting,NA,participant_accuracy_difference,-0.0546902928936,-0.0828390923966,-0.0273936571957,54,2000,NA,20260922,I4_shuffled_identity,I4_capacity_lambda0,nonlinear_probe
+identity_effect,BGU-PatCut,Pattern Cutting,NA,participant_accuracy_difference,-0.101346611694,-0.138879242994,-0.0662215326037,54,2000,NA,20260923,I4_adversarial,I4_capacity_lambda0,nonlinear_probe
+identity_effect,BGU-PatCut,Pattern Cutting,NA,participant_accuracy_difference,-0.0458349889509,-0.0789846489394,-0.0120956241156,54,2000,NA,20260923,I4_shuffled_identity,I4_capacity_lambda0,nonlinear_probe
+identity_effect,BGU-SKILLS,Knot Tying,NA,participant_accuracy_difference,-0.000181554103123,-0.0130718954248,0.0154320987654,18,2000,NA,20260921,I1_duration_removed,I0_unsuppressed,linear_probe
+identity_effect,BGU-SKILLS,Knot Tying,NA,participant_accuracy_difference,-0.020171957672,-0.0520791997354,0.0095154612771,18,2000,NA,20260921,I2_duration_residualized,I0_unsuppressed,linear_probe
+identity_effect,BGU-SKILLS,Knot Tying,NA,participant_accuracy_difference,-0.277304440295,-0.368269854238,-0.18223152687,18,2000,NA,20260921,I3_identity_subspace,I0_unsuppressed,linear_probe
+identity_effect,BGU-SKILLS,Knot Tying,NA,participant_accuracy_difference,-0.0884525106339,-0.143039264317,-0.0399178305581,18,2000,NA,20260921,random_projection,I0_unsuppressed,linear_probe
+identity_effect,BGU-SKILLS,Knot Tying,NA,participant_accuracy_difference,-0.00954780060172,-0.0767803649237,0.0619553376906,18,2000,NA,20260921,I1_duration_removed,I0_unsuppressed,nonlinear_probe
+identity_effect,BGU-SKILLS,Knot Tying,NA,participant_accuracy_difference,-0.026367491441,-0.0783153076045,0.0263523349154,18,2000,NA,20260921,I2_duration_residualized,I0_unsuppressed,nonlinear_probe
+identity_effect,BGU-SKILLS,Knot Tying,NA,participant_accuracy_difference,-0.175634142546,-0.236505342878,-0.114723389356,18,2000,NA,20260921,I3_identity_subspace,I0_unsuppressed,nonlinear_probe
+identity_effect,BGU-SKILLS,Knot Tying,NA,participant_accuracy_difference,-0.0244093007573,-0.076539967839,0.0300020586938,18,2000,NA,20260921,random_projection,I0_unsuppressed,nonlinear_probe
+identity_effect,BGU-SKILLS,Ring Tower Transfer,NA,participant_accuracy_difference,0.00925925925926,0,0.0185185185185,18,2000,NA,20260921,I1_duration_removed,I0_unsuppressed,linear_probe
+identity_effect,BGU-SKILLS,Ring Tower Transfer,NA,participant_accuracy_difference,-0.0122905643739,-0.0395723104056,0.0136684303351,18,2000,NA,20260921,I2_duration_residualized,I0_unsuppressed,linear_probe
+identity_effect,BGU-SKILLS,Ring Tower Transfer,NA,participant_accuracy_difference,-0.28475140056,-0.362052598817,-0.209720844356,18,2000,NA,20260921,I3_identity_subspace,I0_unsuppressed,linear_probe
+identity_effect,BGU-SKILLS,Ring Tower Transfer,NA,participant_accuracy_difference,-0.0291167392883,-0.0763916446208,0.0162248579988,18,2000,NA,20260921,random_projection,I0_unsuppressed,linear_probe
+identity_effect,BGU-SKILLS,Ring Tower Transfer,NA,participant_accuracy_difference,0.00508675692499,-0.0403281104108,0.0493827160494,18,2000,NA,20260921,I1_duration_removed,I0_unsuppressed,nonlinear_probe
+identity_effect,BGU-SKILLS,Ring Tower Transfer,NA,participant_accuracy_difference,0.00288217138707,-0.0502898381575,0.0569942097209,18,2000,NA,20260921,I2_duration_residualized,I0_unsuppressed,nonlinear_probe
+identity_effect,BGU-SKILLS,Ring Tower Transfer,NA,participant_accuracy_difference,-0.207830817512,-0.299181061313,-0.120087583645,18,2000,NA,20260921,I3_identity_subspace,I0_unsuppressed,nonlinear_probe
+identity_effect,BGU-SKILLS,Ring Tower Transfer,NA,participant_accuracy_difference,-0.0459267040149,-0.0933724647266,0.0031994047619,18,2000,NA,20260921,random_projection,I0_unsuppressed,nonlinear_probe
+identity_effect,BGU-SKILLS,Suturing,NA,participant_accuracy_difference,0.0198871571421,0.0063543936093,0.0337830288811,18,2000,NA,20260921,I1_duration_removed,I0_unsuppressed,linear_probe
+identity_effect,BGU-SKILLS,Suturing,NA,participant_accuracy_difference,0.0336014747779,-0.00690289648623,0.0723091587062,18,2000,NA,20260921,I2_duration_residualized,I0_unsuppressed,linear_probe
+identity_effect,BGU-SKILLS,Suturing,NA,participant_accuracy_difference,-0.403437657114,-0.478722557399,-0.3283666939,18,2000,NA,20260921,I3_identity_subspace,I0_unsuppressed,linear_probe
+identity_effect,BGU-SKILLS,Suturing,NA,participant_accuracy_difference,0.022353848947,-0.00308641975309,0.0499540441176,18,2000,NA,20260921,random_projection,I0_unsuppressed,linear_probe
+identity_effect,BGU-SKILLS,Suturing,NA,participant_accuracy_difference,0.0293506647673,-0.024593598123,0.0804829339143,18,2000,NA,20260921,I1_duration_removed,I0_unsuppressed,nonlinear_probe
+identity_effect,BGU-SKILLS,Suturing,NA,participant_accuracy_difference,0.0373442824423,-0.0365059912854,0.109742123345,18,2000,NA,20260921,I2_duration_residualized,I0_unsuppressed,nonlinear_probe
+identity_effect,BGU-SKILLS,Suturing,NA,participant_accuracy_difference,-0.309638777163,-0.421347882102,-0.213753290668,18,2000,NA,20260921,I3_identity_subspace,I0_unsuppressed,nonlinear_probe
+identity_effect,BGU-SKILLS,Suturing,NA,participant_accuracy_difference,0.0093954248366,-0.0586419753086,0.0896423384168,18,2000,NA,20260921,random_projection,I0_unsuppressed,nonlinear_probe
+identity_effect,JIGSAWS,Knot Tying,NA,participant_accuracy_difference,0,0,0,8,2000,NA,20260921,I1_duration_removed,I0_unsuppressed,linear_probe
+identity_effect,JIGSAWS,Knot Tying,NA,participant_accuracy_difference,-0.0729166666667,-0.166666666667,0,8,2000,NA,20260921,I2_duration_residualized,I0_unsuppressed,linear_probe
+identity_effect,JIGSAWS,Knot Tying,NA,participant_accuracy_difference,-0.03125,-0.09375,0,8,2000,NA,20260921,I3_identity_subspace,I0_unsuppressed,linear_probe
+identity_effect,JIGSAWS,Knot Tying,NA,participant_accuracy_difference,0.08125,-0.025,0.18125,8,2000,NA,20260921,I4_adversarial,I4_capacity_lambda0,linear_probe
+identity_effect,JIGSAWS,Knot Tying,NA,participant_accuracy_difference,0.00625,-0.075,0.09375,8,2000,NA,20260921,I4_shuffled_identity,I4_capacity_lambda0,linear_probe
+identity_effect,JIGSAWS,Knot Tying,NA,participant_accuracy_difference,-0.03125,-0.09375,0,8,2000,NA,20260921,random_projection,I0_unsuppressed,linear_probe
+identity_effect,JIGSAWS,Knot Tying,NA,participant_accuracy_difference,0.0291666666667,-0.15,0.208541666667,8,2000,NA,20260922,I4_adversarial,I4_capacity_lambda0,linear_probe
+identity_effect,JIGSAWS,Knot Tying,NA,participant_accuracy_difference,0.0125,-0.125,0.175,8,2000,NA,20260922,I4_shuffled_identity,I4_capacity_lambda0,linear_probe
+identity_effect,JIGSAWS,Knot Tying,NA,participant_accuracy_difference,0.0395833333333,-0.166666666667,0.252083333333,8,2000,NA,20260923,I4_adversarial,I4_capacity_lambda0,linear_probe
+identity_effect,JIGSAWS,Knot Tying,NA,participant_accuracy_difference,0.0583333333333,-0.1875,0.316666666667,8,2000,NA,20260923,I4_shuffled_identity,I4_capacity_lambda0,linear_probe
+identity_effect,JIGSAWS,Knot Tying,NA,participant_accuracy_difference,0.04375,-0.06875,0.125,8,2000,NA,20260921,I1_duration_removed,I0_unsuppressed,nonlinear_probe
+identity_effect,JIGSAWS,Knot Tying,NA,participant_accuracy_difference,-0.227083333333,-0.450052083333,-0.025,8,2000,NA,20260921,I2_duration_residualized,I0_unsuppressed,nonlinear_probe
+identity_effect,JIGSAWS,Knot Tying,NA,participant_accuracy_difference,-0.139583333333,-0.339583333333,0.04375,8,2000,NA,20260921,I3_identity_subspace,I0_unsuppressed,nonlinear_probe
+identity_effect,JIGSAWS,Knot Tying,NA,participant_accuracy_difference,0.0854166666667,-0.0688020833333,0.233333333333,8,2000,NA,20260921,I4_adversarial,I4_capacity_lambda0,nonlinear_probe
+identity_effect,JIGSAWS,Knot Tying,NA,participant_accuracy_difference,-0.0416666666667,-0.15,0.05,8,2000,NA,20260921,I4_shuffled_identity,I4_capacity_lambda0,nonlinear_probe
+identity_effect,JIGSAWS,Knot Tying,NA,participant_accuracy_difference,0.0354166666667,-0.0958333333333,0.160416666667,8,2000,NA,20260921,random_projection,I0_unsuppressed,nonlinear_probe
+identity_effect,JIGSAWS,Knot Tying,NA,participant_accuracy_difference,0.175,-0.025,0.3875,8,2000,NA,20260922,I4_adversarial,I4_capacity_lambda0,nonlinear_probe
+identity_effect,JIGSAWS,Knot Tying,NA,participant_accuracy_difference,0.129166666667,-0.025,0.2875,8,2000,NA,20260922,I4_shuffled_identity,I4_capacity_lambda0,nonlinear_probe
+identity_effect,JIGSAWS,Knot Tying,NA,participant_accuracy_difference,-0.00833333333333,-0.2625,0.21875,8,2000,NA,20260923,I4_adversarial,I4_capacity_lambda0,nonlinear_probe
+identity_effect,JIGSAWS,Knot Tying,NA,participant_accuracy_difference,-0.00833333333333,-0.312604166667,0.258333333333,8,2000,NA,20260923,I4_shuffled_identity,I4_capacity_lambda0,nonlinear_probe
+identity_effect,JIGSAWS,Needle Passing,NA,participant_accuracy_difference,0.0285714285714,0,0.0857142857143,7,2000,NA,20260921,I1_duration_removed,I0_unsuppressed,linear_probe
+identity_effect,JIGSAWS,Needle Passing,NA,participant_accuracy_difference,0.0285714285714,0,0.0857142857143,7,2000,NA,20260921,I2_duration_residualized,I0_unsuppressed,linear_probe
+identity_effect,JIGSAWS,Needle Passing,NA,participant_accuracy_difference,0,0,0,7,2000,NA,20260921,I3_identity_subspace,I0_unsuppressed,linear_probe
+identity_effect,JIGSAWS,Needle Passing,NA,participant_accuracy_difference,-0.145238095238,-0.419047619048,0.128571428571,7,2000,NA,20260921,I4_adversarial,I4_capacity_lambda0,linear_probe
+identity_effect,JIGSAWS,Needle Passing,NA,participant_accuracy_difference,0.00952380952381,-0.166666666667,0.185714285714,7,2000,NA,20260921,I4_shuffled_identity,I4_capacity_lambda0,linear_probe
+identity_effect,JIGSAWS,Needle Passing,NA,participant_accuracy_difference,0,0,0,7,2000,NA,20260921,random_projection,I0_unsuppressed,linear_probe
+identity_effect,JIGSAWS,Needle Passing,NA,participant_accuracy_difference,0.00952380952381,-0.261904761905,0.235833333333,7,2000,NA,20260922,I4_adversarial,I4_capacity_lambda0,linear_probe
+identity_effect,JIGSAWS,Needle Passing,NA,participant_accuracy_difference,0.0714285714286,-0.05,0.178571428571,7,2000,NA,20260922,I4_shuffled_identity,I4_capacity_lambda0,linear_probe
+identity_effect,JIGSAWS,Needle Passing,NA,participant_accuracy_difference,-0.116666666667,-0.345238095238,0.0714285714286,7,2000,NA,20260923,I4_adversarial,I4_capacity_lambda0,linear_probe
+identity_effect,JIGSAWS,Needle Passing,NA,participant_accuracy_difference,-0.111904761905,-0.314285714286,0.0928571428571,7,2000,NA,20260923,I4_shuffled_identity,I4_capacity_lambda0,linear_probe
+identity_effect,JIGSAWS,Needle Passing,NA,participant_accuracy_difference,-0.102380952381,-0.321428571429,0.0571428571429,7,2000,NA,20260921,I1_duration_removed,I0_unsuppressed,nonlinear_probe
+identity_effect,JIGSAWS,Needle Passing,NA,participant_accuracy_difference,-0.0714285714286,-0.233392857143,0.107142857143,7,2000,NA,20260921,I2_duration_residualized,I0_unsuppressed,nonlinear_probe
+identity_effect,JIGSAWS,Needle Passing,NA,participant_accuracy_difference,-0.0833333333333,-0.207202380952,0.0380952380952,7,2000,NA,20260921,I3_identity_subspace,I0_unsuppressed,nonlinear_probe
+identity_effect,JIGSAWS,Needle Passing,NA,participant_accuracy_difference,-0.195238095238,-0.380952380952,0.00482142857143,7,2000,NA,20260921,I4_adversarial,I4_capacity_lambda0,nonlinear_probe
+identity_effect,JIGSAWS,Needle Passing,NA,participant_accuracy_difference,0.05,-0.0785714285714,0.2,7,2000,NA,20260921,I4_shuffled_identity,I4_capacity_lambda0,nonlinear_probe
+identity_effect,JIGSAWS,Needle Passing,NA,participant_accuracy_difference,0.0547619047619,-0.0571428571429,0.178571428571,7,2000,NA,20260921,random_projection,I0_unsuppressed,nonlinear_probe
+identity_effect,JIGSAWS,Needle Passing,NA,participant_accuracy_difference,-0.0619047619048,-0.369047619048,0.211904761905,7,2000,NA,20260922,I4_adversarial,I4_capacity_lambda0,nonlinear_probe
+identity_effect,JIGSAWS,Needle Passing,NA,participant_accuracy_difference,-0.0404761904762,-0.361904761905,0.238214285714,7,2000,NA,20260922,I4_shuffled_identity,I4_capacity_lambda0,nonlinear_probe
+identity_effect,JIGSAWS,Needle Passing,NA,participant_accuracy_difference,-0.130952380952,-0.361904761905,0.1,7,2000,NA,20260923,I4_adversarial,I4_capacity_lambda0,nonlinear_probe
+identity_effect,JIGSAWS,Needle Passing,NA,participant_accuracy_difference,0.0642857142857,-0.135714285714,0.285714285714,7,2000,NA,20260923,I4_shuffled_identity,I4_capacity_lambda0,nonlinear_probe
+identity_effect,JIGSAWS,Suturing,NA,participant_accuracy_difference,0.03125,0,0.09375,8,2000,NA,20260921,I1_duration_removed,I0_unsuppressed,linear_probe
+identity_effect,JIGSAWS,Suturing,NA,participant_accuracy_difference,0,0,0,8,2000,NA,20260921,I2_duration_residualized,I0_unsuppressed,linear_probe
+identity_effect,JIGSAWS,Suturing,NA,participant_accuracy_difference,-0.4125,-0.6,-0.2375,8,2000,NA,20260921,I3_identity_subspace,I0_unsuppressed,linear_probe
+identity_effect,JIGSAWS,Suturing,NA,participant_accuracy_difference,-0.09375,-0.325,0.0875,8,2000,NA,20260921,I4_adversarial,I4_capacity_lambda0,linear_probe
+identity_effect,JIGSAWS,Suturing,NA,participant_accuracy_difference,-0.025,-0.15,0.075,8,2000,NA,20260921,I4_shuffled_identity,I4_capacity_lambda0,linear_probe
+identity_effect,JIGSAWS,Suturing,NA,participant_accuracy_difference,0,0,0,8,2000,NA,20260921,random_projection,I0_unsuppressed,linear_probe
+identity_effect,JIGSAWS,Suturing,NA,participant_accuracy_difference,-0.0625,-0.2625,0.125,8,2000,NA,20260922,I4_adversarial,I4_capacity_lambda0,linear_probe
+identity_effect,JIGSAWS,Suturing,NA,participant_accuracy_difference,-0.0125,-0.2375,0.2,8,2000,NA,20260922,I4_shuffled_identity,I4_capacity_lambda0,linear_probe
+identity_effect,JIGSAWS,Suturing,NA,participant_accuracy_difference,-0.025,-0.175,0.125,8,2000,NA,20260923,I4_adversarial,I4_capacity_lambda0,linear_probe
+identity_effect,JIGSAWS,Suturing,NA,participant_accuracy_difference,0.025,-0.1,0.15,8,2000,NA,20260923,I4_shuffled_identity,I4_capacity_lambda0,linear_probe
+identity_effect,JIGSAWS,Suturing,NA,participant_accuracy_difference,0.03125,-0.05,0.11875,8,2000,NA,20260921,I1_duration_removed,I0_unsuppressed,nonlinear_probe
+identity_effect,JIGSAWS,Suturing,NA,participant_accuracy_difference,0.00625,-0.14375,0.1375,8,2000,NA,20260921,I2_duration_residualized,I0_unsuppressed,nonlinear_probe
+identity_effect,JIGSAWS,Suturing,NA,participant_accuracy_difference,-0.21875,-0.375,-0.0375,8,2000,NA,20260921,I3_identity_subspace,I0_unsuppressed,nonlinear_probe
+identity_effect,JIGSAWS,Suturing,NA,participant_accuracy_difference,-0.04375,-0.35,0.16875,8,2000,NA,20260921,I4_adversarial,I4_capacity_lambda0,nonlinear_probe
+identity_effect,JIGSAWS,Suturing,NA,participant_accuracy_difference,0.0875,-0.2,0.3375,8,2000,NA,20260921,I4_shuffled_identity,I4_capacity_lambda0,nonlinear_probe
+identity_effect,JIGSAWS,Suturing,NA,participant_accuracy_difference,0.00625,-0.15,0.1625,8,2000,NA,20260921,random_projection,I0_unsuppressed,nonlinear_probe
+identity_effect,JIGSAWS,Suturing,NA,participant_accuracy_difference,0.175,0.025,0.325,8,2000,NA,20260922,I4_adversarial,I4_capacity_lambda0,nonlinear_probe
+identity_effect,JIGSAWS,Suturing,NA,participant_accuracy_difference,0.2125,0.1,0.325,8,2000,NA,20260922,I4_shuffled_identity,I4_capacity_lambda0,nonlinear_probe
+identity_effect,JIGSAWS,Suturing,NA,participant_accuracy_difference,0.14375,0.00625,0.275,8,2000,NA,20260923,I4_adversarial,I4_capacity_lambda0,nonlinear_probe
+identity_effect,JIGSAWS,Suturing,NA,participant_accuracy_difference,0.0625,-0.1375,0.25,8,2000,NA,20260923,I4_shuffled_identity,I4_capacity_lambda0,nonlinear_probe
+identity_effect,ROSMA,Pea on a Peg,NA,participant_accuracy_difference,0.0138888888889,-0.0555555555556,0.0972222222222,12,2000,NA,20260921,I1_duration_removed,I0_unsuppressed,linear_probe
+identity_effect,ROSMA,Pea on a Peg,NA,participant_accuracy_difference,0.0138888888889,-0.0694444444444,0.0833333333333,12,2000,NA,20260921,I2_duration_residualized,I0_unsuppressed,linear_probe
+identity_effect,ROSMA,Pea on a Peg,NA,participant_accuracy_difference,-0.155555555556,-0.280555555556,-0.0277777777778,12,2000,NA,20260921,I3_identity_subspace,I0_unsuppressed,linear_probe
+identity_effect,ROSMA,Pea on a Peg,NA,participant_accuracy_difference,-0.0444444444444,-0.127777777778,0.0388888888889,12,2000,NA,20260921,I4_adversarial,I4_capacity_lambda0,linear_probe
+identity_effect,ROSMA,Pea on a Peg,NA,participant_accuracy_difference,-0.0444444444444,-0.113888888889,0.0416666666667,12,2000,NA,20260921,I4_shuffled_identity,I4_capacity_lambda0,linear_probe
+identity_effect,ROSMA,Pea on a Peg,NA,participant_accuracy_difference,-0.0416666666667,-0.125,0.0277777777778,12,2000,NA,20260921,random_projection,I0_unsuppressed,linear_probe
+identity_effect,ROSMA,Pea on a Peg,NA,participant_accuracy_difference,-0.0944444444444,-0.208333333333,0.00555555555556,12,2000,NA,20260922,I4_adversarial,I4_capacity_lambda0,linear_probe
+identity_effect,ROSMA,Pea on a Peg,NA,participant_accuracy_difference,-0.111111111111,-0.222222222222,-0.0138888888889,12,2000,NA,20260922,I4_shuffled_identity,I4_capacity_lambda0,linear_probe
+identity_effect,ROSMA,Pea on a Peg,NA,participant_accuracy_difference,-0.0305555555556,-0.108402777778,0.0666666666667,12,2000,NA,20260923,I4_adversarial,I4_capacity_lambda0,linear_probe
+identity_effect,ROSMA,Pea on a Peg,NA,participant_accuracy_difference,-0.0444444444444,-0.138888888889,0.0555555555556,12,2000,NA,20260923,I4_shuffled_identity,I4_capacity_lambda0,linear_probe
+identity_effect,ROSMA,Pea on a Peg,NA,participant_accuracy_difference,0.0416666666667,-0.0138888888889,0.111111111111,12,2000,NA,20260921,I1_duration_removed,I0_unsuppressed,nonlinear_probe
+identity_effect,ROSMA,Pea on a Peg,NA,participant_accuracy_difference,0.025,-0.111180555556,0.163888888889,12,2000,NA,20260921,I2_duration_residualized,I0_unsuppressed,nonlinear_probe
+identity_effect,ROSMA,Pea on a Peg,NA,participant_accuracy_difference,0.0527777777778,-0.119513888889,0.208541666667,12,2000,NA,20260921,I3_identity_subspace,I0_unsuppressed,nonlinear_probe
+identity_effect,ROSMA,Pea on a Peg,NA,participant_accuracy_difference,0.0555555555556,-0.0138888888889,0.125,12,2000,NA,20260921,I4_adversarial,I4_capacity_lambda0,nonlinear_probe
+identity_effect,ROSMA,Pea on a Peg,NA,participant_accuracy_difference,0.0583333333333,-0.0277777777778,0.152777777778,12,2000,NA,20260921,I4_shuffled_identity,I4_capacity_lambda0,nonlinear_probe
+identity_effect,ROSMA,Pea on a Peg,NA,participant_accuracy_difference,0.108333333333,-0.0166666666667,0.236111111111,12,2000,NA,20260921,random_projection,I0_unsuppressed,nonlinear_probe
+identity_effect,ROSMA,Pea on a Peg,NA,participant_accuracy_difference,0.0166666666667,-0.0694444444444,0.0916666666667,12,2000,NA,20260922,I4_adversarial,I4_capacity_lambda0,nonlinear_probe
+identity_effect,ROSMA,Pea on a Peg,NA,participant_accuracy_difference,-0.0361111111111,-0.152777777778,0.0805555555556,12,2000,NA,20260922,I4_shuffled_identity,I4_capacity_lambda0,nonlinear_probe
+identity_effect,ROSMA,Pea on a Peg,NA,participant_accuracy_difference,0.0805555555556,-0.0305555555556,0.205625,12,2000,NA,20260923,I4_adversarial,I4_capacity_lambda0,nonlinear_probe
+identity_effect,ROSMA,Pea on a Peg,NA,participant_accuracy_difference,0.0555555555556,-0.0833333333333,0.180555555556,12,2000,NA,20260923,I4_shuffled_identity,I4_capacity_lambda0,nonlinear_probe
+identity_effect,ROSMA,Post and Sleeve,NA,participant_accuracy_difference,0.00972222222222,-0.0527777777778,0.0791666666667,12,2000,NA,20260921,I1_duration_removed,I0_unsuppressed,linear_probe
+identity_effect,ROSMA,Post and Sleeve,NA,participant_accuracy_difference,0.0319444444444,-0.0444444444444,0.118055555556,12,2000,NA,20260921,I2_duration_residualized,I0_unsuppressed,linear_probe
+identity_effect,ROSMA,Post and Sleeve,NA,participant_accuracy_difference,-0.2125,-0.301423611111,-0.123576388889,12,2000,NA,20260921,I3_identity_subspace,I0_unsuppressed,linear_probe
+identity_effect,ROSMA,Post and Sleeve,NA,participant_accuracy_difference,-0.161111111111,-0.294444444444,-0.0277777777778,12,2000,NA,20260921,I4_adversarial,I4_capacity_lambda0,linear_probe
+identity_effect,ROSMA,Post and Sleeve,NA,participant_accuracy_difference,-0.147222222222,-0.277777777778,-0.0138888888889,12,2000,NA,20260921,I4_shuffled_identity,I4_capacity_lambda0,linear_probe
+identity_effect,ROSMA,Post and Sleeve,NA,participant_accuracy_difference,-0.0333333333333,-0.0944444444444,0.0222222222222,12,2000,NA,20260921,random_projection,I0_unsuppressed,linear_probe
+identity_effect,ROSMA,Post and Sleeve,NA,participant_accuracy_difference,-0.00277777777778,-0.0777777777778,0.0833333333333,12,2000,NA,20260922,I4_adversarial,I4_capacity_lambda0,linear_probe
+identity_effect,ROSMA,Post and Sleeve,NA,participant_accuracy_difference,-0.0888888888889,-0.197222222222,0.0138888888889,12,2000,NA,20260922,I4_shuffled_identity,I4_capacity_lambda0,linear_probe
+identity_effect,ROSMA,Post and Sleeve,NA,participant_accuracy_difference,-0.0583333333333,-0.168055555556,0.0764236111111,12,2000,NA,20260923,I4_adversarial,I4_capacity_lambda0,linear_probe
+identity_effect,ROSMA,Post and Sleeve,NA,participant_accuracy_difference,-0.0722222222222,-0.188888888889,0.0597916666667,12,2000,NA,20260923,I4_shuffled_identity,I4_capacity_lambda0,linear_probe
+identity_effect,ROSMA,Post and Sleeve,NA,participant_accuracy_difference,-0.0902777777778,-0.201388888889,0.0208333333333,12,2000,NA,20260921,I1_duration_removed,I0_unsuppressed,nonlinear_probe
+identity_effect,ROSMA,Post and Sleeve,NA,participant_accuracy_difference,-0.0625,-0.159756944444,0.0472222222222,12,2000,NA,20260921,I2_duration_residualized,I0_unsuppressed,nonlinear_probe
+identity_effect,ROSMA,Post and Sleeve,NA,participant_accuracy_difference,-0.234722222222,-0.350034722222,-0.118055555556,12,2000,NA,20260921,I3_identity_subspace,I0_unsuppressed,nonlinear_probe
+identity_effect,ROSMA,Post and Sleeve,NA,participant_accuracy_difference,0.00138888888889,-0.208333333333,0.183333333333,12,2000,NA,20260921,I4_adversarial,I4_capacity_lambda0,nonlinear_probe
+identity_effect,ROSMA,Post and Sleeve,NA,participant_accuracy_difference,-0.0125,-0.2,0.158333333333,12,2000,NA,20260921,I4_shuffled_identity,I4_capacity_lambda0,nonlinear_probe
+identity_effect,ROSMA,Post and Sleeve,NA,participant_accuracy_difference,-0.0180555555556,-0.118055555556,0.0791666666667,12,2000,NA,20260921,random_projection,I0_unsuppressed,nonlinear_probe
+identity_effect,ROSMA,Post and Sleeve,NA,participant_accuracy_difference,0.0916666666667,0.00555555555556,0.172222222222,12,2000,NA,20260922,I4_adversarial,I4_capacity_lambda0,nonlinear_probe
+identity_effect,ROSMA,Post and Sleeve,NA,participant_accuracy_difference,0.0638888888889,-0.0277777777778,0.163888888889,12,2000,NA,20260922,I4_shuffled_identity,I4_capacity_lambda0,nonlinear_probe
+identity_effect,ROSMA,Post and Sleeve,NA,participant_accuracy_difference,-0.127777777778,-0.25,-0.0110416666667,12,2000,NA,20260923,I4_adversarial,I4_capacity_lambda0,nonlinear_probe
+identity_effect,ROSMA,Post and Sleeve,NA,participant_accuracy_difference,-0.0583333333333,-0.202847222222,0.0972222222222,12,2000,NA,20260923,I4_shuffled_identity,I4_capacity_lambda0,nonlinear_probe
+identity_effect,ROSMA,Wire Chaser I,NA,participant_accuracy_difference,0.0694444444444,-0.0555555555556,0.236111111111,12,2000,NA,20260921,I1_duration_removed,I0_unsuppressed,linear_probe
+identity_effect,ROSMA,Wire Chaser I,NA,participant_accuracy_difference,0.125,0.0277777777778,0.263888888889,12,2000,NA,20260921,I2_duration_residualized,I0_unsuppressed,linear_probe
+identity_effect,ROSMA,Wire Chaser I,NA,participant_accuracy_difference,-0.0444444444444,-0.155555555556,0.0694444444444,12,2000,NA,20260921,I3_identity_subspace,I0_unsuppressed,linear_probe
+identity_effect,ROSMA,Wire Chaser I,NA,participant_accuracy_difference,-0.0944444444444,-0.205555555556,0.00833333333333,12,2000,NA,20260921,I4_adversarial,I4_capacity_lambda0,linear_probe
+identity_effect,ROSMA,Wire Chaser I,NA,participant_accuracy_difference,-0.0944444444444,-0.216666666667,0.00555555555556,12,2000,NA,20260921,I4_shuffled_identity,I4_capacity_lambda0,linear_probe
+identity_effect,ROSMA,Wire Chaser I,NA,participant_accuracy_difference,0.025,-0.0527777777778,0.136180555556,12,2000,NA,20260921,random_projection,I0_unsuppressed,linear_probe
+identity_effect,ROSMA,Wire Chaser I,NA,participant_accuracy_difference,-0.0722222222222,-0.169444444444,0.025,12,2000,NA,20260922,I4_adversarial,I4_capacity_lambda0,linear_probe
+identity_effect,ROSMA,Wire Chaser I,NA,participant_accuracy_difference,-0.147222222222,-0.280625,-0.0166666666667,12,2000,NA,20260922,I4_shuffled_identity,I4_capacity_lambda0,linear_probe
+identity_effect,ROSMA,Wire Chaser I,NA,participant_accuracy_difference,-0.0166666666667,-0.116666666667,0.0833333333333,12,2000,NA,20260923,I4_adversarial,I4_capacity_lambda0,linear_probe
+identity_effect,ROSMA,Wire Chaser I,NA,participant_accuracy_difference,-0.0444444444444,-0.130555555556,0.0277777777778,12,2000,NA,20260923,I4_shuffled_identity,I4_capacity_lambda0,linear_probe
+identity_effect,ROSMA,Wire Chaser I,NA,participant_accuracy_difference,0.0527777777778,-0.0861805555556,0.205555555556,12,2000,NA,20260921,I1_duration_removed,I0_unsuppressed,nonlinear_probe
+identity_effect,ROSMA,Wire Chaser I,NA,participant_accuracy_difference,0.0361111111111,-0.144444444444,0.227847222222,12,2000,NA,20260921,I2_duration_residualized,I0_unsuppressed,nonlinear_probe
+identity_effect,ROSMA,Wire Chaser I,NA,participant_accuracy_difference,-0.0333333333333,-0.144444444444,0.0916666666667,12,2000,NA,20260921,I3_identity_subspace,I0_unsuppressed,nonlinear_probe
+identity_effect,ROSMA,Wire Chaser I,NA,participant_accuracy_difference,-0.0888888888889,-0.238958333333,0.0416666666667,12,2000,NA,20260921,I4_adversarial,I4_capacity_lambda0,nonlinear_probe
+identity_effect,ROSMA,Wire Chaser I,NA,participant_accuracy_difference,-0.0583333333333,-0.200069444444,0.0639583333333,12,2000,NA,20260921,I4_shuffled_identity,I4_capacity_lambda0,nonlinear_probe
+identity_effect,ROSMA,Wire Chaser I,NA,participant_accuracy_difference,-0.0194444444444,-0.166666666667,0.138888888889,12,2000,NA,20260921,random_projection,I0_unsuppressed,nonlinear_probe
+identity_effect,ROSMA,Wire Chaser I,NA,participant_accuracy_difference,0.0361111111111,-0.0805555555556,0.152777777778,12,2000,NA,20260922,I4_adversarial,I4_capacity_lambda0,nonlinear_probe
+identity_effect,ROSMA,Wire Chaser I,NA,participant_accuracy_difference,-0.0222222222222,-0.158472222222,0.0972222222222,12,2000,NA,20260922,I4_shuffled_identity,I4_capacity_lambda0,nonlinear_probe
+identity_effect,ROSMA,Wire Chaser I,NA,participant_accuracy_difference,-0.0138888888889,-0.125,0.0972222222222,12,2000,NA,20260923,I4_adversarial,I4_capacity_lambda0,nonlinear_probe
+identity_effect,ROSMA,Wire Chaser I,NA,participant_accuracy_difference,0.0194444444444,-0.108333333333,0.133333333333,12,2000,NA,20260923,I4_shuffled_identity,I4_capacity_lambda0,nonlinear_probe
+skill_effect,JIGSAWS,Knot Tying,NA,skill_accuracy_difference,0,0,0,8,2000,NA,20260921,I1_duration_removed,I0_unsuppressed,skill_logistic
+skill_effect,JIGSAWS,Knot Tying,NA,skill_accuracy_difference,0.00625,-0.075,0.09375,8,2000,NA,20260921,I2_duration_residualized,I0_unsuppressed,skill_logistic
+skill_effect,JIGSAWS,Knot Tying,NA,skill_accuracy_difference,-0.025,-0.075,0,8,2000,NA,20260921,I3_identity_subspace,I0_unsuppressed,skill_logistic
+skill_effect,JIGSAWS,Knot Tying,NA,skill_accuracy_difference,0.0416666666667,-0.1,0.191666666667,8,2000,NA,20260921,I4_adversarial,I4_capacity_lambda0,skill_logistic
+skill_effect,JIGSAWS,Knot Tying,NA,skill_accuracy_difference,0,0,0,8,2000,NA,20260921,random_projection,I0_unsuppressed,skill_logistic
+skill_effect,JIGSAWS,Knot Tying,NA,skill_accuracy_difference,0.00625,-0.075,0.09375,8,2000,NA,20260922,I4_adversarial,I4_capacity_lambda0,skill_logistic
+skill_effect,JIGSAWS,Knot Tying,NA,skill_accuracy_difference,0.075,0.025,0.15,8,2000,NA,20260923,I4_adversarial,I4_capacity_lambda0,skill_logistic
+skill_effect,JIGSAWS,Needle Passing,NA,skill_accuracy_difference,0,0,0,7,2000,NA,20260921,I1_duration_removed,I0_unsuppressed,skill_logistic
+skill_effect,JIGSAWS,Needle Passing,NA,skill_accuracy_difference,0,0,0,7,2000,NA,20260921,I2_duration_residualized,I0_unsuppressed,skill_logistic
+skill_effect,JIGSAWS,Needle Passing,NA,skill_accuracy_difference,0,0,0,7,2000,NA,20260921,I3_identity_subspace,I0_unsuppressed,skill_logistic
+skill_effect,JIGSAWS,Needle Passing,NA,skill_accuracy_difference,-0.0142857142857,-0.190654761905,0.164285714286,7,2000,NA,20260921,I4_adversarial,I4_capacity_lambda0,skill_logistic
+skill_effect,JIGSAWS,Needle Passing,NA,skill_accuracy_difference,0,0,0,7,2000,NA,20260921,random_projection,I0_unsuppressed,skill_logistic
+skill_effect,JIGSAWS,Needle Passing,NA,skill_accuracy_difference,0.15,-0.1025,0.385714285714,7,2000,NA,20260922,I4_adversarial,I4_capacity_lambda0,skill_logistic
+skill_effect,JIGSAWS,Needle Passing,NA,skill_accuracy_difference,-0.133333333333,-0.340476190476,0.0478571428571,7,2000,NA,20260923,I4_adversarial,I4_capacity_lambda0,skill_logistic
+skill_effect,JIGSAWS,Suturing,NA,skill_accuracy_difference,0,0,0,8,2000,NA,20260921,I1_duration_removed,I0_unsuppressed,skill_logistic
+skill_effect,JIGSAWS,Suturing,NA,skill_accuracy_difference,0,0,0,8,2000,NA,20260921,I2_duration_residualized,I0_unsuppressed,skill_logistic
+skill_effect,JIGSAWS,Suturing,NA,skill_accuracy_difference,0.025,-0.075625,0.125,8,2000,NA,20260921,I3_identity_subspace,I0_unsuppressed,skill_logistic
+skill_effect,JIGSAWS,Suturing,NA,skill_accuracy_difference,0.03125,-0.05,0.11875,8,2000,NA,20260921,I4_adversarial,I4_capacity_lambda0,skill_logistic
+skill_effect,JIGSAWS,Suturing,NA,skill_accuracy_difference,0.05,0,0.125,8,2000,NA,20260921,random_projection,I0_unsuppressed,skill_logistic
+skill_effect,JIGSAWS,Suturing,NA,skill_accuracy_difference,0.1,0.025,0.175,8,2000,NA,20260922,I4_adversarial,I4_capacity_lambda0,skill_logistic
+skill_effect,JIGSAWS,Suturing,NA,skill_accuracy_difference,0.08125,-0.05,0.225,8,2000,NA,20260923,I4_adversarial,I4_capacity_lambda0,skill_logistic
