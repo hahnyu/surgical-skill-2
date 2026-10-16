@@ -90,6 +90,22 @@ language, and reporting matrices with:
 .venv/bin/python scripts/validate_phase6.py
 ```
 
-Author-supplied submission metadata still required by a journal is isolated in
-[`paper/submission_checklist.md`](paper/submission_checklist.md); it does not
-alter the locked scientific analysis.
+The generic Phase 6 checklist remains in
+[`paper/submission_checklist.md`](paper/submission_checklist.md). The completed
+journal-specific files are described below and do not alter the locked
+scientific analysis.
+
+## IJCARS submission package
+
+The journal-specific LaTeX source, numbered vector figures, Online Resource 1,
+cover letter, ethics-determination language, and final PDFs are under
+[`submission/ijcars/`](submission/ijcars/) and [`output/pdf/`](output/pdf/).
+Build and validate them with:
+
+```bash
+.venv/bin/python submission/ijcars/build_submission.py
+.venv/bin/python scripts/validate_ijcars_submission.py
+```
+
+The manuscript intentionally retains one highlighted AI-use disclosure for the
+human authors to replace in their own words before submission.

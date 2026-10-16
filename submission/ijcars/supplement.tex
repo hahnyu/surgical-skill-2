@@ -1,0 +1,573 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{calc}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks]{hyperref}
+\providecommand{\doi}[1]{\href{https://doi.org/#1}{https://doi.org/#1}}
+\setlength{\emergencystretch}{3em}
+\setlength{\parindent}{1.5em}
+\setlength{\parskip}{0.25em}
+\linespread{1.18}
+\sloppy
+\renewcommand{\refname}{References}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\real}[1]{#1}
+\title{Supplementary Information: Operator identity and out-of-user generalization in automated surgical skill assessment: a multi-dataset evaluation}
+\author{Hamilton Jeong\textsuperscript{1,*}, Zaid Elnasser\textsuperscript{1},
+Laurienne Jeong\textsuperscript{1}, Bhumika Iroji\textsuperscript{2},\\
+Su\'elia de Siqueira Rodrigues Fleury Rosa\textsuperscript{3}\\[0.5em]
+\small International Journal of Computer Assisted Radiology and Surgery\\
+\small \textsuperscript{1}College of Agriculture and Life Sciences, Cornell University, Ithaca, NY, USA\\
+\small \textsuperscript{2}College of Engineering, Cornell University, Ithaca, NY, USA\\
+\small \textsuperscript{3}Meinig School of Biomedical Engineering, Cornell University, Ithaca, NY, USA\\
+\small \textsuperscript{*}Corresponding author: \href{mailto:hhj22@cornell.edu}{hhj22@cornell.edu}}
+\date{}
+\begin{document}
+\maketitle
+
+\section{S1. Purpose and locked analysis
+boundary}\label{s1.-purpose-and-locked-analysis-boundary}
+
+This supplement documents the study population, outcome provenance,
+preprocessing, folds, models, interventions, inference, robustness
+analyses, deviations, and reproducibility controls. It accompanies the
+Phase 5 locked outputs. No model was refit for manuscript preparation.
+The exact private out-of-fold inputs were verified against
+\texttt{data/manifests/phase3\_artifacts.csv} and
+\texttt{data/manifests/phase4\_artifacts.csv}; Phase 5 derived all
+inferential summaries from those files.
+
+The protocol was frozen as Git tag \texttt{protocol-v1} on 21 September
+2026. The Phase 5 artifact manifest is
+\texttt{data/manifests/phase5\_artifacts.csv}, whose locked manifest
+SHA-256 is
+\texttt{a4345fc8cdcb50b90e286914ff6dec8ec1c7373e248f60a260c4eaf11f0d9bc3}.
+
+\section{S2. Dataset acquisition, licenses, and
+cohorts}\label{s2.-dataset-acquisition-licenses-and-cohorts}
+
+\subsection{S2.1 JIGSAWS}\label{s2.1-jigsaws}
+
+The JHU-ISI Gesture and Skill Assessment Working Set contains
+synchronized kinematics, video, task transcriptions, modified-OSATS
+ratings, and self-declared experience groups \citep{Ahmidi2017}. Access
+is governed by an academic research agreement. An authorized local copy
+was connected by a Git-ignored symbolic link; raw or participant-level
+derived records were not committed. We used 36 knot-tying, 28
+needle-passing, and 39 suturing trials after exact matching of
+kinematics, transcriptions, and ratings. Needle passing represented
+seven participants; the other tasks represented eight.
+
+Total GRS was verified as the sum of six rating elements for every
+included trial. The novice/intermediate/expert label was treated as
+person-constant and was not represented as a trial-varying expert
+judgment.
+
+\subsection{S2.2 ROSMA}\label{s2.2-rosma}
+
+ROSMA version \texttt{10.5281/zenodo.7100542} is distributed under CC BY
+4.0 and contains kinematics and task scoring for 12 participants
+\citep{RivasBlanco2023, ROSMAData2022}. Exact kinematic-score matching
+yielded 71 pea-on-a-peg, 65 post-and-sleeve, and 70 wire-chaser-I
+trials. The deposited score table had one additional wire-chaser target
+without matching kinematics. Observed task errors were retained.
+Completion time and the composite source score were excluded because
+their formulas use duration, which is directly represented in the
+inputs.
+
+Errors were zero inflated: 30/71 pea-on-a-peg, 14/65 post-and-sleeve,
+and 17/70 wire-chaser trials had nonzero errors. A deposited
+pea-on-a-peg record contained isolated finite coordinate spikes. They
+were retained because the protocol prohibited discretionary post-result
+exclusion.
+
+\subsection{S2.3 BGU-SKILLS}\label{s2.3-bgu-skills}
+
+BGU-SKILLS version 1.0 (\texttt{10.17617/3.CYSIAP}) is distributed under
+CC BY 4.0 \citep{Sharon2025, BGUSkillsData2025}. The study enrolled 21
+residents and reported three withdrawals, leaving 18 participants and
+972 scheduled trials. We followed the source inclusion notes, retaining
+311 knot-tying, 312 ring-transfer, and 315 suturing trials (938 total).
+Completion time, path length, and orientation-change rate are direct
+functions of kinematics and were ineligible as independent outcomes. The
+dataset therefore contributed to identity recovery and longitudinal
+robustness only.
+
+\subsection{S2.4 BGU-PatCut}\label{s2.4-bgu-patcut}
+
+BGU-PatCut version 2.1 (\texttt{10.17617/3.JK4ANF}) is distributed under
+CC BY 4.0 \citep{SharonPatCut2024, PatCutData2024}. The cohort comprised
+30 force-perturbation and 24 motion-perturbation participants, each
+scheduled for 24 trials. Source missing-trial lists yielded 700 and 554
+available trials, respectively. Total cutting error
+(\texttt{TE\ =\ Eoutside\ +\ Einside}) was verified for each participant
+and retained because it was measured from an independent post-trial
+gauze image. Task time and the composite efficiency score were excluded
+because they contain duration.
+
+\subsection{S2.5 Cohort summary}\label{s2.5-cohort-summary}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1765}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1765}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2353}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2353}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1765}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Dataset
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Tasks
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Trials
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Participants
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Performance-analysis role
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+JIGSAWS & Knot tying; needle passing; suturing & 103 & 8 overall &
+Expert-rated GRS; person-level mechanism \\
+ROSMA & Pea on a peg; post and sleeve; wire chaser I & 206 & 12 &
+Objective error counts \\
+BGU-SKILLS & Knot tying; ring tower transfer; suturing & 938 & 18 &
+Identity and longitudinal analysis only \\
+BGU-PatCut & Pattern cutting & 1,254 & 54 & Image-derived total cutting
+error \\
+\end{longtable}
+}
+
+The sum is 2,501 trials and 92 dataset-participants. Cohorts were
+distinct; the count does not assert that identity was linked across
+datasets.
+
+\section{S3. Target provenance and construct
+language}\label{s3.-target-provenance-and-construct-language}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Dataset
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Retained target
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Measurement source
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Permitted interpretation
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+JIGSAWS & GRS & Sum of six expert modified-OSATS ratings & Expert-rated
+trial performance \\
+JIGSAWS & experience class & Self-declared label fixed by person &
+Person-level mechanism diagnostic \\
+ROSMA & task errors & Observed task-specific error/drop count &
+Objective task performance \\
+BGU-PatCut & total cutting error & Post-trial image deviation &
+Objective pattern-cutting accuracy \\
+BGU-SKILLS & none & Source metrics derive from kinematics & No
+independent performance target \\
+\end{longtable}
+}
+
+The manuscript does not call ROSMA, BGU-PatCut, or BGU-SKILLS
+dataset-native metrics expert skill ratings. It makes no claim about
+clinical outcomes, competence, certification, or patient safety.
+
+\section{S4. Deterministic
+preprocessing}\label{s4.-deterministic-preprocessing}
+
+Each loader emitted one record per complete trial with a source hash,
+participant and trial keys, task, repetition/session/condition metadata,
+outcome provenance, task duration, and two timestamped position streams.
+Source identifiers were used to build groups but were never model
+predictors. Committed fold files use 16-character SHA-256-derived opaque
+keys.
+
+Task windows followed source annotations. For each arm, features were
+sampling rate; path length; speed mean, standard deviation, and
+10th/50th/90th quantiles; mean and 90th-quantile absolute acceleration;
+mean and 90th-quantile absolute jerk; idle fraction below 0.001 m/s;
+workspace bounding-box volume; and recording-gap fraction. Gripper mean,
+standard deviation, range, and total variation were included where
+available. Cross-arm features were aligned-speed correlation and
+path-length asymmetry. Duration and arm sample counts were included as
+direct duration equivalents.
+
+Non-finite rows and duplicate/backward timestamps were removed where
+applicable. A displacement spanning more than three median sampling
+intervals was excluded from path and derivative calculations.
+Interpolated values farther than 2.5 nominal samples from an observation
+were excluded from bimanual correlation. Imputation, scaling,
+residualization, identity fitting, and hyperparameter selection were
+trained within the applicable outer-training fold.
+
+Two end-to-end extractions produced an identical private feature-matrix
+hash:
+\texttt{\{=latex\}\ \textbackslash{}nolinkurl\{0c351007805f52f41459f622faa3c979f0b410685006763fbfcba1fc431a1e50\}}.
+
+\section{S5. Fold construction and leakage
+protection}\label{s5.-fold-construction-and-leakage-protection}
+
+The same-participant manifest assigned complete trials by source
+repetition: five folds for JIGSAWS, six for ROSMA and BGU-SKILLS, and 24
+for BGU-PatCut. Every participant-task group occupied at least two
+folds. The held-out-participant manifest used one fold per participant
+for JIGSAWS, ROSMA, and BGU-SKILLS and 10 balanced participant groups
+for BGU-PatCut. A participant was indivisible across tasks and trials in
+held-out evaluation.
+
+Nested validation matched the intended outer unit. In a
+held-out-participant outer fold, inner splits also held out complete
+training participants. The outer test fold could not influence
+imputation, scaling, ridge penalty, logistic regularization, identity
+direction, projection rank, adversarial lambda, or probe
+hyperparameters. A leakage canary confirmed that identifier-derived
+columns were rejected from production predictors and yielded perfect
+identity prediction only when intentionally exposed.
+
+\section{S6. Baseline models and
+diagnostics}\label{s6.-baseline-models-and-diagnostics}
+
+Continuous targets used a training-fold mean/median reference,
+duration-only ridge, and full-feature ridge. Ridge alpha was selected
+from \texttt{\{0.1,\ 1,\ 10,\ 100,\ 1000\}}. JIGSAWS skill class used
+majority, duration-only multinomial logistic, and full-feature
+multinomial logistic models; C was selected from
+\texttt{\{0.01,\ 0.1,\ 1,\ 10\}}.
+
+Fresh identity probes used multinomial logistic regression and random
+forest. Phase 3 forests used 200 trees; Phase 4 used 30 trees to limit
+the intervention grid's compute cost, a dated deviation that retained
+the same nonlinear model family. Phase 3 ran 50 record-wise identity
+permutations per dataset-task, 50 continuous-outcome negative-control
+permutations per eligible dataset-task, and 200 paired participant-wise
+and record-wise skill permutations per JIGSAWS task.
+
+The JIGSAWS replication compared six skill-accuracy and six GRS-MAE
+endpoints with the earlier study \citep{Hamilton2026Paper1}. Eleven of
+12 were within frozen tolerances. Held-out-person needle-passing GRS MAE
+was 3.063 here versus 4.910 previously, a 1.8467-point difference beyond
+the 1.0-point tolerance. The present pipeline used 41 harmonized
+variables, transcription windows, exact repetition folds, fold-local
+preprocessing, and nested penalty selection; the earlier pipeline used
+16 features at 5 Hz. This discrepancy is reported rather than treated as
+an independent replication success.
+
+\section{S7. Intervention algorithms}\label{s7.-intervention-algorithms}
+
+\subsection{S7.1 I1: direct duration
+removal}\label{s7.1-i1-direct-duration-removal}
+
+I1 removed \texttt{duration\_s}, \texttt{psm1\_samples}, and
+\texttt{psm2\_samples}. All remaining processing matched I0.
+
+\subsection{S7.2 I2: fold-local duration
+residualization}\label{s7.2-i2-fold-local-duration-residualization}
+
+Within each training fold, every non-duration feature was regressed on
+duration. The fixed coefficients were applied to validation and test
+rows. Scaling and prediction remained training fold local.
+
+\subsection{S7.3 I3: linear identity-subspace
+removal}\label{s7.3-i3-linear-identity-subspace-removal}
+
+Within each outer-training fold, a regularized multinomial participant
+classifier produced a coefficient row space. Candidate ranks were
+\texttt{\{0,1,2,4,8,16\}}, clipped to the training fold's maximum
+identity rank. For data with a performance target, inner validation
+retained ranks with task MAE within 0.05 training-target SD of rank zero
+and selected the one with lowest fresh linear identity accuracy,
+breaking ties toward smaller rank. For BGU-SKILLS, selection used
+identity accuracy alone. The fixed projection was applied to the outer
+test fold. This procedure resembles linear guarding by iterative
+nullspace projection \citep{Ravfogel2020}, while using the prespecified
+coefficient-span implementation.
+
+A random orthogonal projection removed the same fold-specific dimension.
+It controlled for capacity loss without targeting identity.
+
+\subsection{S7.4 I4: adversarial summary
+representation}\label{s7.4-i4-adversarial-summary-representation}
+
+I4 used a 32-unit hidden layer, 8-unit latent layer, linear task head,
+and multinomial identity head. Gradient reversal multiplied the
+encoder's identity-loss gradient by negative lambda while the identity
+head minimized cross-entropy \citep{Ganin2016}. Candidate lambda values
+were \texttt{\{0,0.01,0.1,0.3,1.0\}}. Two participant-safe inner splits
+and 30 selection epochs chose the lowest identity-head training accuracy
+among candidates with task MAE within 0.05 training-target SD of lambda
+zero; final models trained for 80 epochs at learning rate 0.01 and
+weight decay 0.0001. Three fixed seeds were used. Controls were the same
+architecture at lambda zero and the selected lambda with shuffled
+identity labels.
+
+\section{S8. Verification and locked primary
+decision}\label{s8.-verification-and-locked-primary-decision}
+
+Representations were frozen before fresh probes were trained. I4 versus
+its capacity control changed linear balanced accuracy by -0.048 (95\%
+interval -0.082 to -0.015) and nonlinear accuracy by -0.003 (-0.038 to
++0.032). Because the nonlinear interval did not verify reduction, I4
+failed the two-probe rule. I3 versus I0 changed linear accuracy by
+-0.184 (-0.215 to -0.151) and nonlinear accuracy by -0.138 (-0.175 to
+-0.098), so I3 became the primary comparison before held-out task
+effects were inspected.
+
+The dimension-matched random projection was worse than I3 by +0.167 on
+the linear probe and +0.149 on the nonlinear probe. Duration removal and
+residualization did not reproduce I3's joint reduction.
+
+\section{S9. Inference}\label{s9.-inference}
+
+The independent resampling unit was the participant. Participant-average
+metrics gave each participant equal weight irrespective of trial count.
+Intervals used 2,000 percentile bootstrap replicates within
+dataset-task. For identity verification, groups were averaged equally
+and I4 additionally averaged its three seeds. Leave-one-participant
+summaries were calculated for every primary estimand.
+
+The held-out-task standardized effect for trial \emph{i} was
+
+\[\frac{|y_i-\widehat{y}_{i,I3}|-|y_i-\widehat{y}_{i,I0}|}{\operatorname{SD}(y_{\mathrm{training,outer\ fold}})}.\]
+
+Negative values favor I3. Participant means were then averaged.
+Native-scale effects used the same paired numerator without
+standardization. Protocol gaps used the analogous held-out minus
+same-participant error after protocol-specific training-fold
+standardization.
+
+Empirical permutation \emph{p} values used
+\texttt{(1\ +\ count(null\ \textgreater{}=\ observed))\ /\ (1\ +\ number\ of\ permutations)}
+with the appropriate directional statistic. No correction across tasks
+was used because the analysis reports task-specific estimands and treats
+the permutation results as replicated diagnostics.
+
+\section{S10. Full locked numerical
+results}\label{s10.-full-locked-numerical-results}
+
+\subsection{S10.1 Unsuppressed identity
+recovery}\label{s10.1-unsuppressed-identity-recovery}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lrrr@{}}
+\toprule\noalign{}
+Dataset/task & Linear BA & Nonlinear BA & Record-wise null median \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+JIGSAWS / Knot Tying & 0.869 & 0.827 & 0.084 \\
+JIGSAWS / Needle Passing & 0.943 & 0.840 & 0.064 \\
+JIGSAWS / Suturing & 0.944 & 0.844 & 0.075 \\
+ROSMA / Pea on a Peg & 0.381 & 0.397 & 0.056 \\
+ROSMA / Post and Sleeve & 0.446 & 0.381 & 0.062 \\
+ROSMA / Wire Chaser I & 0.228 & 0.431 & 0.060 \\
+BGU-SKILLS / Knot Tying & 0.530 & 0.393 & 0.051 \\
+BGU-SKILLS / Ring Tower Transfer & 0.596 & 0.487 & 0.050 \\
+BGU-SKILLS / Suturing & 0.762 & 0.618 & 0.049 \\
+BGU-PatCut / Pattern Cutting & 0.834 & 0.750 & 0.016 \\
+\end{longtable}
+}
+
+Each full-feature probe exceeded its 50-permutation record-wise null at
+empirical \emph{p}=0.0196.
+
+\subsection{S10.2 JIGSAWS skill
+permutations}\label{s10.2-jigsaws-skill-permutations}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1579}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2105}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2105}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2105}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2105}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Task
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Observed
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Participant-wise median {[}95\% range{]}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Record-wise median {[}95\% range{]}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Empirical \emph{p}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Knot Tying & 0.917 & 0.778 {[}0.610, 0.917{]} & 0.306 {[}0.167, 0.501{]}
+& 0.004975 \\
+Needle Passing & 0.964 & 0.875 {[}0.750, 1.000{]} & 0.321 {[}0.143,
+0.501{]} & 0.004975 \\
+Suturing & 0.872 & 0.923 {[}0.846, 0.974{]} & 0.359 {[}0.179, 0.538{]} &
+0.004975 \\
+\end{longtable}
+}
+
+\subsection{S10.3 Primary held-out-participant
+effects}\label{s10.3-primary-held-out-participant-effects}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2727}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3636}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3636}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Dataset/task
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Standardized I3-I0 MAE {[}95\% interval{]}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Native I3-I0 MAE {[}95\% interval{]}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+BGU-PatCut / Pattern Cutting & +0.029 {[}-0.038, +0.091{]} & +487.183
+{[}-648.849, +1,613.362{]} \\
+JIGSAWS / Knot Tying & +0.042 {[}-0.039, +0.132{]} & +0.205 {[}-0.195,
++0.604{]} \\
+JIGSAWS / Needle Passing & +0.125 {[}-0.018, +0.290{]} & +0.618
+{[}-0.045, +1.400{]} \\
+JIGSAWS / Suturing & -0.083 {[}-0.352, +0.170{]} & -0.401 {[}-1.757,
++0.938{]} \\
+ROSMA / Pea on a Peg & +24.141 {[}-0.019, +72.407{]} & +28.858
+{[}-0.020, +86.539{]} \\
+ROSMA / Post and Sleeve & +0.009 {[}-0.125, +0.154{]} & +0.005
+{[}-0.072, +0.086{]} \\
+ROSMA / Wire Chaser I & +0.004 {[}+0.000, +0.011{]} & +0.003 {[}0.000,
++0.008{]} \\
+\end{longtable}
+}
+
+The compatible ranges are the study's practical precision statement.
+With no validated cross-dataset clinical threshold and no equivalence
+margin, intervals crossing zero are not evidence of equivalence. The
+pea-on-a-peg standardized result is dominated by small fold-specific
+training SDs and should be read with its native result and source
+anomaly.
+
+\subsection{S10.4 Same-participant JIGSAWS skill
+effects}\label{s10.4-same-participant-jigsaws-skill-effects}
+
+I3 minus I0 participant-average accuracy was -0.025 {[}-0.075, 0.000{]}
+for knot tying, 0.000 {[}0.000, 0.000{]} for needle passing, and +0.025
+{[}-0.100, +0.125{]} for suturing. The direction was not consistent.
+
+\section{S11. Robustness and influence
+analyses}\label{s11.-robustness-and-influence-analyses}
+
+Fold-local I3 selected positive rank in 112/144 outer folds. I4 selected
+nonzero lambda in 116/126 folds: 0.01 twice, 0.1 fourteen times, 0.3
+forty-six times, and 1.0 fifty-four times; ten folds retained zero.
+Across I4 seeds, JIGSAWS skill-accuracy ranges were at most 0.179.
+Identity-probe seed ranges had median 0.072 and maximum 0.225.
+
+Participant-level task effects, protocol gaps, identity effects, skill
+effects, and leave-one-participant summaries are in
+\texttt{results/locked/}. The 748,000 bootstrap replicate rows and 5,226
+leave-one rows are preserved in machine-readable files. The supplement
+tables in \texttt{results/tables/} document fold composition, selected
+hyperparameters, missingness, and seed stability.
+
+\section{S12. Deviations from the prospective
+plan}\label{s12.-deviations-from-the-prospective-plan}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Phase 0 and Phase 1 were completed in one working session. The
+  protocol was still frozen before model fitting.
+\item
+  Source inspection required explicit non-finite-row and time-gap
+  handling. These rules were fixed before modeling and tested
+  deterministically.
+\item
+  The initial same-participant fold draft rotated assignments by
+  participant. It was corrected to exact repetition mapping before the
+  first Phase 3 prediction.
+\item
+  I4 used a summary-feature MLP instead of the planned sequence encoder
+  because Phase 2 had frozen summary representations rather than
+  resampled sequences. This limits claims to summary features.
+\item
+  Phase 4 nonlinear probes used 30 trees rather than Phase 3's 200 to
+  control intervention-grid cost. The nonlinear model family and
+  participant-safe tuning remained unchanged.
+\item
+  Phase 5 regenerated inference from hashed Phase 3/4 predictions rather
+  than refitting under a new commit. This preserved the recorded
+  generating commit and enabled exact reproducibility.
+\item
+  Optional BGU component-outcome post hoc models and per-epoch I4 loss
+  exports were not produced. Neither was required for the locked primary
+  endpoint.
+\end{enumerate}
+
+No deviation changed the participants, primary targets, validation unit,
+primary estimand, participant-level inference, or prespecified I4-to-I3
+fallback rule after task effects were inspected.
+
+\section{S13. Relationship to the earlier JIGSAWS
+study}\label{s13.-relationship-to-the-earlier-jigsaws-study}
+
+The earlier manuscript, ``What does a surgical skill model measure?
+Quantifying identity confounding and miscalibration on JIGSAWS,''
+analyzed the same 103 JIGSAWS trials \citep{Hamilton2026Paper1}. It
+reported same-person versus held-person performance, identity recovery,
+label permutations, calibration, selective prediction, and a commercial
+zero-shot model. The present work reproduces its central
+protocol/identity diagnosis using a different 41-feature representation
+and exact fold-local pipeline, then extends the question to three
+external datasets and directly intervenes on identity representations.
+It does not reuse or re-report the commercial model, calibration, or
+selective-prediction analyses. The JIGSAWS results are therefore
+overlapping replication and extension evidence, not an independent
+cohort.
+
+\section{S14. Reproduction}\label{s14.-reproduction}
+
+After authorized data acquisition and environment setup, run:
+
+\begin{verbatim}
+.venv/bin/python scripts/run_phase5_locked.py
+.venv/bin/python scripts/validate_phase6.py
+\end{verbatim}
+
+The Phase 5 command validates Phases 1--4, verifies private artifact
+hashes, builds Phase 5 twice, compares every output hash, runs the test
+suite, and applies the Phase 5 validator. The Phase 6 validator checks
+manuscript structure, bibliography keys, locked numerical statements,
+overlap disclosure, construct language, and the claim-evidence/reporting
+matrices.
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+\end{document}

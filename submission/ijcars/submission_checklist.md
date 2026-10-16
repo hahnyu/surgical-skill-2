@@ -1,0 +1,23 @@
+# IJCARS submission checklist
+
+- [x] Total manuscript word count is 4,245, including title, author details, abstract, references, captions, and tables as IJCARS specifies; this is within the recommended 3,000–5,000-word range.
+- [x] Structured Purpose/Methods/Results/Conclusion abstract trimmed to 200–300 words.
+- [x] Four to six keywords.
+- [x] Author names, affiliations, and corresponding-author email.
+- [x] Single-column editable LaTeX source.
+- [x] Numbered citations in order of first appearance and DOI-bearing bibliography where available.
+- [x] Five numbered manuscript tables with captions.
+- [x] Six numbered vector figures with captions, cited in order.
+- [x] Separate detailed supplement named `ESM_1.pdf`, cited as Online Resource 1 and carrying the title, journal, authors, affiliations, and corresponding-author email.
+- [x] Funding statement: no funding.
+- [x] Competing-interest statement: no financial or non-financial competing interests.
+- [x] Ethics statement limited to existing de-identified secondary data, with no invented approval number.
+- [x] Consent statements.
+- [x] Data and code availability statement.
+- [x] Patient and public involvement statement.
+- [x] Author-contribution statement drafted for author confirmation.
+- [x] Cover letter discloses Paper 1 overlap and explains the distinct contribution.
+- [x] PDF rendering and citation validation completed.
+- [ ] Human author replaces the AI-use placeholder with a personal disclosure.
+- [ ] All authors confirm the contribution statement and approve the final files.
+- [ ] Obtain a Cornell IRB confirmation letter only if requested by the editor or desired by the authors.
