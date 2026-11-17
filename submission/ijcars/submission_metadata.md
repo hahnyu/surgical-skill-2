@@ -13,8 +13,7 @@
 1. Hamilton Jeong — College of Agriculture and Life Sciences, Cornell University
 2. Zaid Elnasser — College of Agriculture and Life Sciences, Cornell University
 3. Laurienne Jeong — College of Agriculture and Life Sciences, Cornell University
-4. Bhumika Iroji — College of Engineering, Cornell University
-5. Suélia de Siqueira Rodrigues Fleury Rosa — Meinig School of Biomedical Engineering, Cornell University
+4. Suélia de Siqueira Rodrigues Fleury Rosa — Meinig School of Biomedical Engineering, Cornell University
 
 **Corresponding author:** Hamilton Jeong, hhj22@cornell.edu
 **Address:** College of Agriculture and Life Sciences, Cornell University, 215 Garden Avenue, Ithaca, NY 14850, USA

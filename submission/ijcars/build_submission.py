@@ -28,12 +28,11 @@ TITLE = (
 
 AUTHORS_TEX = r"""
 \author{Hamilton Jeong\textsuperscript{1,*}, Zaid Elnasser\textsuperscript{1},
-Laurienne Jeong\textsuperscript{1}, Bhumika Iroji\textsuperscript{2},\\
-Su\'elia de Siqueira Rodrigues Fleury Rosa\textsuperscript{3}\\[0.75em]
+Laurienne Jeong\textsuperscript{1},\\
+Su\'elia de Siqueira Rodrigues Fleury Rosa\textsuperscript{2}\\[0.75em]
 \small \textsuperscript{1}College of Agriculture and Life Sciences, Cornell University,\\
 \small 215 Garden Avenue, Ithaca, NY 14850, USA\\
-\small \textsuperscript{2}College of Engineering, Cornell University, 313 Campus Road, Ithaca, NY 14850, USA\\
-\small \textsuperscript{3}Meinig School of Biomedical Engineering, Cornell University,\\
+\small \textsuperscript{2}Meinig School of Biomedical Engineering, Cornell University,\\
 \small 237 Tower Road, Ithaca, NY 14850, USA\\[0.5em]
 \small \textsuperscript{*}Corresponding author: \href{mailto:hhj22@cornell.edu}{hhj22@cornell.edu}}
 """.strip()
@@ -56,12 +55,11 @@ ABSTRACT_TEX = r"""
 
 SUPPLEMENT_AUTHORS_TEX = r"""
 \author{Hamilton Jeong\textsuperscript{1,*}, Zaid Elnasser\textsuperscript{1},
-Laurienne Jeong\textsuperscript{1}, Bhumika Iroji\textsuperscript{2},\\
-Su\'elia de Siqueira Rodrigues Fleury Rosa\textsuperscript{3}\\[0.5em]
+Laurienne Jeong\textsuperscript{1},\\
+Su\'elia de Siqueira Rodrigues Fleury Rosa\textsuperscript{2}\\[0.5em]
 \small International Journal of Computer Assisted Radiology and Surgery\\
 \small \textsuperscript{1}College of Agriculture and Life Sciences, Cornell University, Ithaca, NY, USA\\
-\small \textsuperscript{2}College of Engineering, Cornell University, Ithaca, NY, USA\\
-\small \textsuperscript{3}Meinig School of Biomedical Engineering, Cornell University, Ithaca, NY, USA\\
+\small \textsuperscript{2}Meinig School of Biomedical Engineering, Cornell University, Ithaca, NY, USA\\
 \small \textsuperscript{*}Corresponding author: \href{mailto:hhj22@cornell.edu}{hhj22@cornell.edu}}
 """.strip()
 

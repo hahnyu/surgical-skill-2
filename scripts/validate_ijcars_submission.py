@@ -53,8 +53,8 @@ def main():
     require(f"Total word count: {words(manuscript):,}" in manuscript, 'Displayed count is stale')
     abstract = manuscript.split('Keywords:', 1)[0].split('Purpose:', 1)[1]
     require(200 <= words(abstract) <= 250, f'Abstract length: {words(abstract)}')
-    for name in ['Hamilton Jeong', 'Zaid Elnasser', 'Laurienne Jeong', 'Bhumika Iroji', 'Suélia de Siqueira Rodrigues Fleury Rosa']:
-        require(name in manuscript, f'Missing author {name}')
+    for name in ['Hamilton Jeong', 'Zaid Elnasser', 'Laurienne Jeong', 'Suélia de Siqueira Rodrigues Fleury Rosa']:
+        require(name in manuscript and name in supplement, f'Missing author {name}')
     original_supplement = re.split(r'S16\.\s+Matched', supplement, maxsplit=1)[0]
     for text in [manuscript, original_supplement]:
         require('0.0196' not in text and '0.004975' not in text, 'Withdrawn p-value survives')
