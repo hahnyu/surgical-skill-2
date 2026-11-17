@@ -1,5 +1,7 @@
 # Surgical skill identity-suppression study
 
+> **Current submission: 16 November 2026 correction.** Use [`submission/ijcars/`](submission/ijcars/) and [`reports/technical_corrections_2026-11-16.md`](reports/technical_corrections_2026-11-16.md). Original Phase 3–6 files below are retained for provenance. Their aggregate identity intervals and unmatched identity p values have been superseded; I3 remains primary. The corrected draft still requires the human-authored AI disclosure and originality/no-concurrent-submission confirmation. Author approval and data-access facts are confirmed; no formal Cornell ethics determination was obtained.
+
 This repository implements the prospective protocol in
 [`SECOND_PAPER_CODEX_MASTER_PLAN.md`](SECOND_PAPER_CODEX_MASTER_PLAN.md).
 The scientific question is whether suppressing operator-identifying information

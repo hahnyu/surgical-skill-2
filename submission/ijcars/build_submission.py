@@ -4,6 +4,8 @@
 from __future__ import annotations
 
 import csv
+import json
+import hashlib
 import re
 import shutil
 import subprocess
@@ -42,14 +44,14 @@ ABSTRACT_TEX = r"""
 
 \textbf{Methods:} We retrospectively analyzed 2,501 dry-lab trials representing 92 dataset-participants from JIGSAWS, ROSMA, BGU-PatCut, and BGU-SKILLS. Outcomes were expert-rated Global Rating Scale, observed task errors, and image-derived cutting error; BGU-SKILLS contributed to identity analysis only. We compared same-participant with held-out-participant evaluation, used fresh linear and random-forest identity probes and JIGSAWS label permutations, and evaluated duration removal, duration residualization, linear identity-subspace projection (I3), and adversarial suppression (I4). Intervals used 2,000 participant bootstrap replicates.
 
-\textbf{Results:} Unsuppressed identity accuracy exceeded its record-wise permutation null in all ten dataset-task groups (linear 0.228--0.944; nonlinear 0.381--0.844; each empirical $p=0.0196$). JIGSAWS participant-wise permutations retained substantially more same-participant skill accuracy than record-wise permutations (median differences 0.444--0.538; each $p=0.004975$). I3 reduced fresh linear identity accuracy by 0.184 (95\% interval 0.151--0.215) and nonlinear accuracy by 0.138 (0.098--0.175); I4 failed the prespecified two-probe rule. Held-out-participant standardized mean absolute error favored I3 in one of seven tasks and the unsuppressed model in six; six intervals crossed zero.
+\textbf{Results:} Unsuppressed identity accuracy ranged from 0.228--0.944 for linear probes and 0.381--0.844 for nonlinear probes across ten dataset-task groups. JIGSAWS participant-wise permutations retained substantially more same-participant skill accuracy than record-wise permutations (median differences 0.444--0.538). I3 reduced fresh linear identity accuracy by 0.184 (95\% interval 0.153--0.214) and nonlinear accuracy by 0.138 (0.100--0.175); I4 failed the prespecified two-probe rule. Held-out-participant standardized mean absolute error favored I3 in one of seven tasks and the unsuppressed model in six; six intervals crossed zero.
 
 \textbf{Conclusion:} Identity was recoverable and targeted projection reduced tested identity recovery, but suppression did not consistently improve unseen-operator prediction. Identity diagnostics and held-out-user utility should be evaluated separately.
 \end{abstract}
 
 \noindent\textbf{Keywords:} surgical skill assessment; operator identity; out-of-user validation; domain generalization; kinematics; representation learning
 
-\noindent\textbf{Total word count:} 4,245
+\noindent\textbf{Total word count:} WORDCOUNT
 """.strip()
 
 SUPPLEMENT_AUTHORS_TEX = r"""
@@ -85,6 +87,8 @@ PREAMBLE = r"""
 \setlength{\parskip}{0.25em}
 \linespread{1.18}
 \sloppy
+\widowpenalty=10000
+\clubpenalty=10000
 \renewcommand{\refname}{References}
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \providecommand{\real}[1]{#1}
@@ -161,23 +165,23 @@ TABLE4 = r"""
 ```{=latex}
 \begin{table}[H]
 \centering
-\caption{Unsuppressed identity recovery. Balanced accuracy is participant averaged; the null is the median of 50 record-wise identity-label permutations.}
+\caption{Unsuppressed identity recovery. Balanced accuracy is participant averaged. These tuned-probe results are descriptive; a fixed-penalty logistic null cannot calibrate either tuned model.}
 \label{tab:identity}
-\scriptsize
-\begin{tabular}{@{}llrrr@{}}
+\small
+\begin{tabular}{@{}llrr@{}}
 \toprule
-Dataset & Task & Linear & Nonlinear & Null median \\
+Dataset & Task & Linear & Nonlinear \\
 \midrule
-JIGSAWS & Knot Tying & 0.869 & 0.827 & 0.084 \\
-JIGSAWS & Needle Passing & 0.943 & 0.840 & 0.064 \\
-JIGSAWS & Suturing & 0.944 & 0.844 & 0.075 \\
-ROSMA & Pea on a Peg & 0.381 & 0.397 & 0.056 \\
-ROSMA & Post and Sleeve & 0.446 & 0.381 & 0.062 \\
-ROSMA & Wire Chaser I & 0.228 & 0.431 & 0.060 \\
-BGU-SKILLS & Knot Tying & 0.530 & 0.393 & 0.051 \\
-BGU-SKILLS & Ring Tower Transfer & 0.596 & 0.487 & 0.050 \\
-BGU-SKILLS & Suturing & 0.762 & 0.618 & 0.049 \\
-BGU-PatCut & Pattern Cutting & 0.834 & 0.750 & 0.016 \\
+JIGSAWS & Knot Tying & 0.869 & 0.827 \\
+JIGSAWS & Needle Passing & 0.943 & 0.840 \\
+JIGSAWS & Suturing & 0.944 & 0.844 \\
+ROSMA & Pea on a Peg & 0.381 & 0.397 \\
+ROSMA & Post and Sleeve & 0.446 & 0.381 \\
+ROSMA & Wire Chaser I & 0.228 & 0.431 \\
+BGU-SKILLS & Knot Tying & 0.530 & 0.393 \\
+BGU-SKILLS & Ring Tower Transfer & 0.596 & 0.487 \\
+BGU-SKILLS & Suturing & 0.762 & 0.618 \\
+BGU-PatCut & Pattern Cutting & 0.834 & 0.750 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -190,7 +194,7 @@ TABLE5 = r"""
 \centering
 \caption{Primary held-out-participant effects of I3 identity-subspace removal versus I0. Differences are MAE(I3) minus MAE(I0); negative values favor I3. Intervals resample participants.}
 \label{tab:effects}
-\scriptsize
+\footnotesize
 \begin{tabularx}{\textwidth}{@{}lXrr@{}}
 \toprule
 Dataset & Task & Standardized difference [95\% interval] & Native difference [95\% interval] \\
@@ -223,51 +227,15 @@ def figure(number: int, name: str, caption: str, width: str = "0.96") -> str:
 
 
 FIGURE1 = figure(1, "Fig1", "Study design, datasets, validation protocols, identity diagnostics, interventions, and locked inference.")
-FIGURE2 = figure(2, "Fig2", "Standardized protocol gap for ridge prediction. Positive values indicate less favorable held-out-participant than same-participant error.")
-FIGURE3 = figure(3, "Fig3", "JIGSAWS same-participant person-level skill accuracy under observed labels and participant-wise versus record-wise permutations.")
-FIGURE4 = figure(4, "Fig4", "Relationship between fresh-probe identity change and held-out-participant task-utility change across interventions.", "0.84")
-FIGURE5 = figure(5, "Fig5", "Task-specific held-out-participant standardized MAE differences for identity interventions and controls. Negative values favor the candidate intervention.", "0.72")
-FIGURE6 = figure(6, "Fig6", "JIGSAWS mechanism summary: protocol gap, identity-compatible permutation behavior, probe verification, and same-participant skill effects.")
+FIGURE2 = figure(2, "Fig2", "Standardized protocol gap for ridge prediction. Positive values indicate less favorable held-out-participant than same-participant error. Each task has its own labeled x-axis scale.")
+FIGURE3 = figure(3, "Fig3", "JIGSAWS same-participant person-level skill accuracy under observed labels and participant-wise versus record-wise shuffles. Markers show observed accuracy or shuffle medians; whiskers show the 2.5th--97.5th percentiles across 200 shuffles, not participant-confidence intervals.")
+FIGURE4 = figure(4, "Fig4", "Fresh-probe balanced-accuracy changes with corrected participant-cluster intervals. Seeds are averaged within participant and task; participants are resampled jointly across tasks within each dataset. I1--I3 and random projection use I0; I4 variants use the capacity control. Lower values indicate less identity recovery.", "0.96")
+FIGURE5 = figure(5, "Fig5", "Primary task-specific held-out-participant standardized MAE(I3) minus MAE(I0), with 95\\% intervals. Each task has its own labeled x-axis scale; negative values favor I3. All control effects remain available in the machine-readable supplement.", "0.96")
+FIGURE6 = figure(6, "Fig6", "JIGSAWS task-specific comparison. Left: participant-average same-participant skill accuracy under I0 and I3. Right: standardized held-out-participant GRS MAE(I3) minus MAE(I0), with the same intervals as Table 5. Axes and endpoints differ between panels.")
 
-DECLARATIONS = r"""
-# Supplementary information
+def declarations() -> str:
+    return (SUBMISSION / "declarations.md").read_text(encoding="utf-8")
 
-Online Resource 1 (`ESM_1.pdf`): detailed dataset provenance, preprocessing, fold construction, model specifications, intervention definitions, inference, locked numerical results, robustness analyses, deviations, and reproducibility controls.
-
-# Statements and declarations
-
-## Ethics approval
-
-This study was a secondary analysis of previously collected, de-identified research datasets. The investigators had no direct identifiers, no access to any re-identification key, and no interaction or intervention with participants. Under Cornell University guidance for research involving existing or secondary de-identified data, this activity does not constitute federally regulated human-participant research and did not require further Cornell Institutional Review Board review. The original dataset investigators were responsible for the ethics approvals and consent procedures applicable to the source studies.
-
-## Consent to participate and consent for publication
-
-Not applicable. No participants were recruited or contacted, and no identifiable information is reported.
-
-## Funding
-
-The authors received no funding for this work.
-
-## Competing interests
-
-The authors declare no financial or non-financial competing interests.
-
-## Author contributions
-
-Hamilton Jeong conceived the study, developed the methodology and software, performed the formal analysis and visualization, curated the reproducible repository, and drafted the manuscript. Zaid Elnasser, Laurienne Jeong, Bhumika Iroji, and Su\'elia de Siqueira Rodrigues Fleury Rosa contributed to interpretation and critical revision. All authors approved the final manuscript.
-
-## Patient and public involvement
-
-No patients or public contributors were involved in the design, conduct, reporting, or dissemination planning of this retrospective benchmark study.
-
-## Data and code availability
-
-Analysis code, configurations, aggregate metrics, participant-opaque fold manifests, figures, tables, and artifact hashes are available at \url{https://github.com/hahnyu/surgical-skill-2}. JIGSAWS is available from its custodians under an academic research agreement and is not redistributed. ROSMA, BGU-SKILLS, and BGU-PatCut are available from their cited source repositories under CC BY 4.0. Participant-level predictions remain local because source access terms differ.
-
-## Use of artificial intelligence tools
-
-\fcolorbox{black}{yellow!15}{\parbox{0.94\textwidth}{\textbf{AUTHOR TO COMPLETE BEFORE SUBMISSION:} Write the disclosure in your own words. State which AI tool(s) you used, the specific tasks they assisted with, that the authors verified all analyses, citations, and text, and that the human authors accept full responsibility for the final manuscript.}}
-""".strip()
 
 SHORT_INTRODUCTION = r"""
 # Introduction
@@ -286,23 +254,23 @@ SHORT_METHODS = r"""
 
 ## Study design, datasets, and outcomes
 
-This retrospective benchmark followed a protocol frozen before predictive modeling (`protocol-v1`, 21 September 2026). Trials remained intact within folds, analyses were task specific, and the participant was the independent unit for uncertainty. The analysis included 2,501 dry-lab trials representing 92 dataset-participants across four distinct cohorts. JIGSAWS contributed 103 trials and expert-rated Global Rating Scale (GRS); its self-declared experience class was used only for a person-level diagnostic. ROSMA contributed 206 trials with observed task-error counts. BGU-PatCut contributed 1,254 trials with image-derived total cutting error. BGU-SKILLS contributed 938 trials to identity and longitudinal robustness analyses because its available performance metrics were derived from the planned kinematic predictors. Source provenance and detailed inclusion rules are reported in Online Resource 1 [@RivasBlanco2023; @ROSMAData2022; @SharonPatCut2024; @PatCutData2024; @Sharon2025; @BGUSkillsData2025].
+This retrospective benchmark followed a protocol frozen before predictive modeling (`protocol-v1`, 21 September 2026). A post-lock correction dated 16 November 2026 revised uncertainty and reporting without refitting primary outcome or intervention models or changing participants or outcomes (Online Resource 1). Trials remained intact within folds, analyses were task specific, and the participant was the independent unit for uncertainty. The analysis included 2,501 dry-lab trials representing 92 dataset-participants across four distinct cohorts. JIGSAWS contributed 103 trials and expert-rated Global Rating Scale (GRS); its self-declared experience class was used only for a person-level diagnostic. ROSMA contributed 206 trials with observed task-error counts. BGU-PatCut contributed 1,254 trials with image-derived total cutting error. BGU-SKILLS contributed 938 trials to identity and longitudinal robustness analyses because its available performance metrics were derived from the planned kinematic predictors. Source provenance and detailed inclusion rules are reported in Online Resource 1 [@RivasBlanco2023; @ROSMAData2022; @SharonPatCut2024; @PatCutData2024; @BGUSkillsData2025].
 
 ## Features, validation, and models
 
 Task windows followed source annotations. The harmonized representation contained 41 available variables spanning duration, per-arm sample count and rate, path length, speed, acceleration, jerk, idle fraction, workspace, missing-data gaps, gripper summaries where available, bimanual speed correlation, and path-length asymmetry. Imputation, scaling, model selection, and every learned transformation used training-fold data only.
 
-Same-participant folds retained each participant on both sides; held-out-participant folds withheld complete participants. Inner validation matched the outer generalization unit. Continuous outcomes used training-mean, duration-only ridge, and all-feature ridge models with nested penalty selection. JIGSAWS person-level classification used majority, duration-only multinomial-logistic, and all-feature multinomial-logistic models. All predictions were out of fold.
+Same-participant folds retained each participant on both sides; held-out-participant folds withheld complete participants. Inner validation matched the outer generalization unit. Phase 3 continuous-outcome baselines used training-mean, duration-only ridge, and all-feature ridge models with nested penalty selection. Phase 4 linear intervention comparisons fixed the downstream ridge penalty at alpha=10; their I0 comparator was fitted with that same penalty. JIGSAWS person-level classification used majority, duration-only multinomial-logistic, and all-feature multinomial-logistic models. All predictions were out of fold.
 
 ## Identity diagnostics and interventions
 
-Identity probes predicted participant labels with nested multinomial logistic regression and random forests; balanced accuracy was averaged by participant. Fifty record-wise identity-label permutations supplied each dataset-task null. For JIGSAWS experience classification, 200 paired participant-wise and record-wise permutations were evaluated under same-participant folds.
+Identity probes predicted participant labels with nested multinomial logistic regression and random forests; balanced accuracy was averaged by participant. Fifty record-wise identity-label permutations used a fixed-C=1 logistic pipeline. Because it did not match the tuned observed probes, we withdrew their permutation-test claims and report observed identity accuracy descriptively. A separate post-lock fixed-C diagnostic with a matched null is reported in Online Resource 1. For JIGSAWS experience classification, 200 paired participant-wise and record-wise permutations were evaluated under same-participant folds.
 
-I0 retained all features. I1 removed duration equivalents, and I2 residualized remaining features on duration. I3 fitted a regularized participant classifier within each training fold and projected out selected coefficient-span directions, following linear guarding principles [@Ravfogel2020]. A dimension-matched random projection served as a control. I4 used an eight-unit latent multilayer perceptron with a gradient-reversal identity head [@Ganin2016], plus capacity and shuffled-label controls. After freezing each representation, new linear and nonlinear probes tested identity recovery. The primary intervention had to reduce both probes; I4 was considered first, with I3 versus I0 prespecified if I4 failed.
+I0 retained all features. I1 removed duration equivalents, and I2 residualized remaining features on duration. I3 fitted a regularized participant classifier within each training fold and projected out selected coefficient-span directions, following linear guarding principles [@Ravfogel2020]. A dimension-matched random projection served as a control. I4 used an eight-unit latent multilayer perceptron with a gradient-reversal identity head [@Ganin2016], plus capacity and shuffled-label controls. After freezing each representation, new linear and nonlinear probes tested identity recovery under same-participant folds. Held-out-participant representations were fitted separately; these probes do not verify identity removal in each held-out representation. The primary intervention had to reduce both probes; I4 was considered first, with I3 versus I0 prespecified if I4 failed.
 
 ## Estimands and inference
 
-The primary utility estimand was participant-average held-out-participant MAE(I3) minus MAE(I0); negative values favor I3. Trial differences were also standardized by the outcome standard deviation estimated without the outer test fold. We report native-unit effects because outcomes represented different constructs and did not pool tasks. Percentile intervals used 2,000 participant bootstrap replicates. Permutation tests used plus-one empirical *p* values. Leave-one-participant estimates assessed influence. Locked artifact hashes, complete hyperparameters, deviations, and reproducibility controls are in Online Resource 1; reporting follows an adapted TRIPOD+AI checklist [@Collins2024].
+The primary utility estimand was participant-average held-out-participant MAE(I3) minus MAE(I0); negative values favor I3. Trial differences were also standardized by the outcome standard deviation estimated without the outer test fold. Task-utility effects are reported separately in native and standardized units, without pooling across tasks. Percentile intervals used 2,000 participant bootstrap replicates. For aggregate identity effects, seeds were averaged within participant and task before resampling dataset-participants jointly across their tasks; task groups received equal weight. I3 included ten groups; I4 included seven outcome-eligible groups. Intervals condition on saved out-of-fold predictions and do not capture model-refitting uncertainty. Leave-one-participant summaries omit scored participant effects without refitting. The JIGSAWS two-scheme shuffle comparison is descriptive, not a hypothesis test. Locked artifact hashes, complete hyperparameters, deviations, and reproducibility controls are in Online Resource 1; reporting follows an adapted TRIPOD+AI checklist [@Collins2024].
 """.strip()
 
 SHORT_RESULTS = r"""
@@ -318,13 +286,13 @@ Held-out-participant minus same-participant standardized ridge MAE was positive 
 
 ## Identity recovery and formal nulls
 
-Identity was recoverable in every dataset-task group (Figure 3; Table 4). Linear balanced accuracy ranged from 0.228 to 0.944 and nonlinear accuracy from 0.381 to 0.844; every full-feature probe exceeded its 50-permutation record-wise null (each empirical *p*=0.0196). Duration-only accuracy ranged from 0.056 to 0.225.
+Identity was recoverable in every dataset-task group (Table 4). Linear balanced accuracy ranged from 0.228 to 0.944 and nonlinear accuracy from 0.381 to 0.844; these are descriptive results, with no matched permutation-test claim for either tuned probe. Duration-only accuracy ranged from 0.056 to 0.225.
 
-JIGSAWS participant-wise skill-label permutations retained substantially more same-participant accuracy than record-wise permutations. Median paired differences were +0.444 for knot tying, +0.536 for needle passing, and +0.538 for suturing (each empirical *p*=0.004975), consistent with identity-compatible lookup.
+JIGSAWS participant-wise skill-label permutations (Figure 3) retained substantially more same-participant accuracy than record-wise permutations. Median paired differences were +0.444 for knot tying, +0.536 for needle passing, and +0.538 for suturing (none of 200 paired draws per task had a nonpositive difference), consistent with identity-compatible lookup. These Monte Carlo comparisons are not hypothesis-test p values.
 
 ## Intervention verification
 
-I4 reduced fresh linear identity accuracy by 0.048 (95% interval 0.015--0.082) relative to its capacity control, but nonlinear accuracy changed by -0.003 (-0.038 to +0.032); I4 therefore failed the two-probe rule. I3 became primary. Relative to I0, I3 reduced linear balanced accuracy by 0.184 (0.151--0.215) and nonlinear accuracy by 0.138 (0.098--0.175), averaging dataset-task groups equally (Figure 4). Duration removal, duration residualization, and a dimension-matched random projection did not reproduce this joint reduction.
+I4 changed fresh linear identity accuracy by -0.048 (95% interval -0.098 to +0.002) relative to its capacity control and nonlinear accuracy by -0.003 (-0.045 to +0.043). Both corrected intervals crossed zero; I4 therefore failed the two-probe rule. I3 became primary. Relative to I0, I3 reduced linear balanced accuracy by 0.184 (0.153--0.214) and nonlinear accuracy by 0.138 (0.100--0.175), averaging dataset-task groups equally (Figure 4). Duration removal, duration residualization, and a dimension-matched random projection did not reproduce this joint reduction.
 
 ## Held-out-participant utility
 
@@ -388,12 +356,13 @@ def prepare_manuscript_markdown() -> str:
     text = re.sub(r"# Discussion\n.*?(?=# Conclusion)", SHORT_DISCUSSION + "\n\n", text, count=1, flags=re.S)
     text = re.sub(
         r"# Declarations\n.*?(?=# Tables and figures)",
-        lambda _: DECLARATIONS + "\n\n",
+        lambda _: declarations() + "\n\n",
         text,
         count=1,
         flags=re.S,
     )
     text = re.sub(r"# Tables and figures\n.*\Z", "", text, count=1, flags=re.S)
+    text = insert_before(text, "# Results", "## Use of artificial intelligence tools\n\n" + (SUBMISSION / "ai_use_disclosure.md").read_text(encoding="utf-8"))
     text = insert_before(text, "## Protocol gap", f"{FIGURE1}\n\n{TABLE1}\n\n{TABLE2}")
     text = insert_before(text, "## Identity recovery and formal nulls", f"{FIGURE2}\n\n{TABLE3}")
     text = insert_before(text, "## Intervention verification", f"{FIGURE3}\n\n{TABLE4}")
@@ -412,7 +381,7 @@ def prepare_manuscript_markdown() -> str:
     )
     text = text.replace(
         "## Held-out-participant utility\n",
-        "## Held-out-participant utility\n\nFigure 4 relates intervention-associated identity changes to held-out-participant utility changes.\n\n",
+        "## Held-out-participant utility\n\nFigure 4 reports identity changes with corrected uncertainty; task utility is evaluated separately.\n\n",
         1,
     )
     return text.replace("−", "-").replace("–", "--").replace("—", "---")
@@ -429,6 +398,7 @@ def wrap_article(body: str, title: str, authors: bool, abstract: bool) -> str:
         r"\begin{document}",
         r"\maketitle",
         abstract_block,
+        r"\setcounter{secnumdepth}{0}" if not abstract else "",
         body,
         r"\bibliographystyle{unsrtnat}",
         r"\bibliography{references}",
@@ -457,7 +427,9 @@ def main() -> None:
     OUTPUT.mkdir(parents=True, exist_ok=True)
 
     for source in sorted((ROOT / "results" / "figures").glob("phase5_figure*.svg")):
-        svg_text = source.read_text(encoding="utf-8")
+        if re.search(r"figure[12456]_", source.stem):
+            continue
+        svg_text = source.read_text(encoding="utf-8").replace("Participant-wise null", "Participant-wise shuffles").replace("Record-wise null", "Record-wise shuffles")
         dimensions = re.search(r'<svg[^>]+width="([0-9.]+)"[^>]+height="([0-9.]+)"', svg_text)
         if dimensions is None:
             raise RuntimeError(f"Missing numeric SVG dimensions in {source}")
@@ -466,27 +438,6 @@ def main() -> None:
             '<rect width="100%" height="100%"',
             f'<rect x="0" y="0" width="{width}" height="{height}"',
         )
-        if source.stem == "phase5_figure6_jigsaws_mechanism":
-            with (ROOT / "results" / "metrics" / "phase4_skill_performance.csv").open(
-                newline="", encoding="utf-8"
-            ) as handle:
-                skill_rows = list(csv.DictReader(handle))
-            for intervention, x in [("I0_unsuppressed", 85), ("I3_identity_subspace", 170)]:
-                values = [
-                    float(row["accuracy"])
-                    for row in skill_rows
-                    if row["intervention"] == intervention and row["model"] == "skill_logistic"
-                ]
-                if len(values) != 3:
-                    raise RuntimeError(f"Expected three JIGSAWS skill rows for {intervention}")
-                estimate = sum(values) / len(values)
-                bar_height = estimate * 270
-                svg_text = re.sub(
-                    rf'<rect x="{x}" y="nan" width="48" height="nan"',
-                    f'<rect x="{x}" y="{440 - bar_height:.12f}" width="48" height="{bar_height:.12f}"',
-                    svg_text,
-                    count=1,
-                )
         sanitized = BUILD / f"{source.stem}.svg"
         sanitized.write_text(svg_text, encoding="utf-8")
         drawing = svg2rlg(str(sanitized))
@@ -497,8 +448,16 @@ def main() -> None:
             raise RuntimeError(f"Could not identify figure number for {source}")
         renderPDF.drawToFile(drawing, str(FIGURES / f"Fig{number_match.group(1)}.pdf"))
 
+    from corrected_figures import build_corrected_figures
+    build_corrected_figures(ROOT, FIGURES)
+
     bibliography = (ROOT / "paper" / "references.bib").read_text(encoding="utf-8")
-    (SUBMISSION / "references.bib").write_text(bibliography.replace("@dataset{", "@misc{"), encoding="utf-8")
+    bibliography = bibliography.replace("@dataset{", "@misc{")
+    # unsrtnat ignores DOI fields on misc records; give each dataset a URL.
+    bibliography = re.sub(r"(@misc\{.*?)(?=\n@|\Z)", lambda m: re.sub(
+        r"doi = \{([^}]+)\}", lambda d: "url = {https://doi.org/" + d.group(1) + "}", m.group(0)),
+        bibliography, flags=re.S)
+    (SUBMISSION / "references.bib").write_text(bibliography, encoding="utf-8")
 
     manuscript_body = pandoc_body(prepare_manuscript_markdown(), "manuscript_source")
     manuscript_tex = wrap_article(manuscript_body, TITLE, authors=True, abstract=True)
@@ -506,18 +465,8 @@ def main() -> None:
 
     supplement_md = strip_frontmatter((ROOT / "paper" / "supplement.md").read_text(encoding="utf-8"))
     supplement_md = supplement_md.replace("Identity/longitudinal analysis only", "Identity and longitudinal analysis only")
-    supplement_md = supplement_md.replace(
-        "`0c351007805f52f41459f622faa3c979f0b410685006763fbfcba1fc431a1e50`",
-        r"""```{=latex}
-\nolinkurl{0c351007805f52f41459f622faa3c979f0b410685006763fbfcba1fc431a1e50}
-```""",
-    )
-    supplement_md = supplement_md.replace(
-        "`(|y_i - prediction_I3_i| - |y_i - prediction_I0_i|) / SD(y_training_for_outer_fold)`.",
-        r"""```{=latex}
-\[\frac{|y_i-\widehat{y}_{i,I3}|-|y_i-\widehat{y}_{i,I0}|}{\operatorname{SD}(y_{\mathrm{training,outer\ fold}})}.\]
-```""",
-    )
+    from corrected_supplement import correct_supplement
+    supplement_md = correct_supplement(supplement_md, ROOT)
     supplement_md = supplement_md.replace("−", "-").replace("–", "--").replace("—", "---")
     supplement_body = pandoc_body(supplement_md, "supplement_source")
     supplement_tex = wrap_article(
@@ -529,6 +478,19 @@ def main() -> None:
     (SUBMISSION / "supplement.tex").write_text(supplement_tex, encoding="utf-8")
 
     compile_tex("manuscript", "ijcars_manuscript.pdf")
+    # Count the rendered document inclusively, then converge the displayed count.
+    for _ in range(3):
+        rendered = subprocess.check_output(["pdftotext", str(OUTPUT / "ijcars_manuscript.pdf"), "-"], text=True)
+        count = len(re.findall(r"\b[\w'-]+\b", rendered))
+        displayed = f"{count:,}"
+        new_tex = re.sub(r"Total word count:\} [\d,]+|Total word count:\} WORDCOUNT",
+                         "Total word count:} " + displayed, manuscript_tex)
+        if new_tex == manuscript_tex:
+            break
+        manuscript_tex = new_tex
+        (SUBMISSION / "manuscript.tex").write_text(manuscript_tex, encoding="utf-8")
+        compile_tex("manuscript", "ijcars_manuscript.pdf")
+    (SUBMISSION / "build_metadata.json").write_text(json.dumps({"inclusive_word_count": count, "status": "draft; human confirmations pending"}, indent=2) + "\n")
     compile_tex("supplement", "ESM_1.pdf")
     compile_tex("cover_letter", "ijcars_cover_letter.pdf")
 
@@ -536,6 +498,18 @@ def main() -> None:
     if obsolete.exists():
         obsolete.unlink()
 
+    rendered = subprocess.check_output(["pdftotext", str(OUTPUT / "ijcars_manuscript.pdf"), "-"], text=True)
+    abstract = "Purpose:" + rendered.split("Purpose:", 1)[1].split("Keywords:", 1)[0]
+    (SUBMISSION / "portal_abstract.txt").write_text(re.sub(r"\s+", " ", abstract).strip() + "\n")
+    package_paths = [*SUBMISSION.glob("*.py"), *SUBMISSION.glob("*.tex"), *SUBMISSION.glob("*.bib"),
+                     *SUBMISSION.glob("*.md"), SUBMISSION / "author_confirmations.json",
+                     SUBMISSION / "build_metadata.json", SUBMISSION / "portal_abstract.txt",
+                     *FIGURES.glob("*.pdf"), *OUTPUT.glob("*.pdf"),
+                     * (ROOT / "results/corrections/2026-11-16").glob("*.csv"),
+                     * (ROOT / "results/corrections/2026-11-16").glob("*.json")]
+    package_manifest = {str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
+                        for p in sorted(package_paths)}
+    (SUBMISSION / "package_manifest.json").write_text(json.dumps(package_manifest, indent=2) + "\n")
     print("Built IJCARS submission PDFs in output/pdf")
 
 

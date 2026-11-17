@@ -19,6 +19,8 @@
 \setlength{\parskip}{0.25em}
 \linespread{1.18}
 \sloppy
+\widowpenalty=10000
+\clubpenalty=10000
 \renewcommand{\refname}{References}
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \providecommand{\real}[1]{#1}
@@ -40,14 +42,15 @@ Su\'elia de Siqueira Rodrigues Fleury Rosa\textsuperscript{3}\\[0.75em]
 
 \textbf{Methods:} We retrospectively analyzed 2,501 dry-lab trials representing 92 dataset-participants from JIGSAWS, ROSMA, BGU-PatCut, and BGU-SKILLS. Outcomes were expert-rated Global Rating Scale, observed task errors, and image-derived cutting error; BGU-SKILLS contributed to identity analysis only. We compared same-participant with held-out-participant evaluation, used fresh linear and random-forest identity probes and JIGSAWS label permutations, and evaluated duration removal, duration residualization, linear identity-subspace projection (I3), and adversarial suppression (I4). Intervals used 2,000 participant bootstrap replicates.
 
-\textbf{Results:} Unsuppressed identity accuracy exceeded its record-wise permutation null in all ten dataset-task groups (linear 0.228--0.944; nonlinear 0.381--0.844; each empirical $p=0.0196$). JIGSAWS participant-wise permutations retained substantially more same-participant skill accuracy than record-wise permutations (median differences 0.444--0.538; each $p=0.004975$). I3 reduced fresh linear identity accuracy by 0.184 (95\% interval 0.151--0.215) and nonlinear accuracy by 0.138 (0.098--0.175); I4 failed the prespecified two-probe rule. Held-out-participant standardized mean absolute error favored I3 in one of seven tasks and the unsuppressed model in six; six intervals crossed zero.
+\textbf{Results:} Unsuppressed identity accuracy ranged from 0.228--0.944 for linear probes and 0.381--0.844 for nonlinear probes across ten dataset-task groups. JIGSAWS participant-wise permutations retained substantially more same-participant skill accuracy than record-wise permutations (median differences 0.444--0.538). I3 reduced fresh linear identity accuracy by 0.184 (95\% interval 0.153--0.214) and nonlinear accuracy by 0.138 (0.100--0.175); I4 failed the prespecified two-probe rule. Held-out-participant standardized mean absolute error favored I3 in one of seven tasks and the unsuppressed model in six; six intervals crossed zero.
 
 \textbf{Conclusion:} Identity was recoverable and targeted projection reduced tested identity recovery, but suppression did not consistently improve unseen-operator prediction. Identity diagnostics and held-out-user utility should be evaluated separately.
 \end{abstract}
 
 \noindent\textbf{Keywords:} surgical skill assessment; operator identity; out-of-user validation; domain generalization; kinematics; representation learning
 
-\noindent\textbf{Total word count:} 4,245
+\noindent\textbf{Total word count:} 4,041
+
 \section{Introduction}\label{introduction}
 
 Automated assessment could make surgical-training feedback more
@@ -91,20 +94,23 @@ linear and nonlinear identity probes.
 outcomes}\label{study-design-datasets-and-outcomes}
 
 This retrospective benchmark followed a protocol frozen before
-predictive modeling (\texttt{protocol-v1}, 21 September 2026). Trials
-remained intact within folds, analyses were task specific, and the
-participant was the independent unit for uncertainty. The analysis
-included 2,501 dry-lab trials representing 92 dataset-participants
-across four distinct cohorts. JIGSAWS contributed 103 trials and
-expert-rated Global Rating Scale (GRS); its self-declared experience
-class was used only for a person-level diagnostic. ROSMA contributed 206
-trials with observed task-error counts. BGU-PatCut contributed 1,254
-trials with image-derived total cutting error. BGU-SKILLS contributed
-938 trials to identity and longitudinal robustness analyses because its
-available performance metrics were derived from the planned kinematic
-predictors. Source provenance and detailed inclusion rules are reported
-in Online Resource 1
-\citep{RivasBlanco2023, ROSMAData2022, SharonPatCut2024, PatCutData2024, Sharon2025, BGUSkillsData2025}.
+predictive modeling (\texttt{protocol-v1}, 21 September 2026). A
+post-lock correction dated 16 November 2026 revised uncertainty and
+reporting without refitting primary outcome or intervention models or
+changing participants or outcomes (Online Resource 1). Trials remained
+intact within folds, analyses were task specific, and the participant
+was the independent unit for uncertainty. The analysis included 2,501
+dry-lab trials representing 92 dataset-participants across four distinct
+cohorts. JIGSAWS contributed 103 trials and expert-rated Global Rating
+Scale (GRS); its self-declared experience class was used only for a
+person-level diagnostic. ROSMA contributed 206 trials with observed
+task-error counts. BGU-PatCut contributed 1,254 trials with
+image-derived total cutting error. BGU-SKILLS contributed 938 trials to
+identity and longitudinal robustness analyses because its available
+performance metrics were derived from the planned kinematic predictors.
+Source provenance and detailed inclusion rules are reported in Online
+Resource 1
+\citep{RivasBlanco2023, ROSMAData2022, SharonPatCut2024, PatCutData2024, BGUSkillsData2025}.
 
 \subsection{Features, validation, and
 models}\label{features-validation-and-models}
@@ -119,21 +125,27 @@ training-fold data only.
 
 Same-participant folds retained each participant on both sides;
 held-out-participant folds withheld complete participants. Inner
-validation matched the outer generalization unit. Continuous outcomes
-used training-mean, duration-only ridge, and all-feature ridge models
-with nested penalty selection. JIGSAWS person-level classification used
-majority, duration-only multinomial-logistic, and all-feature
-multinomial-logistic models. All predictions were out of fold.
+validation matched the outer generalization unit. Phase 3
+continuous-outcome baselines used training-mean, duration-only ridge,
+and all-feature ridge models with nested penalty selection. Phase 4
+linear intervention comparisons fixed the downstream ridge penalty at
+alpha=10; their I0 comparator was fitted with that same penalty. JIGSAWS
+person-level classification used majority, duration-only
+multinomial-logistic, and all-feature multinomial-logistic models. All
+predictions were out of fold.
 
 \subsection{Identity diagnostics and
 interventions}\label{identity-diagnostics-and-interventions}
 
 Identity probes predicted participant labels with nested multinomial
 logistic regression and random forests; balanced accuracy was averaged
-by participant. Fifty record-wise identity-label permutations supplied
-each dataset-task null. For JIGSAWS experience classification, 200
-paired participant-wise and record-wise permutations were evaluated
-under same-participant folds.
+by participant. Fifty record-wise identity-label permutations used a
+fixed-C=1 logistic pipeline. Because it did not match the tuned observed
+probes, we withdrew their permutation-test claims and report observed
+identity accuracy descriptively. A separate post-lock fixed-C diagnostic
+with a matched null is reported in Online Resource 1. For JIGSAWS
+experience classification, 200 paired participant-wise and record-wise
+permutations were evaluated under same-participant folds.
 
 I0 retained all features. I1 removed duration equivalents, and I2
 residualized remaining features on duration. I3 fitted a regularized
@@ -143,23 +155,40 @@ principles \citep{Ravfogel2020}. A dimension-matched random projection
 served as a control. I4 used an eight-unit latent multilayer perceptron
 with a gradient-reversal identity head \citep{Ganin2016}, plus capacity
 and shuffled-label controls. After freezing each representation, new
-linear and nonlinear probes tested identity recovery. The primary
-intervention had to reduce both probes; I4 was considered first, with I3
-versus I0 prespecified if I4 failed.
+linear and nonlinear probes tested identity recovery under
+same-participant folds. Held-out-participant representations were fitted
+separately; these probes do not verify identity removal in each held-out
+representation. The primary intervention had to reduce both probes; I4
+was considered first, with I3 versus I0 prespecified if I4 failed.
 
 \subsection{Estimands and inference}\label{estimands-and-inference}
 
 The primary utility estimand was participant-average
 held-out-participant MAE(I3) minus MAE(I0); negative values favor I3.
 Trial differences were also standardized by the outcome standard
-deviation estimated without the outer test fold. We report native-unit
-effects because outcomes represented different constructs and did not
-pool tasks. Percentile intervals used 2,000 participant bootstrap
-replicates. Permutation tests used plus-one empirical \emph{p} values.
-Leave-one-participant estimates assessed influence. Locked artifact
-hashes, complete hyperparameters, deviations, and reproducibility
-controls are in Online Resource 1; reporting follows an adapted
-TRIPOD+AI checklist \citep{Collins2024}.
+deviation estimated without the outer test fold. Task-utility effects
+are reported separately in native and standardized units, without
+pooling across tasks. Percentile intervals used 2,000 participant
+bootstrap replicates. For aggregate identity effects, seeds were
+averaged within participant and task before resampling
+dataset-participants jointly across their tasks; task groups received
+equal weight. I3 included ten groups; I4 included seven outcome-eligible
+groups. Intervals condition on saved out-of-fold predictions and do not
+capture model-refitting uncertainty. Leave-one-participant summaries
+omit scored participant effects without refitting. The JIGSAWS
+two-scheme shuffle comparison is descriptive, not a hypothesis test.
+Locked artifact hashes, complete hyperparameters, deviations, and
+reproducibility controls are in Online Resource 1; reporting follows an
+adapted TRIPOD+AI checklist \citep{Collins2024}.
+
+\subsection{Use of artificial intelligence
+tools}\label{use-of-artificial-intelligence-tools}
+
+\textbf{AUTHOR TO COMPLETE BEFORE SUBMISSION:} The human authors will
+write and approve the AI-use disclosure here, naming the tools and their
+roles and accurately describing human verification and responsibility.
+This file is included in Methods on every rebuild; editing generated
+LaTeX alone does not persist.
 
 \section{Results}\label{results}
 
@@ -229,7 +258,7 @@ interval 0.063--0.775), +0.479 (0.214--0.757), and +0.400
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.96\textwidth]{figures/Fig2.pdf}
-\caption{Standardized protocol gap for ridge prediction. Positive values indicate less favorable held-out-participant than same-participant error.}
+\caption{Standardized protocol gap for ridge prediction. Positive values indicate less favorable held-out-participant than same-participant error. Each task has its own labeled x-axis scale.}
 \label{fig:phase5-2}
 \end{figure}
 
@@ -259,71 +288,74 @@ nulls}\label{identity-recovery-and-formal-nulls}
 Table 3 reports the same-participant and held-out-participant baseline
 errors used to frame the protocol comparison.
 
-Identity was recoverable in every dataset-task group (Figure 3; Table
-4). Linear balanced accuracy ranged from 0.228 to 0.944 and nonlinear
-accuracy from 0.381 to 0.844; every full-feature probe exceeded its
-50-permutation record-wise null (each empirical \emph{p}=0.0196).
-Duration-only accuracy ranged from 0.056 to 0.225.
+Identity was recoverable in every dataset-task group (Table 4). Linear
+balanced accuracy ranged from 0.228 to 0.944 and nonlinear accuracy from
+0.381 to 0.844; these are descriptive results, with no matched
+permutation-test claim for either tuned probe. Duration-only accuracy
+ranged from 0.056 to 0.225.
 
-JIGSAWS participant-wise skill-label permutations retained substantially
-more same-participant accuracy than record-wise permutations. Median
-paired differences were +0.444 for knot tying, +0.536 for needle
-passing, and +0.538 for suturing (each empirical \emph{p}=0.004975),
-consistent with identity-compatible lookup.
+JIGSAWS participant-wise skill-label permutations (Figure 3) retained
+substantially more same-participant accuracy than record-wise
+permutations. Median paired differences were +0.444 for knot tying,
++0.536 for needle passing, and +0.538 for suturing (none of 200 paired
+draws per task had a nonpositive difference), consistent with
+identity-compatible lookup. These Monte Carlo comparisons are not
+hypothesis-test p values.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.96\textwidth]{figures/Fig3.pdf}
-\caption{JIGSAWS same-participant person-level skill accuracy under observed labels and participant-wise versus record-wise permutations.}
+\caption{JIGSAWS same-participant person-level skill accuracy under observed labels and participant-wise versus record-wise shuffles. Markers show observed accuracy or shuffle medians; whiskers show the 2.5th--97.5th percentiles across 200 shuffles, not participant-confidence intervals.}
 \label{fig:phase5-3}
 \end{figure}
 
 \begin{table}[H]
 \centering
-\caption{Unsuppressed identity recovery. Balanced accuracy is participant averaged; the null is the median of 50 record-wise identity-label permutations.}
+\caption{Unsuppressed identity recovery. Balanced accuracy is participant averaged. These tuned-probe results are descriptive; a fixed-penalty logistic null cannot calibrate either tuned model.}
 \label{tab:identity}
-\scriptsize
-\begin{tabular}{@{}llrrr@{}}
+\small
+\begin{tabular}{@{}llrr@{}}
 \toprule
-Dataset & Task & Linear & Nonlinear & Null median \\
+Dataset & Task & Linear & Nonlinear \\
 \midrule
-JIGSAWS & Knot Tying & 0.869 & 0.827 & 0.084 \\
-JIGSAWS & Needle Passing & 0.943 & 0.840 & 0.064 \\
-JIGSAWS & Suturing & 0.944 & 0.844 & 0.075 \\
-ROSMA & Pea on a Peg & 0.381 & 0.397 & 0.056 \\
-ROSMA & Post and Sleeve & 0.446 & 0.381 & 0.062 \\
-ROSMA & Wire Chaser I & 0.228 & 0.431 & 0.060 \\
-BGU-SKILLS & Knot Tying & 0.530 & 0.393 & 0.051 \\
-BGU-SKILLS & Ring Tower Transfer & 0.596 & 0.487 & 0.050 \\
-BGU-SKILLS & Suturing & 0.762 & 0.618 & 0.049 \\
-BGU-PatCut & Pattern Cutting & 0.834 & 0.750 & 0.016 \\
+JIGSAWS & Knot Tying & 0.869 & 0.827 \\
+JIGSAWS & Needle Passing & 0.943 & 0.840 \\
+JIGSAWS & Suturing & 0.944 & 0.844 \\
+ROSMA & Pea on a Peg & 0.381 & 0.397 \\
+ROSMA & Post and Sleeve & 0.446 & 0.381 \\
+ROSMA & Wire Chaser I & 0.228 & 0.431 \\
+BGU-SKILLS & Knot Tying & 0.530 & 0.393 \\
+BGU-SKILLS & Ring Tower Transfer & 0.596 & 0.487 \\
+BGU-SKILLS & Suturing & 0.762 & 0.618 \\
+BGU-PatCut & Pattern Cutting & 0.834 & 0.750 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \subsection{Intervention verification}\label{intervention-verification}
 
-I4 reduced fresh linear identity accuracy by 0.048 (95\% interval
-0.015--0.082) relative to its capacity control, but nonlinear accuracy
-changed by -0.003 (-0.038 to +0.032); I4 therefore failed the two-probe
-rule. I3 became primary. Relative to I0, I3 reduced linear balanced
-accuracy by 0.184 (0.151--0.215) and nonlinear accuracy by 0.138
-(0.098--0.175), averaging dataset-task groups equally (Figure 4).
-Duration removal, duration residualization, and a dimension-matched
-random projection did not reproduce this joint reduction.
+I4 changed fresh linear identity accuracy by -0.048 (95\% interval
+-0.098 to +0.002) relative to its capacity control and nonlinear
+accuracy by -0.003 (-0.045 to +0.043). Both corrected intervals crossed
+zero; I4 therefore failed the two-probe rule. I3 became primary.
+Relative to I0, I3 reduced linear balanced accuracy by 0.184
+(0.153--0.214) and nonlinear accuracy by 0.138 (0.100--0.175), averaging
+dataset-task groups equally (Figure 4). Duration removal, duration
+residualization, and a dimension-matched random projection did not
+reproduce this joint reduction.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.84\textwidth]{figures/Fig4.pdf}
-\caption{Relationship between fresh-probe identity change and held-out-participant task-utility change across interventions.}
+\includegraphics[width=0.96\textwidth]{figures/Fig4.pdf}
+\caption{Fresh-probe balanced-accuracy changes with corrected participant-cluster intervals. Seeds are averaged within participant and task; participants are resampled jointly across tasks within each dataset. I1--I3 and random projection use I0; I4 variants use the capacity control. Lower values indicate less identity recovery.}
 \label{fig:phase5-4}
 \end{figure}
 
 \subsection{Held-out-participant
 utility}\label{held-out-participant-utility}
 
-Figure 4 relates intervention-associated identity changes to
-held-out-participant utility changes.
+Figure 4 reports identity changes with corrected uncertainty; task
+utility is evaluated separately.
 
 Verified suppression did not consistently improve held-out-participant
 prediction (Figure 5; Table 5). The standardized I3-minus-I0 MAE point
@@ -335,8 +367,8 @@ small. Native-unit estimates and all intervals are reported in Table 5.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.72\textwidth]{figures/Fig5.pdf}
-\caption{Task-specific held-out-participant standardized MAE differences for identity interventions and controls. Negative values favor the candidate intervention.}
+\includegraphics[width=0.96\textwidth]{figures/Fig5.pdf}
+\caption{Primary task-specific held-out-participant standardized MAE(I3) minus MAE(I0), with 95\% intervals. Each task has its own labeled x-axis scale; negative values favor I3. All control effects remain available in the machine-readable supplement.}
 \label{fig:phase5-5}
 \end{figure}
 
@@ -344,7 +376,7 @@ small. Native-unit estimates and all intervals are reported in Table 5.
 \centering
 \caption{Primary held-out-participant effects of I3 identity-subspace removal versus I0. Differences are MAE(I3) minus MAE(I0); negative values favor I3. Intervals resample participants.}
 \label{tab:effects}
-\scriptsize
+\footnotesize
 \begin{tabularx}{\textwidth}{@{}lXrr@{}}
 \toprule
 Dataset & Task & Standardized difference [95\% interval] & Native difference [95\% interval] \\
@@ -374,7 +406,7 @@ analyses are reported in Online Resource 1.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.96\textwidth]{figures/Fig6.pdf}
-\caption{JIGSAWS mechanism summary: protocol gap, identity-compatible permutation behavior, probe verification, and same-participant skill effects.}
+\caption{JIGSAWS task-specific comparison. Left: participant-average same-participant skill accuracy under I0 and I3. Right: standardized held-out-participant GRS MAE(I3) minus MAE(I0), with the same intervals as Table 5. Axes and endpoints differ between panels.}
 \label{fig:phase5-6}
 \end{figure}
 
@@ -436,31 +468,30 @@ independent probes and task-utility tests.
 
 \section{Supplementary information}\label{supplementary-information}
 
-Online Resource 1 (\texttt{ESM\_1.pdf}): detailed dataset provenance,
-preprocessing, fold construction, model specifications, intervention
-definitions, inference, locked numerical results, robustness analyses,
-deviations, and reproducibility controls.
+Online Resource 1 (\texttt{ESM\_1.pdf}): dataset provenance,
+preprocessing, folds, models, inference, numerical results, robustness,
+reproducibility, and the dated post-lock correction.
 
 \section{Statements and declarations}\label{statements-and-declarations}
 
-\subsection{Ethics approval}\label{ethics-approval}
+\subsection{Ethics approval and
+consent}\label{ethics-approval-and-consent}
 
-This study was a secondary analysis of previously collected,
-de-identified research datasets. The investigators had no direct
-identifiers, no access to any re-identification key, and no interaction
-or intervention with participants. Under Cornell University guidance for
-research involving existing or secondary de-identified data, this
-activity does not constitute federally regulated human-participant
-research and did not require further Cornell Institutional Review Board
-review. The original dataset investigators were responsible for the
-ethics approvals and consent procedures applicable to the source
-studies.
-
-\subsection{Consent to participate and consent for
-publication}\label{consent-to-participate-and-consent-for-publication}
-
-Not applicable. No participants were recruited or contacted, and no
-identifiable information is reported.
+This study was a secondary analysis of previously collected
+surgical-training datasets. All authors confirmed the investigators'
+authorized access to the study data and compliance with the applicable
+data-use permissions and consent restrictions. No investigator could
+identify individual participants or access a re-identification key. No
+participants were recruited or contacted, and no new participant
+interventions or data collection were undertaken. Analyses used
+kinematic records, performance outcomes, and coded participant labels;
+identity classification concerned dataset codes rather than the
+identification of individuals. No additional informed consent was
+obtained for this secondary analysis. Based on these data-access
+circumstances, the authors considered the project not to involve
+identifiable human participants. No formal ethics determination was
+obtained from Cornell University; this statement does not represent an
+institutional approval or exemption.
 
 \subsection{Funding}\label{funding}
 
@@ -472,35 +503,32 @@ The authors declare no financial or non-financial competing interests.
 
 \subsection{Author contributions}\label{author-contributions}
 
-Hamilton Jeong conceived the study, developed the methodology and
-software, performed the formal analysis and visualization, curated the
-reproducible repository, and drafted the manuscript. Zaid Elnasser,
-Laurienne Jeong, Bhumika Iroji, and Su\textquotesingle elia de Siqueira
-Rodrigues Fleury Rosa contributed to interpretation and critical
-revision. All authors approved the final manuscript.
-
-\subsection{Patient and public
-involvement}\label{patient-and-public-involvement}
-
-No patients or public contributors were involved in the design, conduct,
-reporting, or dissemination planning of this retrospective benchmark
-study.
+Hamilton Jeong: Conceptualization, Methodology, Software, Formal
+analysis, Investigation, Data curation, Validation, Visualization,
+Project administration, Writing -- original draft, Writing -- review \&
+editing. Suélia de Siqueira Rodrigues Fleury Rosa: Supervision,
+Conceptualization, Writing -- review \& editing. Zaid Elnasser: Writing
+-- review \& editing. Laurienne Jeong: Writing -- review \& editing.
+Bhumika Iroji: Writing -- review \& editing. All authors read and
+approved the final manuscript.
 
 \subsection{Data and code
 availability}\label{data-and-code-availability}
 
-Analysis code, configurations, aggregate metrics, participant-opaque
-fold manifests, figures, tables, and artifact hashes are available at
-\url{https://github.com/hahnyu/surgical-skill-2}. JIGSAWS is available
-from its custodians under an academic research agreement and is not
-redistributed. ROSMA, BGU-SKILLS, and BGU-PatCut are available from
-their cited source repositories under CC BY 4.0. Participant-level
-predictions remain local because source access terms differ.
-
-\subsection{Use of artificial intelligence
-tools}\label{use-of-artificial-intelligence-tools}
-
-\fcolorbox{black}{yellow!15}{\parbox{0.94\textwidth}{\textbf{AUTHOR TO COMPLETE BEFORE SUBMISSION:} Write the disclosure in your own words. State which AI tool(s) you used, the specific tasks they assisted with, that the authors verified all analyses, citations, and text, and that the human authors accept full responsibility for the final manuscript.}}
+Analysis code, configurations, aggregate results, and the corrected
+submission sources are publicly available at
+\url{https://github.com/hahnyu/surgical-skill-2/tree/codex/ijcars-submission}.
+The dated correction is documented in
+\texttt{results/corrections/2026-11-16/}, with input/output hashes in
+its analysis manifests and submission-source/PDF hashes in
+\texttt{submission/ijcars/package\_manifest.json}. Original locked
+artifacts are retained for provenance and are distinguished from the
+corrected outputs. JIGSAWS is available from its custodians under their
+access terms and is not redistributed. ROSMA, BGU-SKILLS, and BGU-PatCut
+are available from the cited source repositories. Raw data and
+participant-level prediction files are not included in the code
+repository; reproduction of analyses requiring those files requires
+obtaining the source data under the applicable terms.
 
 \bibliographystyle{unsrtnat}
 \bibliography{references}

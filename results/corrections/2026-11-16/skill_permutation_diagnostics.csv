@@ -1,0 +1,4 @@
+task,median_difference,nonpositive_pairs,paired_draws,interpretation
+Knot Tying,0.444444444445,0,200,descriptive Monte Carlo comparison; not a hypothesis-test p-value
+Needle Passing,0.535714285715,0,200,descriptive Monte Carlo comparison; not a hypothesis-test p-value
+Suturing,0.5384615384620001,0,200,descriptive Monte Carlo comparison; not a hypothesis-test p-value

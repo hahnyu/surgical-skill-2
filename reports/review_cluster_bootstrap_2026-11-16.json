@@ -1,0 +1,38 @@
+[
+  {
+    "candidate": "I3_identity_subspace",
+    "model": "linear_probe",
+    "estimate": -0.18410585582049427,
+    "ci_low": -0.21451089604171908,
+    "ci_high": -0.1533009404199789,
+    "replicates": 2000,
+    "note": "Review-only cluster bootstrap; order-statistic percentile endpoints; no model refits"
+  },
+  {
+    "candidate": "I3_identity_subspace",
+    "model": "nonlinear_probe",
+    "estimate": -0.13788366294122237,
+    "ci_low": -0.17476686516809234,
+    "ci_high": -0.09989672585475222,
+    "replicates": 2000,
+    "note": "Review-only cluster bootstrap; order-statistic percentile endpoints; no model refits"
+  },
+  {
+    "candidate": "I4_adversarial",
+    "model": "linear_probe",
+    "estimate": -0.04776544749068538,
+    "ci_low": -0.09831322039872337,
+    "ci_high": 0.0017464379739907342,
+    "replicates": 2000,
+    "note": "Review-only cluster bootstrap; order-statistic percentile endpoints; no model refits"
+  },
+  {
+    "candidate": "I4_adversarial",
+    "model": "nonlinear_probe",
+    "estimate": -0.0030659832615071653,
+    "ci_low": -0.04550907917454115,
+    "ci_high": 0.04301276175821322,
+    "replicates": 2000,
+    "note": "Review-only cluster bootstrap; order-statistic percentile endpoints; no model refits"
+  }
+]

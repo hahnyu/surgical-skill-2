@@ -1,0 +1,3 @@
+*.pdf binary
+# Keep generated CSV bytes stable for the recorded SHA-256 hashes.
+results/corrections/**/*.csv -text whitespace=cr-at-eol

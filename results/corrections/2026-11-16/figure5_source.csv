@@ -1,0 +1,8 @@
+endpoint,dataset,task,target_name,metric,estimate,ci_low,ci_high,participants,replicates,protocol,seed,candidate,baseline,model
+held_task_effect_seed_average,BGU-PatCut,Pattern Cutting,TE,standardized_mae_difference,0.0292240274199,-0.037559468606,0.0905439514859,54,2000,held_out_participant,NA,I3_identity_subspace,I0_unsuppressed,NA
+held_task_effect_seed_average,JIGSAWS,Knot Tying,GRS,standardized_mae_difference,0.0422552244601,-0.0386199412953,0.131833847597,8,2000,held_out_participant,NA,I3_identity_subspace,I0_unsuppressed,NA
+held_task_effect_seed_average,JIGSAWS,Needle Passing,GRS,standardized_mae_difference,0.125200713042,-0.0180146986872,0.28962147665,7,2000,held_out_participant,NA,I3_identity_subspace,I0_unsuppressed,NA
+held_task_effect_seed_average,JIGSAWS,Suturing,GRS,standardized_mae_difference,-0.0830079473274,-0.352027134144,0.169949702736,8,2000,held_out_participant,NA,I3_identity_subspace,I0_unsuppressed,NA
+held_task_effect_seed_average,ROSMA,Pea on a Peg,Errors,standardized_mae_difference,24.1414557609,-0.0191311903019,72.4070848014,12,2000,held_out_participant,NA,I3_identity_subspace,I0_unsuppressed,NA
+held_task_effect_seed_average,ROSMA,Post and Sleeve,Errors,standardized_mae_difference,0.00881803254557,-0.124899276177,0.154479719297,12,2000,held_out_participant,NA,I3_identity_subspace,I0_unsuppressed,NA
+held_task_effect_seed_average,ROSMA,Wire Chaser I,Errors,standardized_mae_difference,0.00362762433028,0,0.0108828729908,12,2000,held_out_participant,NA,I3_identity_subspace,I0_unsuppressed,NA

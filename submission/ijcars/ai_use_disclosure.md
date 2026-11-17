@@ -1,0 +1,1 @@
+**AUTHOR TO COMPLETE BEFORE SUBMISSION:** The human authors will write and approve the AI-use disclosure here, naming the tools and their roles and accurately describing human verification and responsibility. This file is included in Methods on every rebuild; editing generated LaTeX alone does not persist.

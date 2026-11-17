@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-16",
+  "status": "post-lock correction",
+  "bootstrap_seed": 20261116,
+  "bootstrap_replicates": 2000,
+  "percentile": "linear interpolation at .025 and .975",
+  "identity_tests": "withdrawn: fixed-C null does not match tuned observed models",
+  "skill_tests": "descriptive shuffling comparison, not a hypothesis test",
+  "inputs": {
+    "results/locked/phase5_participant_identity_effects.csv": "1b8eb4aaf4c7945a8f028f58f9a1d4295c560c0e416b42b5041a5834c3428752",
+    "results/metrics/phase3_identity_probes.csv": "c36f8f3c6d5f1ab31f155e25b2716ebe827bc6a1ff8aa11fd78f2c98b79c3516",
+    "results/metrics/phase3_skill_permutation_distribution.csv": "9bcf63b1fcb990ee4b9fda105704cd7f68d61d1a12fd14d094d145170dc13117",
+    "scripts/build_technical_corrections.py": "68ee096fafde32e89d74916dace22ee62122762f8de5b8126bf394a275533a36",
+    "src/surgical_skill2/corrected_inference.py": "121d34ea4da7c7a6d591d3ef66a99a53ae938c0793a56efea3e5a96255290b9d"
+  },
+  "outputs": {
+    "results/corrections/2026-11-16/figure2_source.csv": "f083aa7b9c03a6f5fd1e492b3ff390758cc4cef011e35eccca3e71ae7da3546b",
+    "results/corrections/2026-11-16/figure4_source.csv": "009dd4310f9cc3b6155dfa654809cae9df0e6bd250848809cfa048051cc89472",
+    "results/corrections/2026-11-16/figure5_source.csv": "94f57ff3b62678b8b58b46e46b92e1f25efbf6bee2dc93b79206a69cbb8f7dbe",
+    "results/corrections/2026-11-16/figure6_source.csv": "04dc17098b739e1f48a6bc6a95656d87a35599beda461c647a211356c0d03c52",
+    "results/corrections/2026-11-16/identity_cluster_bootstrap.csv": "d31df1e3dab21ec1a7b03b0ff954afc3f2cefb05139d501cb08cefd1df39047e",
+    "results/corrections/2026-11-16/identity_cluster_effects.csv": "009dd4310f9cc3b6155dfa654809cae9df0e6bd250848809cfa048051cc89472",
+    "results/corrections/2026-11-16/identity_descriptive.csv": "a391a18858f6b9a94f7798ef56b2ddf8d5c57b899bb15c4bdc7ca19cd8043de1",
+    "results/corrections/2026-11-16/identity_matched_null.csv": "b9a5e94dc2345573915094e43a280dc8eb51840e7efdde6b1d38d9a084cced0a",
+    "results/corrections/2026-11-16/skill_permutation_diagnostics.csv": "4f1532da5acc37c7ec2c32ddfcc9886d8fd0974d3e2c5f533b3d215235d63a94"
+  }
+}

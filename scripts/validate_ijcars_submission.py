@@ -1,118 +1,122 @@
 #!/usr/bin/env python3
-"""Validate the assembled IJCARS LaTeX submission package."""
-
+"""Validate corrected draft artifacts; --final also enforces human completion."""
 from __future__ import annotations
-
+import argparse
+import csv
+import hashlib
+import json
 import re
 import subprocess
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
-SUBMISSION = ROOT / "submission" / "ijcars"
-OUTPUT = ROOT / "output" / "pdf"
-BUILD = ROOT / "tmp" / "pdfs" / "ijcars-build"
+SUBMISSION = ROOT / 'submission/ijcars'
+OUTPUT = ROOT / 'output/pdf'
+BUILD = ROOT / 'tmp/pdfs/ijcars-build'
+CORRECTIONS = ROOT / 'results/corrections/2026-11-16'
 
 
-def require(condition: bool, message: str) -> None:
+def require(condition, message):
     if not condition:
         raise AssertionError(message)
 
 
-def command_text(*command: str) -> str:
-    return subprocess.run(command, check=True, capture_output=True, text=True).stdout
+def command_text(*command):
+    return subprocess.check_output(command, text=True)
 
 
-def pdf_text(path: Path) -> str:
-    return command_text("pdftotext", str(path), "-")
-
-
-def page_count(path: Path) -> int:
-    match = re.search(r"^Pages:\s+(\d+)$", command_text("pdfinfo", str(path)), re.M)
-    require(match is not None, f"Could not read page count for {path}")
-    return int(match.group(1))
-
-
-def words(text: str) -> int:
+def words(text):
     return len(re.findall(r"\b[\w'-]+\b", text))
 
 
-def main() -> None:
-    required_sources = [
-        SUBMISSION / "manuscript.tex",
-        SUBMISSION / "supplement.tex",
-        SUBMISSION / "cover_letter.tex",
-        SUBMISSION / "references.bib",
-        SUBMISSION / "submission_metadata.md",
-        SUBMISSION / "submission_checklist.md",
-        SUBMISSION / "ai_use_disclosure_PLACEHOLDER.md",
-        SUBMISSION / "ethics_determination_request.md",
-    ]
-    required_pdfs = [
-        OUTPUT / "ijcars_manuscript.pdf",
-        OUTPUT / "ESM_1.pdf",
-        OUTPUT / "ijcars_cover_letter.pdf",
-    ]
-    for path in required_sources + required_pdfs:
-        require(path.is_file() and path.stat().st_size > 0, f"Missing required file: {path}")
+def read_csv(path):
+    with path.open(newline='') as handle:
+        return list(csv.DictReader(handle))
 
-    figures = sorted((SUBMISSION / "figures").glob("Fig*.pdf"))
-    require([path.name for path in figures] == [f"Fig{i}.pdf" for i in range(1, 7)], "Expected Fig1.pdf through Fig6.pdf")
-    require(sorted(path.name for path in OUTPUT.glob("*.pdf")) == ["ESM_1.pdf", "ijcars_cover_letter.pdf", "ijcars_manuscript.pdf"], "Unexpected PDF set in output/pdf")
 
-    manuscript = pdf_text(required_pdfs[0])
-    supplement = pdf_text(required_pdfs[1])
-    cover = pdf_text(required_pdfs[2])
-
-    total_words = words(manuscript)
-    require(total_words == 4245, f"Inclusive manuscript word count changed: {total_words}")
-    require("Total word count: 4,245" in manuscript, "Displayed total word count is missing")
-    abstract = manuscript.split("Keywords:", 1)[0].split("Purpose:", 1)[1]
-    require(200 <= words(abstract) <= 250, f"Structured abstract is {words(abstract)} words")
-
-    for name in ["Hamilton Jeong", "Zaid Elnasser", "Laurienne Jeong", "Bhumika Iroji", "Suélia de Siqueira Rodrigues Fleury Rosa"]:
-        require(name in manuscript, f"Missing author: {name}")
-    for statement in [
-        "The authors received no funding for this work.",
-        "The authors declare no financial or non-financial competing interests.",
-        "did not require further Cornell Institutional Review Board review",
-        "Online Resource 1",
-    ]:
-        require(statement in manuscript, f"Missing required statement: {statement}")
-
-    require(manuscript.count("AUTHOR TO COMPLETE BEFORE SUBMISSION") == 1, "AI disclosure placeholder must appear exactly once")
-    require(not re.search(r"(?i)\bnan\b|\?\?", manuscript), "Manuscript contains an invalid numeric or unresolved marker")
-    references = manuscript.rsplit("References", 1)[1]
-    require(len(re.findall(r"\[\d+\]", references)) == 12, "Expected 12 numbered references")
-    require("https://doi.org/" in manuscript, "References must display full DOI links")
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--final', action='store_true', help='Reject all outstanding human confirmations')
+    args = parser.parse_args()
+    names = ['ijcars_manuscript.pdf', 'ESM_1.pdf', 'ijcars_cover_letter.pdf']
+    texts = {}
+    for name in names:
+        path = OUTPUT / name
+        require(path.is_file() and path.stat().st_size > 0, f'Missing {path}')
+        text = command_text('pdftotext', str(path), '-')
+        require(not re.search(r'(?i)\bnan\b|\?\?|\{=latex\}|\\nolinkurl|```', text), f'Invalid rendering in {name}')
+        texts[name] = text
+    manuscript, supplement, cover = (texts[name] for name in names)
+    require(3000 <= words(manuscript) <= 5000, f'Inclusive manuscript length: {words(manuscript)}')
+    metadata = json.loads((SUBMISSION / 'build_metadata.json').read_text())
+    require(words(manuscript) == metadata['inclusive_word_count'], 'Word count is stale')
+    require(f"Total word count: {words(manuscript):,}" in manuscript, 'Displayed count is stale')
+    abstract = manuscript.split('Keywords:', 1)[0].split('Purpose:', 1)[1]
+    require(200 <= words(abstract) <= 250, f'Abstract length: {words(abstract)}')
+    for name in ['Hamilton Jeong', 'Zaid Elnasser', 'Laurienne Jeong', 'Bhumika Iroji', 'Suélia de Siqueira Rodrigues Fleury Rosa']:
+        require(name in manuscript, f'Missing author {name}')
+    original_supplement = re.split(r'S16\.\s+Matched', supplement, maxsplit=1)[0]
+    for text in [manuscript, original_supplement]:
+        require('0.0196' not in text and '0.004975' not in text, 'Withdrawn p-value survives')
+        require('0.153' in text and '0.214' in text and '0.043' in text, 'Corrected intervals missing')
+    require('did not require further Cornell' not in manuscript + cover, 'Unsupported ethics assertion')
+    require('The authors received no funding for this work.' in manuscript, 'Funding declaration missing')
+    require('The authors declare no financial or non-financial competing interests.' in manuscript, 'Conflict declaration missing')
+    refs = manuscript.rsplit('References', 1)[1]
+    source = (SUBMISSION / 'manuscript.tex').read_text()
+    cited = {key.strip() for group in re.findall(r'\\cite\w*\{([^}]+)\}', source) for key in group.split(',')}
+    require(len(re.findall(r'\[\d+\]', refs)) == len(cited), 'Numbered bibliography/citation mismatch')
+    for doi in ['10.5281/zenodo.7100542', '10.17617/3.CYSIAP', '10.17617/3.JK4ANF']:
+        require(doi in refs.replace('\n', ''), f'Missing displayed dataset DOI {doi}')
     for number in range(1, 7):
-        require(manuscript.count(f"Figure {number}") >= 2, f"Figure {number} is not both cited and captioned")
+        require((SUBMISSION / f'figures/Fig{number}.pdf').is_file(), f'Missing Figure {number}')
+        require(manuscript.count(f'Figure {number}') >= 2, f'Figure {number} lacks citation/caption')
     for number in range(1, 6):
-        require(manuscript.count(f"Table {number}") >= 2, f"Table {number} is not both cited and captioned")
+        require(manuscript.count(f'Table {number}') >= 2, f'Table {number} lacks citation/caption')
+    require('Pages:           1' in command_text('pdfinfo', str(OUTPUT / names[2])), 'Cover letter must fit one page')
+    require('a4345fc8cdcb50b90e286914ff6dec8ec1c7373e248f60a260c4eaf11f0d9bc3' in supplement.replace('\n', ''), 'Original lock hash missing')
+    for stem in ['manuscript', 'supplement', 'cover_letter']:
+        log = BUILD / stem / f'{stem}.log'
+        require(log.is_file(), f'Build log missing: {log}')
+        require(not re.search(r'Overfull|undefined|Undefined|LaTeX Warning|Package natbib Warning', log.read_text()), f'Material LaTeX warning: {log}')
+    # Independent consistency checks tie corrected figures to the estimands.
+    skill = read_csv(ROOT / 'results/metrics/phase4_skill_performance.csv')
+    effects = read_csv(ROOT / 'results/locked/phase5_effect_summaries.csv')
+    for row in read_csv(CORRECTIONS / 'figure6_source.csv'):
+        if row['panel'] == 'same_participant_skill':
+            original = next(r for r in skill if r['task'] == row['task'] and r['intervention'] == row['candidate'] and r['model'] == 'skill_logistic')
+            require(float(row['estimate']) == float(original['participant_average_accuracy']), 'Figure 6 uses wrong weighting')
+        else:
+            original = next(r for r in effects if r['task'] == row['task'] and r['endpoint'] == 'held_task_effect_seed_average' and r['candidate'] == row['candidate'] and r['metric'] == row['metric'])
+            for key in ['estimate', 'ci_low', 'ci_high']:
+                require(float(row[key]) == float(original[key]), f'Figure 6/Table 5 mismatch: {key}')
+    matched = read_csv(CORRECTIONS / 'identity_matched_null.csv')
+    require(len(matched) == 10, 'Incomplete fixed-C diagnostic')
+    require('S16.' in supplement and '0.01961' in supplement, 'Matched diagnostic missing from supplement')
+    for row in matched:
+        require(float(row['C']) == 1 and int(row['permutations']) == 50, 'Wrong matched pipeline')
+        require(abs(float(row['empirical_p_value']) - 1/51) < 1e-12, 'Matched p-value mismatch')
+    matched_manifest = json.loads((CORRECTIONS / 'matched_identity_manifest.json').read_text())
+    aggregate_path = 'results/corrections/2026-11-16/identity_matched_null.csv'
+    require(hashlib.sha256((ROOT / aggregate_path).read_bytes()).hexdigest() == matched_manifest['outputs'][aggregate_path], 'Matched diagnostic hash mismatch')
+    analysis = json.loads((CORRECTIONS / 'analysis_manifest.json').read_text())
+    for category in ['inputs', 'outputs']:
+        for path, expected in analysis[category].items():
+            require(hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == expected, f'Correction hash mismatch: {path}')
+    package = json.loads((SUBMISSION / 'package_manifest.json').read_text())
+    for path, expected in package.items():
+        require(hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == expected, f'Package hash mismatch: {path}')
+    confirmations = json.loads((SUBMISSION / 'author_confirmations.json').read_text())
+    pending = [key for key, value in confirmations.items() if value is not True]
+    placeholders = ['AUTHOR TO COMPLETE BEFORE SUBMISSION', 'PENDING AUTHOR CONFIRMATION', 'AUTHOR CONFIRMATION REQUIRED', 'PENDING RELEASE']
+    if args.final:
+        require(not pending, 'Final submission blocked by: ' + ', '.join(pending))
+        require(not any(marker in manuscript + cover for marker in placeholders), 'Replace draft placeholders before final submission')
+    else:
+        require(manuscript.count('AUTHOR TO COMPLETE BEFORE SUBMISSION') <= 1, 'Repeated AI placeholder')
+    print(f'Corrected draft validation passed: {words(manuscript)} words; {len(cited)} numbered references; 6 figures')
+    print('Human confirmations pending: ' + (', '.join(pending) or 'none'))
 
-    require(page_count(required_pdfs[2]) == 1, "Cover letter must fit on one page")
-    require("International Journal of Computer Assisted Radiology and Surgery" in cover, "Cover letter is not journal specific")
-    require("no funding" in cover and "no financial or non-financial competing interests" in cover, "Cover letter declarations are incomplete")
 
-    for item in [
-        "International Journal of Computer Assisted Radiology and Surgery",
-        "Hamilton Jeong",
-        "hhj22@cornell.edu",
-        "a4345fc8cdcb50b90e286914ff6dec8ec1c7373e248f60a260c4eaf11f0d9bc3",
-    ]:
-        require(item in supplement, f"Supplement is missing: {item}")
-
-    for log in BUILD.glob("*/*.log"):
-        log_text = log.read_text(encoding="utf-8", errors="replace")
-        require(not re.search(r"Overfull|undefined|Undefined|LaTeX Warning|Package natbib Warning", log_text), f"Material LaTeX warning in {log}")
-
-    print("IJCARS submission package validation passed")
-    print(f"  manuscript: {page_count(required_pdfs[0])} pages, {total_words} inclusive words")
-    print(f"  Online Resource 1: {page_count(required_pdfs[1])} pages")
-    print("  cover letter: 1 page")
-    print("  figures: 6 numbered vector PDFs")
-    print("  AI-use disclosure: one intentional human-authored placeholder")
-
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-16",
+  "status": "post-lock exploratory matched identity diagnostic",
+  "pipeline": {
+    "model": "multinomial_logistic",
+    "C": 1.0,
+    "selection": "fixed",
+    "preprocessing": "outer_train_median_standard_scale",
+    "folds": "same_participant",
+    "endpoint": "balanced_accuracy"
+  },
+  "generating_parent_commit": "deab2aa2a625aec7db36370f6b992648616e28c2",
+  "inputs": {
+    "data/processed/private/phase2_features.csv": "0c351007805f52f41459f622faa3c979f0b410685006763fbfcba1fc431a1e50",
+    "results/predictions/private/phase3_identity_null.parquet": "c97f7583a1afef13c3b31849d94957c795344858545278a5d3308a41b82b075b",
+    "data/folds/same_participant.csv": "f3fb5ad3e7345f4be8f2e1dbbf9a182a7afe592e14ce7ccd73200bf0093a46f2",
+    "configs/experiments/phase3_baseline.yaml": "1f0b7a84175c7f35edd49f5de4733ffa4d4bf841df7d9ecdbe12123bef68d89b",
+    "scripts/run_phase3_audit.py": "c71302a51068787da842c5fb22477524b1f91279add919ea18e3f39c0e1fc8f6",
+    "src/surgical_skill2/audit.py": "e8241a96b5d8c8244a80df9e8c62059bfe0b60223e5979b2e8d6cd21e380655e",
+    "src/surgical_skill2/corrected_inference.py": "121d34ea4da7c7a6d591d3ef66a99a53ae938c0793a56efea3e5a96255290b9d",
+    "scripts/run_matched_identity_diagnostic.py": "41cf788504fddf28db7387983d648ee8caa493991ee8afe5851766fb70571a7a"
+  },
+  "outputs": {
+    "results/corrections/2026-11-16/identity_matched_null.csv": "b9a5e94dc2345573915094e43a280dc8eb51840e7efdde6b1d38d9a084cced0a",
+    "results/predictions/private/corrections_2026-11-16/identity_fixed_C_observed.parquet": "becbcb537a4595f9e337693671e4fdf12985398927413ee7d5f099d94bdea53d"
+  }
+}

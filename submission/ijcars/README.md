@@ -1,41 +1,38 @@
-# IJCARS submission package
+# Corrected IJCARS submission draft
 
-This directory contains the LaTeX source and submission support files for the Original Article:
+The current package incorporates the **16 November 2026 post-lock correction**. It is a reviewable draft, not cleared for submission. Original Phase 3–5 artifacts remain unchanged; their unmatched identity p values and original aggregate identity intervals are superseded. See `../../reports/technical_corrections_2026-11-16.md`.
 
-> Operator identity and out-of-user generalization in automated surgical skill assessment: a multi-dataset evaluation
+## Build and validate
 
-## Build
-
-From the repository root:
+Use Python 3.12 with the project's pinned analysis dependencies, the `submission` optional dependencies in `pyproject.toml`, and pytest. System tools: Pandoc, latexmk, pdflatex, BibTeX, and Poppler (`pdftotext`, `pdfinfo`, `pdftoppm`).
 
 ```bash
-.venv/bin/python submission/ijcars/build_submission.py
+python scripts/build_technical_corrections.py
+python submission/ijcars/build_submission.py
+python scripts/validate_ijcars_submission.py
+python scripts/validate_ijcars_submission.py --final
 ```
 
-The build converts the six locked SVG figures to vector PDF, regenerates numbered-reference LaTeX from the locked Markdown manuscript and supplement, compiles all three documents, and writes:
+Run from the repository root. The last command intentionally fails until human confirmations are complete. It does not send or upload anything. The correction bootstrap uses available participant-effect CSVs and aggregate metrics and does not refit primary models. The separately reported fixed-C identity diagnostic is regenerated with `python scripts/run_matched_identity_diagnostic.py`; it requires the authorized private inputs and verifies their original hashes. Its aggregate result can be used to rebuild the submission without redistributing private data.
 
-- `output/pdf/ijcars_manuscript.pdf`
-- `output/pdf/ESM_1.pdf`
-- `output/pdf/ijcars_cover_letter.pdf`
+The November verification used `/tmp/surgical-skill-corrections-venv/bin/python`, with the same pinned scientific versions, because the original `.venv` files had been cloud-evicted. Private feature and null-prediction inputs later became available, allowing the supplementary matched diagnostic to be verified. `PYTHONPYCACHEPREFIX=/tmp/surgical-pycache` and pytest `-p no:cacheprovider` avoided evicted caches. This temporary environment is disposable; it is not a new scientific environment specification.
 
-## Submission files
+The corrected package is published on the public `codex/ijcars-submission` branch. Author contributions, final manuscript approval, authorized data access, applicable permissions, and the absence of identifiable participants or linkage-key access have been confirmed. No formal Cornell ethics determination was obtained; the manuscript states this explicitly. The human-authored AI disclosure and originality/no-concurrent-submission confirmation remain outstanding.
 
-- `manuscript.tex`: main LaTeX source with numbered citations, five tables, six figures, author details, ethics, funding, conflicts, contributions, and availability statements.
-- `supplement.tex`: detailed supplementary methods, locked results, deviations, and reproducibility information.
-- `cover_letter.tex`: journal-specific cover letter.
-- `references.bib`: submission bibliography.
-- `figures/Fig1.pdf` through `Fig6.pdf`: journal-numbered vector figures generated from the locked SVG files.
-- `ai_use_disclosure_PLACEHOLDER.md`: instructions for the human-authored disclosure.
-- `ethics_determination_request.md`: ready-to-send Cornell IRB confirmation request if the editor asks for a determination letter.
+## Sources that persist on rebuild
 
-## Required human action
+- `build_submission.py`: main text, abstract, tables, and build logic.
+- `corrected_supplement.py`: dated amendments to the archived supplementary text.
+- `corrected_figures.py`: corrected figures and machine-readable plot sources.
+- `ai_use_disclosure.md`: human-authored disclosure inserted in Methods.
+- `declarations.md`: ethics, contributions, funding, conflicts, availability.
+- `cover_letter.tex`: editable cover letter; update its date when actually submitting.
+- `author_confirmations.json`: explicit completion flags, initially false.
 
-Replace the yellow AI-use placeholder in the manuscript with the authors’ own disclosure before submission. Confirm that the contribution statement accurately reflects each author’s role. No other scientific or numerical placeholders remain.
+Do not edit only generated `manuscript.tex` or `supplement.tex`: rebuilding replaces them. `paper/` and the original phase runners describe the historical analysis, not the corrected submission.
 
-## Validate
+## Deliverables and provenance
 
-```bash
-.venv/bin/python scripts/validate_ijcars_submission.py
-```
+The build produces `output/pdf/ijcars_manuscript.pdf`, `output/pdf/ESM_1.pdf`, and `output/pdf/ijcars_cover_letter.pdf`; editable LaTeX, numbered bibliography, and six vector figures live here. `build_metadata.json` contains the computed inclusive word count; `portal_abstract.txt` supplies the current abstract for portal entry. `package_manifest.json` hashes source and output artifacts. Corrected inference, bootstrap draws, figure source data, and their analysis manifest are in `results/corrections/2026-11-16/`.
 
-Upload `manuscript.tex`, `references.bib`, and `figures/` as the editable main source; upload `ESM_1.pdf` as Online Resource 1 and `ijcars_cover_letter.pdf` as the cover letter. The compiled manuscript PDF is included for review and visual verification.
+After completing the checklist, upload the editable main source, `references.bib`, and `figures/`; use the main PDF for review, `ESM_1.pdf` as Online Resource 1, and the cover-letter PDF for the letter. Keep confirmation files, internal review notes, and private participant-level data out of the journal upload.

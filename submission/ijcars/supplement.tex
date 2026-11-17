@@ -19,6 +19,8 @@
 \setlength{\parskip}{0.25em}
 \linespread{1.18}
 \sloppy
+\widowpenalty=10000
+\clubpenalty=10000
 \renewcommand{\refname}{References}
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \providecommand{\real}[1]{#1}
@@ -35,14 +37,17 @@ Su\'elia de Siqueira Rodrigues Fleury Rosa\textsuperscript{3}\\[0.5em]
 \begin{document}
 \maketitle
 
+\setcounter{secnumdepth}{0}
 \section{S1. Purpose and locked analysis
 boundary}\label{s1.-purpose-and-locked-analysis-boundary}
 
 This supplement documents the study population, outcome provenance,
 preprocessing, folds, models, interventions, inference, robustness
 analyses, deviations, and reproducibility controls. It accompanies the
-Phase 5 locked outputs. No model was refit for manuscript preparation.
-The exact private out-of-fold inputs were verified against
+original Phase 5 locked outputs and the post-lock correction of 16
+November 2026 (S15). Primary outcome and intervention models were not
+refit. A separate post-lock fixed-C identity diagnostic is documented in
+S16. The exact private out-of-fold inputs were verified against
 \texttt{data/manifests/phase3\_artifacts.csv} and
 \texttt{data/manifests/phase4\_artifacts.csv}; Phase 5 derived all
 inferential summaries from those files.
@@ -51,7 +56,7 @@ The protocol was frozen as Git tag \texttt{protocol-v1} on 21 September
 2026. The Phase 5 artifact manifest is
 \texttt{data/manifests/phase5\_artifacts.csv}, whose locked manifest
 SHA-256 is
-\texttt{a4345fc8cdcb50b90e286914ff6dec8ec1c7373e248f60a260c4eaf11f0d9bc3}.
+\nolinkurl{a4345fc8cdcb50b90e286914ff6dec8ec1c7373e248f60a260c4eaf11f0d9bc3}.
 
 \section{S2. Dataset acquisition, licenses, and
 cohorts}\label{s2.-dataset-acquisition-licenses-and-cohorts}
@@ -94,10 +99,10 @@ exclusion.
 \subsection{S2.3 BGU-SKILLS}\label{s2.3-bgu-skills}
 
 BGU-SKILLS version 1.0 (\texttt{10.17617/3.CYSIAP}) is distributed under
-CC BY 4.0 \citep{Sharon2025, BGUSkillsData2025}. The study enrolled 21
-residents and reported three withdrawals, leaving 18 participants and
-972 scheduled trials. We followed the source inclusion notes, retaining
-311 knot-tying, 312 ring-transfer, and 315 suturing trials (938 total).
+CC BY 4.0 \citep{BGUSkillsData2025}. The study enrolled 21 residents and
+reported three withdrawals, leaving 18 participants and 972 scheduled
+trials. We followed the source inclusion notes, retaining 311
+knot-tying, 312 ring-transfer, and 315 suturing trials (938 total).
 Completion time, path length, and orientation-change rate are direct
 functions of kinematics and were ineligible as independent outcomes. The
 dataset therefore contributed to identity recovery and longitudinal
@@ -225,7 +230,7 @@ trained within the applicable outer-training fold.
 
 Two end-to-end extractions produced an identical private feature-matrix
 hash:
-\texttt{\{=latex\}\ \textbackslash{}nolinkurl\{0c351007805f52f41459f622faa3c979f0b410685006763fbfcba1fc431a1e50\}}.
+\nolinkurl{0c351007805f52f41459f622faa3c979f0b410685006763fbfcba1fc431a1e50}.
 
 \section{S5. Fold construction and leakage
 protection}\label{s5.-fold-construction-and-leakage-protection}
@@ -251,11 +256,13 @@ identity prediction only when intentionally exposed.
 diagnostics}\label{s6.-baseline-models-and-diagnostics}
 
 Continuous targets used a training-fold mean/median reference,
-duration-only ridge, and full-feature ridge. Ridge alpha was selected
-from \texttt{\{0.1,\ 1,\ 10,\ 100,\ 1000\}}. JIGSAWS skill class used
-majority, duration-only multinomial logistic, and full-feature
-multinomial logistic models; C was selected from
-\texttt{\{0.01,\ 0.1,\ 1,\ 10\}}.
+duration-only ridge, and full-feature ridge. Phase 3 baseline ridge
+alpha was selected from \texttt{\{0.1,\ 1,\ 10,\ 100,\ 1000\}}. Phase 4
+linear interventions and their I0 comparator instead used fixed
+downstream ridge alpha=10; representation selection still used training
+data. JIGSAWS skill class used majority, duration-only multinomial
+logistic, and full-feature multinomial logistic models; C was selected
+from \texttt{\{0.01,\ 0.1,\ 1,\ 10\}}.
 
 Fresh identity probes used multinomial logistic regression and random
 forest. Phase 3 forests used 200 trees; Phase 4 used 30 trees to limit
@@ -266,14 +273,15 @@ permutations per eligible dataset-task, and 200 paired participant-wise
 and record-wise skill permutations per JIGSAWS task.
 
 The JIGSAWS replication compared six skill-accuracy and six GRS-MAE
-endpoints with the earlier study \citep{Hamilton2026Paper1}. Eleven of
-12 were within frozen tolerances. Held-out-person needle-passing GRS MAE
-was 3.063 here versus 4.910 previously, a 1.8467-point difference beyond
-the 1.0-point tolerance. The present pipeline used 41 harmonized
-variables, transcription windows, exact repetition folds, fold-local
-preprocessing, and nested penalty selection; the earlier pipeline used
-16 features at 5 Hz. This discrepancy is reported rather than treated as
-an independent replication success.
+endpoints with the earlier study (unpublished manuscript; project
+repository: https://github.com/hahnyu/surgical-skill). Eleven of 12 were
+within frozen tolerances. Held-out-person needle-passing GRS MAE was
+3.063 here versus 4.910 previously, a 1.8467-point difference beyond the
+1.0-point tolerance. The present pipeline used 41 harmonized variables,
+transcription windows, exact repetition folds, fold-local preprocessing,
+and nested penalty selection; the earlier pipeline used 16 features at 5
+Hz. This discrepancy is reported rather than treated as an independent
+replication success.
 
 \section{S7. Intervention algorithms}\label{s7.-intervention-algorithms}
 
@@ -326,14 +334,18 @@ identity labels.
 \section{S8. Verification and locked primary
 decision}\label{s8.-verification-and-locked-primary-decision}
 
-Representations were frozen before fresh probes were trained. I4 versus
-its capacity control changed linear balanced accuracy by -0.048 (95\%
-interval -0.082 to -0.015) and nonlinear accuracy by -0.003 (-0.038 to
-+0.032). Because the nonlinear interval did not verify reduction, I4
-failed the two-probe rule. I3 versus I0 changed linear accuracy by
--0.184 (-0.215 to -0.151) and nonlinear accuracy by -0.138 (-0.175 to
--0.098), so I3 became the primary comparison before held-out task
-effects were inspected.
+Representations were frozen before fresh probes were trained under
+same-participant folds. Held-out-participant representations were fitted
+separately, so these checks do not verify each held-out transformation.
+The corrected I4-minus-capacity linear balanced-accuracy difference is
+-0.048 (95\% interval -0.098 to +0.002), and the nonlinear difference is
+-0.003 (-0.045 to +0.043). Neither verifies reduction. I3-minus-I0
+differences are -0.184 (-0.214 to -0.153) for the linear probe and
+-0.138 (-0.175 to -0.100) for the nonlinear probe. The original I4-to-I3
+decision remains unchanged; these corrected intervals were computed
+after the original results were known. I3 aggregates ten dataset-task
+groups and I4 seven outcome-eligible groups; the two interventions were
+not compared head to head on a common aggregate cohort.
 
 The dimension-matched random projection was worse than I3 by +0.167 on
 the linear probe and +0.149 on the nonlinear probe. Duration removal and
@@ -344,9 +356,16 @@ residualization did not reproduce I3's joint reduction.
 The independent resampling unit was the participant. Participant-average
 metrics gave each participant equal weight irrespective of trial count.
 Intervals used 2,000 percentile bootstrap replicates within
-dataset-task. For identity verification, groups were averaged equally
-and I4 additionally averaged its three seeds. Leave-one-participant
-summaries were calculated for every primary estimand.
+dataset-task. For corrected aggregate identity verification, seeds were
+first averaged within participant and task. Participants were then
+resampled within dataset, with each sampled participant carrying all
+available tasks, preserving cross-task dependence. Task groups were
+averaged equally. The seed was 20261116 and percentile endpoints used
+linear interpolation at 0.025 and 0.975. Any draw with no sampled
+participant for a task would be rejected in its entirety; no such draws
+occurred. Intervals condition on the saved predictions and do not
+include model-refitting uncertainty. Leave-one-participant summaries
+omit scored participant effects without refitting models.
 
 The held-out-task standardized effect for trial \emph{i} was
 
@@ -358,41 +377,45 @@ standardization. Protocol gaps used the analogous held-out minus
 same-participant error after protocol-specific training-fold
 standardization.
 
-Empirical permutation \emph{p} values used
-\texttt{(1\ +\ count(null\ \textgreater{}=\ observed))\ /\ (1\ +\ number\ of\ permutations)}
-with the appropriate directional statistic. No correction across tasks
-was used because the analysis reports task-specific estimands and treats
-the permutation results as replicated diagnostics.
+The archived identity null used fixed-C=1 logistic regression, whereas
+observed logistic and forest probes selected hyperparameters. The
+formerly reported identity p values are withdrawn because the pipelines
+were not matched. No formal permutation-test claim is made for those
+descriptive accuracies. The participant-wise versus record-wise JIGSAWS
+comparison reports the distribution of paired accuracy differences under
+two distinct shuffling schemes. Its plus-one nonpositive tail fraction
+is not a valid hypothesis-test p value for a common exchangeable null
+and is no longer labeled as one.
 
-\section{S10. Full locked numerical
-results}\label{s10.-full-locked-numerical-results}
+\section{S10. Numerical results with corrected
+interpretation}\label{s10.-numerical-results-with-corrected-interpretation}
 
 \subsection{S10.1 Unsuppressed identity
 recovery}\label{s10.1-unsuppressed-identity-recovery}
 
 {\def\LTcaptype{none} % do not increment counter
-\begin{longtable}[]{@{}lrrr@{}}
+\begin{longtable}[]{@{}lrr@{}}
 \toprule\noalign{}
-Dataset/task & Linear BA & Nonlinear BA & Record-wise null median \\
+Dataset/task & Linear BA & Nonlinear BA \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-JIGSAWS / Knot Tying & 0.869 & 0.827 & 0.084 \\
-JIGSAWS / Needle Passing & 0.943 & 0.840 & 0.064 \\
-JIGSAWS / Suturing & 0.944 & 0.844 & 0.075 \\
-ROSMA / Pea on a Peg & 0.381 & 0.397 & 0.056 \\
-ROSMA / Post and Sleeve & 0.446 & 0.381 & 0.062 \\
-ROSMA / Wire Chaser I & 0.228 & 0.431 & 0.060 \\
-BGU-SKILLS / Knot Tying & 0.530 & 0.393 & 0.051 \\
-BGU-SKILLS / Ring Tower Transfer & 0.596 & 0.487 & 0.050 \\
-BGU-SKILLS / Suturing & 0.762 & 0.618 & 0.049 \\
-BGU-PatCut / Pattern Cutting & 0.834 & 0.750 & 0.016 \\
+JIGSAWS / Knot Tying & 0.869 & 0.827 \\
+JIGSAWS / Needle Passing & 0.943 & 0.840 \\
+JIGSAWS / Suturing & 0.944 & 0.844 \\
+ROSMA / Pea on a Peg & 0.381 & 0.397 \\
+ROSMA / Post and Sleeve & 0.446 & 0.381 \\
+ROSMA / Wire Chaser I & 0.228 & 0.431 \\
+BGU-SKILLS / Knot Tying & 0.530 & 0.393 \\
+BGU-SKILLS / Ring Tower Transfer & 0.596 & 0.487 \\
+BGU-SKILLS / Suturing & 0.762 & 0.618 \\
+BGU-PatCut / Pattern Cutting & 0.834 & 0.750 \\
 \end{longtable}
 }
 
-Each full-feature probe exceeded its 50-permutation record-wise null at
-empirical \emph{p}=0.0196.
+Observed balanced accuracies are descriptive. No matched permutation p
+value is available for either tuned model.
 
 \subsection{S10.2 JIGSAWS skill
 permutations}\label{s10.2-jigsaws-skill-permutations}
@@ -414,18 +437,18 @@ Participant-wise median {[}95\% range{]}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Record-wise median {[}95\% range{]}
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
-Empirical \emph{p}
+Nonpositive paired differences
 \end{minipage} \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
 Knot Tying & 0.917 & 0.778 {[}0.610, 0.917{]} & 0.306 {[}0.167, 0.501{]}
-& 0.004975 \\
+& 0 / 200 \\
 Needle Passing & 0.964 & 0.875 {[}0.750, 1.000{]} & 0.321 {[}0.143,
-0.501{]} & 0.004975 \\
+0.501{]} & 0 / 200 \\
 Suturing & 0.872 & 0.923 {[}0.846, 0.974{]} & 0.359 {[}0.179, 0.538{]} &
-0.004975 \\
+0 / 200 \\
 \end{longtable}
 }
 
@@ -531,18 +554,20 @@ plan}\label{s12.-deviations-from-the-prospective-plan}
   endpoint.
 \end{enumerate}
 
-No deviation changed the participants, primary targets, validation unit,
-primary estimand, participant-level inference, or prespecified I4-to-I3
-fallback rule after task effects were inspected.
+The original deviations did not change participants, primary targets, or
+the I4-to-I3 fallback rule. The post-lock correction in S15 changes
+aggregate identity uncertainty and inferential reporting after results
+were known; it is not presented as a prespecified analysis.
 
 \section{S13. Relationship to the earlier JIGSAWS
 study}\label{s13.-relationship-to-the-earlier-jigsaws-study}
 
 The earlier manuscript, ``What does a surgical skill model measure?
 Quantifying identity confounding and miscalibration on JIGSAWS,''
-analyzed the same 103 JIGSAWS trials \citep{Hamilton2026Paper1}. It
-reported same-person versus held-person performance, identity recovery,
-label permutations, calibration, selective prediction, and a commercial
+analyzed the same 103 JIGSAWS trials (unpublished manuscript; project
+repository: https://github.com/hahnyu/surgical-skill). It reported
+same-person versus held-person performance, identity recovery, label
+permutations, calibration, selective prediction, and a commercial
 zero-shot model. The present work reproduces its central
 protocol/identity diagnosis using a different 41-feature representation
 and exact fold-local pipeline, then extends the question to three
@@ -567,6 +592,107 @@ suite, and applies the Phase 5 validator. The Phase 6 validator checks
 manuscript structure, bibliography keys, locked numerical statements,
 overlap disclosure, construct language, and the claim-evidence/reporting
 matrices.
+
+\section{S15. Post-lock technical correction, 16 November
+2026}\label{s15.-post-lock-technical-correction-16-november-2026}
+
+The original Phase 3--5 files and their manifest hashes are preserved as
+historical artifacts. The current submission supersedes their aggregate
+identity intervals and unmatched permutation-test claims. Corrected
+sources are in \texttt{results/corrections/2026-11-16/}; the analysis
+manifest records input and output hashes, and the package manifest
+records submission sources and PDFs.
+
+The correction (1) keeps each dataset-participant's tasks together
+during aggregate identity resampling after seed averaging; (2) withdraws
+unmatched identity-test p values and relabels the two-scheme JIGSAWS
+shuffle comparison descriptively; (3) replaces the pooled cross-task
+utility plot with identity effects and explicitly matched controls; (4)
+uses participant-average skill accuracy and the Table 5 GRS intervals in
+Figure 6; and (5) clarifies fixed versus tuned ridge penalties, the
+same-participant scope of fresh probes, and the lack of refitting in
+uncertainty and influence calculations. I3 remains the primary
+intervention, and no consistent held-out utility benefit emerges.
+
+The corrected bootstrap and figure data use saved aggregate participant
+effects and metrics. Private feature and prediction files were initially
+cloud-evicted, but became locally available during the correction. The
+primary outcome and intervention predictions were unchanged. A separate
+matched fixed-C identity diagnostic was then verified as described in
+S16; it does not validate the withdrawn p values for the tuned probes.
+
+Reproduce the correction and submission after installing the documented
+dependencies:
+
+\begin{verbatim}
+python scripts/build_technical_corrections.py
+python submission/ijcars/build_submission.py
+python scripts/validate_ijcars_submission.py
+\end{verbatim}
+
+The historical Phase 5 runner reproduces the archived analysis, not this
+correction. The draft validator checks numerical consistency and PDF
+rendering diagnostics. The separate \texttt{-\/-final} gate also
+requires completed human disclosures, ethics/source-permission
+confirmation, author approval, originality confirmation, and public
+availability of the corrected analysis release. Outstanding items are
+recorded in the submission checklist.
+
+\section{S16. Matched fixed-C identity diagnostic (post-lock exploratory
+analysis)}\label{s16.-matched-fixed-c-identity-diagnostic-post-lock-exploratory-analysis}
+
+To address the mismatched original identity null, we fitted an observed
+multinomial logistic probe with C=1, matching the original 50
+record-wise label-permutation models. Features, trial/fold assignments,
+median imputation, standardization, solver, and penalty were identical;
+no hyperparameter selection was performed in either pipeline. Feature
+and null-prediction hashes were verified against the frozen inputs, and
+every permutation preserved the observed trial/fold set and label
+counts. This diagnostic was added after inspecting results, rather than
+prespecified as the observed test.
+
+Balanced accuracy gives equal weight to identity classes. The unadjusted
+Monte Carlo p value is
+\texttt{(1\ +\ count(null\ \textgreater{}=\ observed))\ /\ 51}. All ten
+observed statistics exceeded all 50 matched null statistics, giving
+p=1/51 (approximately 0.01961) in each task. This is the smallest
+attainable p value with 50 draws, not evidence for a smaller tail
+probability. This is a conditional random-label diagnostic for these
+fixed records, not population-level inference about unseen operators.
+These exploratory, task-specific p values are not adjusted for multiple
+testing and do not establish an omnibus or family-wise significance
+claim. They apply only to this fixed-C logistic diagnostic, not to the
+tuned logistic or random-forest probes in Table 4.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lrr@{}}
+\toprule\noalign{}
+Dataset/task & Fixed-C balanced accuracy & Matched null median \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+BGU-PatCut / Pattern Cutting & 0.825 & 0.016 \\
+BGU-SKILLS / Knot Tying & 0.530 & 0.051 \\
+BGU-SKILLS / Ring Tower Transfer & 0.596 & 0.050 \\
+BGU-SKILLS / Suturing & 0.762 & 0.049 \\
+JIGSAWS / Knot Tying & 0.869 & 0.084 \\
+JIGSAWS / Needle Passing & 0.943 & 0.064 \\
+JIGSAWS / Suturing & 0.944 & 0.075 \\
+ROSMA / Pea on a Peg & 0.394 & 0.056 \\
+ROSMA / Post and Sleeve & 0.504 & 0.062 \\
+ROSMA / Wire Chaser I & 0.483 & 0.060 \\
+\end{longtable}
+}
+
+The observed diagnostic was regenerated and its aggregate outputs agreed
+within 1e-12 with the first run. Code is
+\texttt{scripts/run\_matched\_identity\_diagnostic.py}; aggregate
+results and the input/output hash manifest are in the dated correction
+directory. Individual predictions remain private. Reproduction requires
+restoring the authorized private feature and null-prediction inputs and
+running this diagnostic before rebuilding the correction and submission
+package.
 
 \bibliographystyle{unsrtnat}
 \bibliography{references}

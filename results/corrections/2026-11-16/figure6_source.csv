@@ -1,0 +1,10 @@
+panel,task,candidate,metric,estimate,ci_low,ci_high
+same_participant_skill,Knot Tying,I0_unsuppressed,participant_average_accuracy,0.91875,,
+same_participant_skill,Knot Tying,I3_identity_subspace,participant_average_accuracy,0.89375,,
+held_out_GRS,Knot Tying,I3_identity_subspace,standardized_mae_difference,0.0422552244601,-0.0386199412953,0.131833847597
+same_participant_skill,Needle Passing,I0_unsuppressed,participant_average_accuracy,1.0,,
+same_participant_skill,Needle Passing,I3_identity_subspace,participant_average_accuracy,1.0,,
+held_out_GRS,Needle Passing,I3_identity_subspace,standardized_mae_difference,0.125200713042,-0.0180146986872,0.28962147665
+same_participant_skill,Suturing,I0_unsuppressed,participant_average_accuracy,0.875,,
+same_participant_skill,Suturing,I3_identity_subspace,participant_average_accuracy,0.9,,
+held_out_GRS,Suturing,I3_identity_subspace,standardized_mae_difference,-0.0830079473274,-0.352027134144,0.169949702736
